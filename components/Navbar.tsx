@@ -20,7 +20,7 @@ interface NavbarProps {
 
 export default function Navbar({
   logo,
-  brandName = "AkiliNova",
+  brandName = "AkiliNova Tech",
   navItems = [
     { label: "Home", href: "/" },
     {
