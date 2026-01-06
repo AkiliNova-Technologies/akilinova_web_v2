@@ -27,8 +27,7 @@ export default function BlogsHeroSection({
         <div 
           className="absolute inset-0 opacity-[0.03]"
           style={{
-            backgroundImage: `linear-gradient(to right, white 1px, transparent 1px),
-                             linear-gradient(to bottom, white 1px, transparent 1px)`,
+            backgroundImage: 'linear-gradient(to right, white 1px, transparent 1px), linear-gradient(to bottom, white 1px, transparent 1px)',
             backgroundSize: '50px 50px',
           }}
         />
@@ -37,7 +36,7 @@ export default function BlogsHeroSection({
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         {/* Badge */}
         <div 
-          className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-orange-500/10 to-orange-500/5 border border-orange-500/20 mb-6 animate-fade-in"
+          className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-orange-500/10 to-orange-500/5 border border-orange-500/20 mb-6"
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}
         >
@@ -50,7 +49,7 @@ export default function BlogsHeroSection({
         </div>
 
         {/* Main Heading */}
-        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight animate-slide-up">
+        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
           {title}
           <span className="block bg-gradient-to-r from-orange-400 via-orange-500 to-orange-600 bg-clip-text text-transparent mt-2">
             Blog
@@ -58,12 +57,12 @@ export default function BlogsHeroSection({
         </h1>
 
         {/* Description */}
-        <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed mb-8 animate-slide-up delay-100">
+        <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed mb-8">
           {description}
         </p>
 
         {/* Stats Section */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-2xl mx-auto mt-12 animate-slide-up delay-200">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-2xl mx-auto mt-12">
           <div className="text-center p-4 bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 hover:border-orange-500/30 transition-all duration-300 hover:scale-105">
             <div className="text-2xl font-bold bg-gradient-to-r from-orange-400 to-orange-500 bg-clip-text text-transparent">
               100+
@@ -91,7 +90,7 @@ export default function BlogsHeroSection({
         </div>
 
         {/* CTA Section */}
-        <div className="mt-12 flex flex-col sm:flex-row gap-4 justify-center items-center animate-slide-up delay-300">
+        {/* <div className="mt-12 flex flex-col sm:flex-row gap-4 justify-center items-center">
           <button
             className="group px-8 py-3 rounded-full bg-gradient-to-r from-orange-500 to-orange-600 text-white font-semibold text-lg hover:shadow-lg hover:shadow-orange-500/25 transition-all duration-300 hover:scale-105 active:scale-95 flex items-center gap-2"
             onClick={() => document.getElementById('blog-grid')?.scrollIntoView({ behavior: 'smooth' })}
@@ -105,7 +104,7 @@ export default function BlogsHeroSection({
           >
             Browse Categories
           </button>
-        </div>
+        </div> */}
       </div>
 
       {/* Scroll Indicator */}
@@ -113,13 +112,13 @@ export default function BlogsHeroSection({
         <div className="flex flex-col items-center gap-2">
           <div className="animate-bounce">
             <div className="w-6 h-10 border-2 border-gray-300 rounded-full flex justify-center">
-              <div className="w-1 h-3 bg-[#FF6B00] rounded-full mt-2 animate-pulse" />
+              <div className="w-1 h-3 bg-[#FF6B00] rounded-full mt-2" style={{ animation: 'pulse 2s infinite' }} />
             </div>
           </div>
         </div>
       </div>
 
-      <style jsx>{`
+      <style jsx global>{`
         @keyframes fade-in {
           from { opacity: 0; transform: translateY(10px); }
           to { opacity: 1; transform: translateY(0); }
@@ -130,8 +129,9 @@ export default function BlogsHeroSection({
           to { opacity: 1; transform: translateY(0); }
         }
         
-        .animate-fade-in {
-          animation: fade-in 0.6s ease-out forwards;
+        @keyframes pulse {
+          0%, 100% { opacity: 1; }
+          50% { opacity: 0.5; }
         }
         
         .animate-slide-up {
@@ -139,7 +139,6 @@ export default function BlogsHeroSection({
           opacity: 0;
         }
         
-        /* Delayed animations */
         .delay-100 {
           animation-delay: 100ms;
         }
@@ -150,10 +149,6 @@ export default function BlogsHeroSection({
         
         .delay-300 {
           animation-delay: 300ms;
-        }
-        
-        .delay-400 {
-          animation-delay: 400ms;
         }
       `}</style>
     </section>

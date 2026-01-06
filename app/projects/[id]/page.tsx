@@ -3,6 +3,7 @@
 import { useState, useRef, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
+import Script from "next/script"; // ADD THIS IMPORT
 import {
   ArrowLeft,
   ExternalLink,
@@ -24,29 +25,9 @@ import {
 } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-
-// Types
-interface Project {
-  id: string;
-  title: string;
-  fullDescription: string;
-  launchDate: string;
-  timeline: string;
-  teamSize: string;
-  status: string;
-  liveUrl: string;
-  githubUrl?: string;
-  technologies: string[];
-  challenges: string[];
-  solutions: string[];
-  keyFeatures: string[];
-  impact: string[];
-  stackExplanation: {
-    frontend: string;
-    backend: string;
-    infrastructure?: string;
-  };
-}
+import { SITE_CONFIG } from "@/lib/seo-utils"; // ADD THIS IMPORT
+import { dummyProjects } from "@/data/Projects";
+import { Project } from "@/types/project";
 
 // Reusable animated components with CSS animations
 interface AnimatedHeadingProps {
@@ -92,9 +73,7 @@ const AnimatedHeading: React.FC<AnimatedHeadingProps> = ({
     <div
       ref={ref}
       className={`${className} transition-all duration-700 ease-out ${
-        isInView
-          ? "opacity-100 transform-none"
-          : "opacity-0 translate-y-16"
+        isInView ? "opacity-100 transform-none" : "opacity-0 translate-y-16"
       }`}
     >
       {children}
@@ -137,9 +116,7 @@ const AnimatedCard: React.FC<AnimatedCardProps> = ({
     <div
       ref={ref}
       className={`${className} transition-all duration-500 ease-out ${
-        isInView
-          ? "opacity-100 scale-100"
-          : "opacity-0 scale-95"
+        isInView ? "opacity-100 scale-100" : "opacity-0 scale-95"
       }`}
     >
       {children}
@@ -155,7 +132,7 @@ export default function ProjectDetailsPage({
 }) {
   const router = useRouter();
   const [id, setId] = useState<string | null>(null);
-  
+
   // For demo purposes - replace with actual data fetching
   const [currentProject, setCurrentProject] = useState<Project | null>(null);
   const [loading, setLoading] = useState(true);
@@ -169,107 +146,22 @@ export default function ProjectDetailsPage({
       const unwrappedParams = await params;
       setId(unwrappedParams.id);
     };
-    
+
     unwrapParams();
   }, [params]);
 
   useEffect(() => {
     if (!id) return;
-    
+
     // Mock data fetching - replace with actual API call
     const fetchProject = async () => {
       setLoading(true);
       try {
         // Replace with actual fetch logic
         // await fetchProjectById(id);
-        
-        // Mock project data - you could also fetch based on the actual id
-        const mockProjects: Record<string, Project> = {
-          "1": {
-            id: "1",
-            title: "FinTech Mobile Banking App",
-            fullDescription: "A secure mobile banking solution for East African market with real-time transactions and AI-powered fraud detection.",
-            launchDate: "2024-01-15",
-            timeline: "4 Months",
-            teamSize: "5 members",
-            status: "Completed",
-            liveUrl: "https://example.com",
-            githubUrl: "https://github.com/example",
-            technologies: ["React Native", "Node.js", "MongoDB", "AWS"],
-            challenges: [
-              "Ensuring banking-grade security for mobile transactions",
-              "Handling real-time processing for millions of users",
-              "Complying with multiple country regulations",
-            ],
-            solutions: [
-              "Implemented end-to-end encryption and biometric authentication",
-              "Used microservices architecture with auto-scaling",
-              "Created modular compliance layer for different regions",
-            ],
-            keyFeatures: [
-              "Real-time money transfers",
-              "AI-powered fraud detection",
-              "Multi-currency support",
-              "Bill payments and airtime purchase",
-              "Investment portfolio tracking",
-            ],
-            impact: [
-              "Served 500,000+ active users",
-              "Processed $50M+ in transactions monthly",
-              "Reduced fraud incidents by 85%",
-              "Improved transaction speed by 70%",
-            ],
-            stackExplanation: {
-              frontend: "React Native with TypeScript for cross-platform mobile development.",
-              backend: "Node.js microservices with MongoDB for scalable banking operations.",
-              infrastructure: "AWS with auto-scaling, load balancing, and multi-region deployment.",
-            },
-          },
-          "2": {
-            id: "2",
-            title: "E-Commerce Platform",
-            fullDescription: "Scalable online marketplace connecting African artisans with global customers.",
-            launchDate: "2024-03-20",
-            timeline: "6 Months",
-            teamSize: "8 members",
-            status: "Completed",
-            liveUrl: "https://example.com",
-            githubUrl: "https://github.com/example",
-            technologies: ["Next.js", "TypeScript", "Stripe", "PostgreSQL"],
-            challenges: [
-              "Handling high traffic during sales events",
-              "Implementing secure payment processing",
-              "Creating responsive mobile experience",
-            ],
-            solutions: [
-              "Implemented caching and load balancing",
-              "Integrated Stripe with 3D secure authentication",
-              "Used React Native for cross-platform mobile app",
-            ],
-            keyFeatures: [
-              "Advanced search and filtering",
-              "Real-time inventory management",
-              "AI-powered recommendations",
-              "Multi-language support",
-              "Mobile-responsive design",
-            ],
-            impact: [
-              "Increased conversion rate by 40%",
-              "Reduced page load time by 60%",
-              "Improved customer satisfaction score by 35%",
-              "Scaled to handle 10k concurrent users",
-            ],
-            stackExplanation: {
-              frontend: "Next.js with TypeScript and Tailwind CSS for a modern, type-safe UI.",
-              backend: "Node.js with Express and PostgreSQL for scalable data handling.",
-              infrastructure: "AWS with auto-scaling groups and CloudFront for global CDN.",
-            },
-          },
-          // Add more projects as needed...
-        };
-        
-        const project = mockProjects[id] || mockProjects["1"]; // Fallback to first project
-        setCurrentProject(project);
+
+        const project = dummyProjects.find((p) => p.id === id);
+        setCurrentProject(project || null);
       } catch (error) {
         console.error("Error fetching project:", error);
       } finally {
@@ -286,6 +178,57 @@ export default function ProjectDetailsPage({
   }, [id]);
 
   const project = currentProject;
+
+  // ADD THIS: Generate SEO schemas when we have a project
+  const projectSchema = project
+    ? {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        name: project.title,
+        description: project.fullDescription,
+        applicationCategory: "BusinessApplication",
+        operatingSystem: "Web, iOS, Android",
+        datePublished: project.launchDate,
+        offers: {
+          "@type": "Offer",
+          price: "0",
+          priceCurrency: "USD",
+        },
+        url: project.liveUrl,
+        creator: {
+          "@type": "Organization",
+          name: SITE_CONFIG.name,
+          url: SITE_CONFIG.url,
+        },
+      }
+    : null;
+
+  const breadcrumbSchema = project
+    ? {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          {
+            "@type": "ListItem",
+            position: 1,
+            name: "Home",
+            item: SITE_CONFIG.url,
+          },
+          {
+            "@type": "ListItem",
+            position: 2,
+            name: "Projects",
+            item: `${SITE_CONFIG.url}/projects`,
+          },
+          {
+            "@type": "ListItem",
+            position: 3,
+            name: project.title,
+            item: `${SITE_CONFIG.url}/projects/${project.id}`,
+          },
+        ],
+      }
+    : null;
 
   if (loading || !id) {
     return (
@@ -305,7 +248,10 @@ export default function ProjectDetailsPage({
           <h1 className="text-4xl font-bold text-gray-900 mb-4">
             Project Not Found
           </h1>
-          <Link href="/projects" className="text-[#FF6B00] hover:text-[#FF8A33] transition-colors">
+          <Link
+            href="/projects"
+            className="text-[#FF6B00] hover:text-[#FF8A33] transition-colors"
+          >
             Back to Projects
           </Link>
         </div>
@@ -317,7 +263,6 @@ export default function ProjectDetailsPage({
     <>
       <Navbar />
       <div className="min-h-screen bg-white">
-
         {/* Hero Section */}
         <ProjectHeroSection project={project} router={router} />
 
@@ -333,11 +278,31 @@ export default function ProjectDetailsPage({
                 <div className="bg-gray-50 rounded-2xl p-6 border border-gray-200 sticky top-8">
                   <nav className="space-y-2">
                     {[
-                      { id: "overview", label: "Project Overview", icon: Target },
-                      { id: "challenges", label: "Challenges & Solutions", icon: Zap },
-                      { id: "technology", label: "Technology Stack", icon: Code },
-                      { id: "impact", label: "Impact & Results", icon: BarChart3 },
-                      { id: "features", label: "Key Features", icon: CheckCircle },
+                      {
+                        id: "overview",
+                        label: "Project Overview",
+                        icon: Target,
+                      },
+                      {
+                        id: "challenges",
+                        label: "Challenges & Solutions",
+                        icon: Zap,
+                      },
+                      {
+                        id: "technology",
+                        label: "Technology Stack",
+                        icon: Code,
+                      },
+                      {
+                        id: "impact",
+                        label: "Impact & Results",
+                        icon: BarChart3,
+                      },
+                      {
+                        id: "features",
+                        label: "Key Features",
+                        icon: CheckCircle,
+                      },
                     ].map((item) => (
                       <button
                         key={item.id}
@@ -416,12 +381,41 @@ export default function ProjectDetailsPage({
         </div>
       </div>
       <Footer />
+
+      {/* ADD THESE SCHEMAS HERE - BEFORE THE CLOSING </> */}
+      {project && projectSchema && (
+        <Script
+          id="project-schema"
+          type="application/ld+json"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(projectSchema),
+          }}
+        />
+      )}
+
+      {project && breadcrumbSchema && (
+        <Script
+          id="breadcrumb-schema"
+          type="application/ld+json"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(breadcrumbSchema),
+          }}
+        />
+      )}
     </>
   );
 }
 
 // Project Hero Section
-const ProjectHeroSection = ({ project, router }: { project: Project; router: any }) => {
+const ProjectHeroSection = ({
+  project,
+  router,
+}: {
+  project: Project;
+  router: any;
+}) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const [isInView, setIsInView] = useState(false);
 
@@ -464,14 +458,14 @@ const ProjectHeroSection = ({ project, router }: { project: Project; router: any
       <div className="absolute inset-0">
         <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-gradient-to-r from-orange-500/20 to-transparent rounded-full blur-3xl" />
         <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl" />
-        
+
         {/* Grid Pattern */}
-        <div 
+        <div
           className="absolute inset-0 opacity-[0.03]"
           style={{
             backgroundImage: `linear-gradient(to right, white 1px, transparent 1px),
                              linear-gradient(to bottom, white 1px, transparent 1px)`,
-            backgroundSize: '50px 50px',
+            backgroundSize: "50px 50px",
           }}
         />
       </div>
@@ -490,7 +484,9 @@ const ProjectHeroSection = ({ project, router }: { project: Project; router: any
             </button>
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-orange-500/10 to-orange-500/5 border border-orange-500/20">
               <Sparkles className="h-4 w-4 mr-2 text-[#FF6B00]" />
-              <span className="text-sm font-semibold bg-gradient-to-r from-orange-400 to-orange-500 bg-clip-text text-transparent">Case Study</span>
+              <span className="text-sm font-semibold bg-gradient-to-r from-orange-400 to-orange-500 bg-clip-text text-transparent">
+                Case Study
+              </span>
             </div>
           </div>
 
@@ -523,17 +519,6 @@ const ProjectHeroSection = ({ project, router }: { project: Project; router: any
               <ExternalLink className="h-4 w-4" />
               Live Demo
             </a>
-            {/* {project.githubUrl && (
-              <a
-                href={project.githubUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="bg-white text-gray-900 px-6 py-3 rounded-lg font-semibold transition-all duration-300 flex items-center gap-2 border border-gray-300 hover:bg-gray-50 hover:scale-105 active:scale-95 shadow-sm"
-              >
-                <Github className="h-4 w-4" />
-                View Code
-              </a>
-            )} */}
           </div>
         </AnimatedHeading>
       </div>
@@ -558,7 +543,9 @@ const ProjectOverview = ({ project }: { project: Project }) => {
   return (
     <AnimatedCard delay={0.3}>
       <div className="bg-white rounded-2xl p-8 border border-gray-200 shadow-xs">
-        <h2 className="text-3xl font-bold text-gray-900 mb-6">Project Overview</h2>
+        <h2 className="text-3xl font-bold text-gray-900 mb-6">
+          Project Overview
+        </h2>
         <div className="prose max-w-none">
           <p className="text-gray-600 text-lg leading-relaxed mb-6">
             {project.fullDescription}
@@ -670,7 +657,9 @@ const TechnologySection = ({ project }: { project: Project }) => {
   return (
     <AnimatedCard delay={0.5}>
       <div className="bg-white rounded-2xl p-8 border border-gray-200 shadow-xs">
-        <h2 className="text-3xl font-bold text-gray-900 mb-6">Technology Stack</h2>
+        <h2 className="text-3xl font-bold text-gray-900 mb-6">
+          Technology Stack
+        </h2>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
           {project.technologies.map((tech: string, index: number) => (
@@ -724,7 +713,9 @@ const ImpactSection = ({ project }: { project: Project }) => {
   return (
     <AnimatedCard delay={0.6}>
       <div className="bg-white rounded-2xl p-8 border border-gray-200 shadow-xs">
-        <h2 className="text-3xl font-bold text-gray-900 mb-6">Impact & Results</h2>
+        <h2 className="text-3xl font-bold text-gray-900 mb-6">
+          Impact & Results
+        </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {project.impact.map((result: string, index: number) => (
             <div

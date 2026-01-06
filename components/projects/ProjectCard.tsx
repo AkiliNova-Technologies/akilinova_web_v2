@@ -113,14 +113,13 @@ export default function ProjectCard({
       style={{ animationDelay: `${animationDelay}ms` }}
     >
       {/* Project Image */}
-      <div className="relative h-60 overflow-hidden shrink-0">
+      <div className="relative h-48 overflow-hidden shrink-0">
         {project.image && !imageError ? (
           <img
             src={project.image}
             alt={project.title}
             className={`
-              w-full h-full object-cover 
-              transition-transform duration-500
+              w-full h-full object-cover group-hover:scale-110 transition-transform duration-500
               ${isHovered ? "scale-110" : "scale-100"}
             `}
             onError={() => setImageError(true)}

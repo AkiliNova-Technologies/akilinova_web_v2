@@ -1,137 +1,57 @@
-"use client";
+import { Metadata } from "next";
 
-import { useState } from "react";
-import { useRouter } from "next/navigation";
-import Footer from "@/components/Footer";
-import Navbar from "@/components/Navbar";
-import ProjectsHeroSection from "@/components/projects/ProjectsHeroSection";
-import ProjectsFilterSection from "@/components/projects/ProjectsFilterSection";
-import ProjectsGrid from "@/components/projects/ProjectsGrid";
+import { SITE_CONFIG, COMMON_KEYWORDS } from "@/lib/seo-utils";
+import ProjectsPageClient from "./ProjectsPageClient";
 
-// Sample data - replace with your actual data
-const sampleProjects = [
-  {
-    id: "1",
-    title: "FinTech Mobile Banking App",
-    description: "A secure mobile banking solution for East African market with real-time transactions and AI-powered fraud detection.",
-    category: "mobile",
-    status: "completed",
-    technologies: ["React Native", "Node.js", "MongoDB", "AWS"],
-    liveUrl: "https://example.com",
-    location: "Kenya, Uganda, Tanzania",
-    duration: "4 Months",
-    teamSize: "5",
+// This is a SERVER component that exports metadata
+export const metadata: Metadata = {
+  title: `Our Projects - Portfolio of Successful Applications | ${SITE_CONFIG.name}`,
+  description: `Explore ${SITE_CONFIG.name}'s portfolio of successful web applications, mobile apps, AI solutions, and cloud projects delivered for clients across Africa. View our case studies and success stories.`,
+  keywords: [
+    ...COMMON_KEYWORDS,
+    "portfolio",
+    "case studies",
+    "project showcase",
+    "web applications portfolio",
+    "mobile apps portfolio",
+    "client work",
+    "success stories",
+    "completed projects",
+    "software examples",
+    "app development examples",
+  ],
+  openGraph: {
+    title: `${SITE_CONFIG.name} Projects Portfolio`,
+    description: "Successful web and mobile applications we've built for African businesses",
+    url: `${SITE_CONFIG.url}/projects`,
+    type: "website",
+    siteName: SITE_CONFIG.name,
+    images: [
+      {
+        url: `${SITE_CONFIG.url}/og-projects.jpg`,
+        width: 1200,
+        height: 630,
+        alt: `${SITE_CONFIG.name} Projects`,
+      },
+    ],
   },
-  {
-    id: "2",
-    title: "E-Commerce Platform",
-    description: "Scalable online marketplace connecting African artisans with global customers.",
-    category: "ecommerce",
-    status: "completed",
-    technologies: ["Next.js", "TypeScript", "Stripe", "PostgreSQL"],
-    liveUrl: "https://example.com",
-    location: "Nigeria, Ghana",
-    duration: "6 Months",
-    teamSize: "8",
+  twitter: {
+    card: "summary_large_image",
+    site: SITE_CONFIG.twitterHandle,
+    title: `${SITE_CONFIG.name} Projects`,
+    description: "Our portfolio of successful web and mobile applications",
+    images: [`${SITE_CONFIG.url}/og-projects.jpg`],
   },
-  {
-    id: "3",
-    title: "Healthcare Management System",
-    description: "Comprehensive healthcare management platform for hospitals across West Africa.",
-    category: "web-app",
-    status: "in-progress",
-    technologies: ["Vue.js", "Python", "Django", "Docker"],
-    location: "Ghana, Senegal",
-    duration: "5 Months",
-    teamSize: "6",
+  alternates: {
+    canonical: `${SITE_CONFIG.url}/projects`,
   },
-  {
-    id: "4",
-    title: "Agricultural Analytics Dashboard",
-    description: "AI-powered analytics platform for farmers to optimize crop yield and market prices.",
-    category: "dashboard",
-    status: "completed",
-    technologies: ["React", "Python", "TensorFlow", "Azure"],
-    liveUrl: "https://example.com",
-    location: "Rwanda, Ethiopia",
-    duration: "3 Months",
-    teamSize: "4",
+  robots: {
+    index: true,
+    follow: true,
   },
-  {
-    id: "5",
-    title: "EdTech Learning Platform",
-    description: "Interactive learning platform with personalized courses for African students.",
-    category: "web",
-    status: "completed",
-    technologies: ["Angular", "Firebase", "Stripe", "Google Cloud"],
-    liveUrl: "https://example.com",
-    location: "South Africa",
-    duration: "7 Months",
-    teamSize: "7",
-  },
-  {
-    id: "6",
-    title: "Logistics Management System",
-    description: "Real-time logistics tracking and management system for delivery companies.",
-    category: "web-app",
-    status: "upcoming",
-    technologies: ["React", "Node.js", "Redis", "AWS"],
-    location: "Kenya, Uganda",
-    duration: "4 Months",
-    teamSize: "5",
-  },
-];
+};
 
+// This component just renders the client component
 export default function ProjectsPage() {
-  const router = useRouter();
-  const [activeCategory, setActiveCategory] = useState("all");
-
-  // Filter projects based on active category
-  const filteredProjects =
-    activeCategory === "all"
-      ? sampleProjects
-      : sampleProjects.filter((project) => project.category === activeCategory);
-
-  // Calculate project counts
-  const projectCounts = {
-    all: sampleProjects.length,
-    web: sampleProjects.filter((p) => p.category === "web").length,
-    "web-app": sampleProjects.filter((p) => p.category === "web-app").length,
-    mobile: sampleProjects.filter((p) => p.category === "mobile").length,
-    ecommerce: sampleProjects.filter((p) => p.category === "ecommerce").length,
-    dashboard: sampleProjects.filter((p) => p.category === "dashboard").length,
-    "ai-ml": sampleProjects.filter((p) => p.category === "ai-ml").length,
-  };
-
-  // Handle project click to navigate to details page
-  const handleProjectClick = (project: any) => {
-    router.push(`/projects/${project.id}`);
-  };
-
-  return (
-    <>
-      <Navbar />
-      <div className="min-h-screen">
-        <ProjectsHeroSection />
-
-        {/* Projects Section */}
-        <section className="py-16 lg:py-24 bg-gradient-to-b from-white to-gray-50">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <ProjectsFilterSection
-              activeCategory={activeCategory}
-              onCategoryChange={setActiveCategory}
-              projectCounts={projectCounts}
-            />
-
-            <ProjectsGrid
-              projects={filteredProjects}
-              activeCategory={activeCategory}
-              onProjectClick={handleProjectClick}
-            />
-          </div>
-        </section>
-      </div>
-      <Footer />
-    </>
-  );
+  return <ProjectsPageClient />;
 }

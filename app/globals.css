@@ -4,7 +4,7 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  --primary: oklch(0.208 0.042 265.755);
+  --primary: #0f172b;
   --primary-dark: #e65100;
   --accent: oklch(0.968 0.007 247.896);
   --gray-50: #f9fafb;
@@ -194,5 +194,239 @@ img {
   }
   body {
     @apply bg-background text-foreground;
+  }
+}
+
+
+/* app/globals.css or create a new file app/animations.css */
+@keyframes slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.animate-slide-up {
+  animation: slide-up 0.4s ease-out forwards;
+  opacity: 0;
+}
+
+.animate-fade-in {
+  animation: fade-in 0.6s ease-out forwards;
+}
+
+.animate-pulse {
+  animation: pulse 2s infinite;
+}
+
+
+/* For WebKit browsers (Chrome, Safari, Edge) */
+::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f5f5f5;
+  border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, #FF8A33, #FF6B00);
+  border-radius: 6px;
+  border: 2px solid #f5f5f5;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(to bottom, #FF6B00, #FF8A33);
+}
+
+::-webkit-scrollbar-thumb:active {
+  background: linear-gradient(to bottom, #E65100, #FF6B00);
+}
+
+::-webkit-scrollbar-corner {
+  background: #f5f5f5;
+}
+
+/* For Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #FF6B00 #f5f5f5;
+}
+
+/* For Internet Explorer & Edge Legacy */
+body {
+  -ms-overflow-style: -ms-autohiding-scrollbar;
+}
+
+/* Custom thin scrollbar for specific elements */
+.thin-scrollbar::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+.thin-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.thin-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(255, 107, 0, 0.5);
+  border-radius: 3px;
+}
+
+.thin-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 107, 0, 0.7);
+}
+
+.thin-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 107, 0, 0.5) transparent;
+}
+
+/* Horizontal scrollbar only */
+.horizontal-scrollbar::-webkit-scrollbar {
+  height: 8px;
+  width: auto;
+}
+
+.horizontal-scrollbar::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 4px;
+}
+
+.horizontal-scrollbar::-webkit-scrollbar-thumb {
+  background: linear-gradient(to right, #FF8A33, #FF6B00);
+  border-radius: 4px;
+}
+
+.horizontal-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(to right, #FF6B00, #FF8A33);
+}
+
+/* Custom scrollbar for dark mode */
+@media (prefers-color-scheme: dark) {
+  .dark ::-webkit-scrollbar-track {
+    background: #2d3748;
+  }
+  
+  .dark ::-webkit-scrollbar-thumb {
+    background: linear-gradient(to bottom, #ff8a33, #ff6b00);
+    border-color: #2d3748;
+  }
+  
+  .dark ::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(to bottom, #ff6b00, #ff8a33);
+  }
+  
+  .dark * {
+    scrollbar-color: #FF6B00 #2d3748;
+  }
+  
+  .dark .thin-scrollbar::-webkit-scrollbar-thumb {
+    background: rgba(255, 107, 0, 0.6);
+  }
+  
+  .dark .horizontal-scrollbar::-webkit-scrollbar-track {
+    background: #374151;
+  }
+}
+
+/* Smooth scrolling for the entire page */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Hide scrollbar but keep functionality */
+.hide-scrollbar {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none; /* Chrome, Safari and Opera */
+}
+
+/* Gradient scrollbar for special sections */
+.gradient-scrollbar::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, #FF6B00 0%, #FF8A33 50%, #FFA726 100%);
+  border-radius: 6px;
+}
+
+.gradient-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, #E65100 0%, #FF6B00 50%, #FF8A33 100%);
+}
+
+/* Animated scrollbar */
+.animated-scrollbar::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, #FF6B00, #FF8A33);
+  animation: scrollbarPulse 3s infinite;
+}
+
+@keyframes scrollbarPulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
+/* Updated BlogFilterSection with styled scrollbar */
+.filter-scrollbar::-webkit-scrollbar {
+  height: 8px;
+}
+
+.filter-scrollbar::-webkit-scrollbar-track {
+  background: #f3f4f6;
+  border-radius: 4px;
+}
+
+.filter-scrollbar::-webkit-scrollbar-thumb {
+  background: linear-gradient(to right, #FF8A33, #FF6B00);
+  border-radius: 4px;
+  border: 2px solid #f3f4f6;
+}
+
+.filter-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(to right, #FF6B00, #FF8A33);
+}
+
+/* Smooth transition for scrollbar */
+::-webkit-scrollbar-thumb {
+  transition: all 0.3s ease;
+}
+
+
+/* Print styles - hide scrollbar when printing */
+@media print {
+  ::-webkit-scrollbar {
+    display: none;
+  }
+  
+  * {
+    scrollbar-width: none;
   }
 }
