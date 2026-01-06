@@ -13,16 +13,14 @@ export interface ChatSession {
   updatedAt: string;
 }
 
-export interface AIAgentConfig {
-  name: string;
-  avatar: string;
-  welcomeMessage: string;
-  responseDelay?: number;
-}
 
-export interface AIAgent {
+export type AIAgent = {
   id: string;
   name: string;
-  avatar?: string;
   description: string;
-}
+  avatar?: string;
+  welcomeMessage: string;
+  responseDelay: number;
+};
+
+export type AIAgentConfig = AIAgent; 

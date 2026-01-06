@@ -121,6 +121,7 @@ const ChatWidget: React.FC = () => {
       .slice(0, 2);
   };
 
+
   // Auto-scroll to bottom when new messages arrive
   useEffect(() => {
     if (messagesEndRef.current && !isMinimized && currentSession?.messages) {
