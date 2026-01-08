@@ -3,100 +3,99 @@ import { ArrowRight, Play, Globe, Users, Zap, Award } from "lucide-react";
 
 export default function HeroSection() {
   return (
-    <section className="relative py-16 pt-28 flex items-center justify-center overflow-hidden bg-gradient-to-b from-gray-900 via-gray-900 to-gray-950">
+    <section className="relative py-20 flex items-center justify-center overflow-hidden bg-gradient-to-b from-gray-900 via-gray-900 to-gray-950">
 
-       {/* Gradient Orbs */}
-        <div className="absolute -top-20 -right-20 w-96 h-96 bg-gradient-to-r from-orange-500/20 to-transparent rounded-full blur-3xl" />
-        <div className="absolute -bottom-20 -left-20 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl" />
-        
-        {/* Grid Pattern */}
-        <div 
-          className="absolute inset-0 opacity-[0.02]"
-          style={{
-            backgroundImage: `linear-gradient(to right, white 1px, transparent 1px),
-                             linear-gradient(to bottom, white 1px, transparent 1px)`,
-            backgroundSize: '50px 50px',
-          }}
-        />
-        
+      {/* Gradient Orbs - Optimized for mobile */}
+      <div className="absolute -top-10 -right-10 w-40 h-40 sm:w-60 sm:h-60 md:w-80 md:h-80 lg:w-96 lg:h-96 bg-gradient-to-r from-orange-500/10 to-transparent rounded-full blur-xl sm:blur-2xl lg:blur-3xl" />
+      <div className="absolute -bottom-10 -left-10 w-40 h-40 sm:w-60 sm:h-60 md:w-80 md:h-80 lg:w-96 lg:h-96 bg-blue-500/5 rounded-full blur-xl sm:blur-2xl lg:blur-3xl" />
+      
+      {/* Grid Pattern - Reduced opacity for better readability */}
+      <div 
+        className="absolute inset-0 opacity-[0.015] sm:opacity-[0.02]"
+        style={{
+          backgroundImage: `linear-gradient(to right, white 1px, transparent 1px),
+                           linear-gradient(to bottom, white 1px, transparent 1px)`,
+          backgroundSize: '30px 30px',
+        }}
+      />
 
-      <div className="relative z-10 max-w-7xl w-full px-4 sm:px-6 lg:px-8 mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+      <div className="relative z-10 max-w-7xl w-full px-4 xs:px-5 sm:px-6 lg:px-8 mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-center">
           {/* Left Content */}
-          <div className="space-y-8">
+          <div className="space-y-6 sm:space-y-8">
             {/* Badge with icon */}
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-orange-500/10 to-orange-500/5 border border-orange-500/20 backdrop-blur-sm">
-              <Globe className="w-4 h-4 text-orange-500" />
-              <span className="text-sm font-semibold bg-gradient-to-r from-orange-400 to-orange-500 bg-clip-text text-transparent">
+            <div className="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full bg-gradient-to-r from-orange-500/10 to-orange-500/5 border border-orange-500/20 backdrop-blur-sm mt-6">
+              <Globe className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-orange-500" />
+              <span className="text-xs sm:text-sm font-semibold bg-gradient-to-r from-orange-400 to-orange-500 bg-clip-text text-transparent">
                 Pioneering African Innovation
               </span>
             </div>
 
             {/* Main Heading */}
-            <div className="space-y-4">
-              <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight">
+            <div className="space-y-3 sm:space-y-4">
+              <h1 className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight">
                 <span className="text-white">Transforming</span>
-                <span className="block bg-gradient-to-r from-orange-400 via-orange-500 to-orange-600 bg-clip-text text-transparent mt-2">
+                <span className="block bg-gradient-to-r from-orange-400 via-orange-500 to-orange-600 bg-clip-text text-transparent mt-1 sm:mt-2">
                   Digital Africa
                 </span>
               </h1>
 
               {/* Subtitle */}
-              <p className="text-xl md:text-2xl text-gray-300 leading-relaxed max-w-2xl">
+              <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-300 leading-relaxed max-w-2xl">
                 Building the future of technology with cutting-edge solutions
                 tailored for the African continent and beyond.
               </p>
             </div>
 
             {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4">
-              <button className="group relative inline-flex items-center justify-center gap-3 px-8 py-4 rounded-xl font-semibold text-lg bg-gradient-to-r from-orange-500 to-orange-600 text-white transition-all duration-300 hover:shadow-2xl hover:shadow-orange-500/25 hover:-translate-y-0.5 focus:outline-none focus:ring-0 focus:ring-orange-500/30 overflow-hidden">
+            <div className="flex flex-col xs:flex-row gap-3 sm:gap-4">
+              <button className="group relative inline-flex items-center justify-center gap-2 sm:gap-3 px-6 sm:px-8 py-2.5 sm:py-3 md:py-4 rounded-lg sm:rounded-xl font-semibold text-sm sm:text-base md:text-lg bg-gradient-to-r from-orange-500 to-orange-600 text-white transition-all duration-300 hover:shadow-lg sm:hover:shadow-xl hover:shadow-orange-500/25 hover:-translate-y-0.5 focus:outline-none focus:ring-0 focus:ring-orange-500/30 overflow-hidden">
                 <div className="absolute inset-0 bg-gradient-to-r from-orange-600 to-orange-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 <span className="relative">Start Your Journey</span>
-                <ArrowRight className="relative w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
+                <ArrowRight className="relative w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform duration-300" />
               </button>
 
-              <button className="group inline-flex items-center justify-center gap-3 px-8 py-4 rounded-xl font-semibold text-lg border-2 border-gray-700 text-gray-200 bg-white/5 backdrop-blur-sm transition-all duration-300 hover:border-orange-500 hover:text-orange-400 hover:bg-orange-500/5 hover:shadow-lg focus:outline-none focus:ring-0 focus:ring-orange-500/20">
-                <Play className="w-5 h-5 group-hover:scale-110 transition-transform duration-300" />
+              <button className="group inline-flex items-center justify-center gap-2 sm:gap-3 px-6 sm:px-8 py-2.5 sm:py-3 md:py-4 rounded-lg sm:rounded-xl font-semibold text-sm sm:text-base md:text-lg border border-gray-700 sm:border-2 text-gray-200 bg-white/5 backdrop-blur-sm transition-all duration-300 hover:border-orange-500 hover:text-orange-400 hover:bg-orange-500/5 hover:shadow-lg focus:outline-none focus:ring-0 focus:ring-orange-500/20">
+                <Play className="w-4 h-4 sm:w-5 sm:h-5 group-hover:scale-110 transition-transform duration-300" />
                 <span>Watch Story</span>
               </button>
             </div>
 
             {/* Stats Grid */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 pt-8 border-t border-gray-800">
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 md:gap-6 pt-6 sm:pt-8 border-t border-gray-800">
               {[
                 {
                   number: "50+",
                   label: "Projects Delivered",
-                  icon: <Award className="w-5 h-5" />,
+                  icon: <Award className="w-4 h-4 sm:w-5 sm:h-5" />,
                 },
                 {
                   number: "15+",
                   label: "Countries Served",
-                  icon: <Globe className="w-5 h-5" />,
+                  icon: <Globe className="w-4 h-4 sm:w-5 sm:h-5" />,
                 },
                 {
                   number: "10K+",
                   label: "Happy Users",
-                  icon: <Users className="w-5 h-5" />,
+                  icon: <Users className="w-4 h-4 sm:w-5 sm:h-5" />,
                 },
                 {
                   number: "99.9%",
                   label: "Uptime SLA",
-                  icon: <Zap className="w-5 h-5" />,
+                  icon: <Zap className="w-4 h-4 sm:w-5 sm:h-5" />,
                 },
               ].map((stat) => (
                 <div
                   key={stat.label}
-                  className="group p-4 rounded-2xl bg-white/5 backdrop-blur-sm border border-gray-800 hover:border-orange-500/30 hover:bg-white/10 transition-all duration-300"
+                  className="group p-3 sm:p-4 rounded-xl sm:rounded-2xl bg-white/5 backdrop-blur-sm border border-gray-800 hover:border-orange-500/30 hover:bg-white/10 transition-all duration-300"
                 >
-                  <div className="flex items-center gap-2 mb-2">
+                  <div className="flex items-center gap-1.5 sm:gap-2 mb-1.5 sm:mb-2">
                     <div className="text-orange-500">{stat.icon}</div>
-                    <div className="text-xl md:text-2xl font-bold text-white group-hover:bg-gradient-to-r from-orange-400 to-orange-500 bg-clip-text text-transparent">
+                    <div className="text-lg sm:text-xl md:text-2xl font-bold text-white group-hover:bg-gradient-to-r from-orange-400 to-orange-500 bg-clip-text text-transparent">
                       {stat.number}
                     </div>
                   </div>
-                  <div className="text-sm text-gray-400 font-medium">
+                  <div className="text-xs sm:text-sm text-gray-400 font-medium">
                     {stat.label}
                   </div>
                 </div>
@@ -105,25 +104,25 @@ export default function HeroSection() {
           </div>
 
           {/* Right Content - Enhanced Map Visualization */}
-          <div className="relative">
-            <div className="relative bg-gradient-to-br from-gray-900/80 to-gray-900/40 backdrop-blur-xl rounded-3xl p-1 shadow-2xl border border-gray-800">
-              <div className="bg-gradient-to-br from-gray-900 to-gray-950 rounded-2xl p-6 relative overflow-hidden">
-                {/* Floating Elements */}
-                <div className="absolute top-8 right-8">
+          <div className="relative mt-8 lg:mt-0">
+            <div className="relative bg-gradient-to-br from-gray-900/80 to-gray-900/40 backdrop-blur-sm sm:backdrop-blur-xl rounded-2xl sm:rounded-3xl p-0.5 sm:p-1 shadow-xl sm:shadow-2xl border border-gray-800">
+              <div className="bg-gradient-to-br from-gray-900 to-gray-950 rounded-xl sm:rounded-2xl p-4 sm:p-6 relative overflow-hidden">
+                {/* Floating Elements - Hidden on small screens */}
+                <div className="absolute top-4 right-4 sm:top-8 sm:right-8">
                   <div className="relative">
-                    <div className="absolute inset-0 bg-orange-500 rounded-full blur-xl opacity-20 animate-pulse" />
-                    <div className="relative bg-gradient-to-r from-orange-500 to-orange-600 text-white px-4 py-2 rounded-full text-sm font-semibold shadow-lg">
-                     Live Network
+                    <div className="absolute inset-0 bg-orange-500 rounded-full blur-lg sm:blur-xl opacity-20 animate-pulse" />
+                    <div className="relative bg-gradient-to-r from-orange-500 to-orange-600 text-white px-3 py-1.5 sm:px-4 sm:py-2 rounded-full text-xs sm:text-sm font-semibold shadow-lg">
+                      Live Network
                     </div>
                   </div>
                 </div>
 
                 {/* Map Container */}
-                <div className="relative bg-gradient-to-br from-gray-950/80 to-gray-900/60 rounded-xl p-18 min-h-[500px] flex items-center justify-center border border-gray-800">
+                <div className="relative bg-gradient-to-br from-gray-950/80 to-gray-900/60 rounded-lg sm:rounded-xl p-6 sm:p-10 md:p-14 lg:p-16 min-h-[300px] sm:min-h-[400px] md:min-h-[500px] flex items-center justify-center border border-gray-800">
                   {/* Glow Effect */}
-                  <div className="absolute inset-0 bg-gradient-to-r from-orange-500/5 to-transparent rounded-xl" />
+                  <div className="absolute inset-0 bg-gradient-to-r from-orange-500/5 to-transparent rounded-lg sm:rounded-xl" />
 
-                  {/* Africa SVG Map */}
+                  {/* Africa SVG Map - Responsive SVG */}
                   <div className="relative w-full h-full">
                     <svg
                       viewBox="0 0 1000 1001"
@@ -132,7 +131,7 @@ export default function HeroSection() {
                       style={{
                         strokeLinejoin: "round",
                         stroke: "#FF6B00",
-                        strokeWidth: "1.5",
+                        strokeWidth: "1",
                         fill: "none",
                       }}
                     >
@@ -146,9 +145,8 @@ export default function HeroSection() {
                           fill: "url(#ugandaGradient)",
                           opacity: "0.8",
                           stroke: "#FF8A33",
-                          strokeWidth: "2",
-                          filter:
-                            "drop-shadow(0 0 20px rgba(255, 107, 0, 0.3))",
+                          strokeWidth: "1.5",
+                          filter: "drop-shadow(0 0 10px rgba(255, 107, 0, 0.3))",
                         }}
                       />
 
@@ -667,59 +665,57 @@ export default function HeroSection() {
                       />
                     </svg>
 
-                    {/* Animated Connection Lines */}
-                    <div className="absolute inset-0">
-                      <div className="absolute top-26 left-40 w-44 h-44 border-2 border-orange-500/20 rounded-full animate-ping" />
-                      <div className="absolute top-24 left-40 w-46 h-46 border border-orange-500/10 rounded-full" />
-                    </div>
+                    {/* Animated Connection Lines - Simplified for mobile */}
+                    {/* <div className="absolute inset-0">
+                      <div className="absolute top-16 sm:top-26 sm:left-1/2 w-24 h-24 sm:w-44 sm:h-44 border border-orange-500/10 rounded-full animate-ping" />
+                    </div> */}
 
                     {/* Location Points with Animation */}
-                    <div className="absolute inset-0">
-                      <div className="absolute left-2/3 top-1/2 -translate-x-1/2 -translate-y-1/2">
+                    {/* <div className="absolute inset-0">
+                      <div className="absolute left-20 top-1/2 -translate-x-1/2 -translate-y-1/2">
                         <div className="relative group">
-                          {/* Pulsing Circle */}
+                          
                           <div className="absolute inset-0">
-                            <div className="absolute inset-0 bg-orange-500 rounded-full animate-ping opacity-20" />
-                            <div className="absolute inset-0 bg-orange-500 rounded-full animate-ping opacity-10 delay-300" />
+                            <div className="absolute inset-0 bg-orange-500 rounded-full animate-ping opacity-10" />
                           </div>
 
-                          {/* Main Point */}
-                          <div className="relative w-6 h-6 bg-gradient-to-br from-orange-400 to-orange-600 rounded-full border-4 border-white shadow-2xl transition-transform duration-300 group-hover:scale-125" />
+                          
+                          <div className="relative w-4 h-4 sm:w-6 sm:h-6 bg-gradient-to-br from-orange-400 to-orange-600 rounded-full border-2 sm:border-4 border-white shadow-lg sm:shadow-2xl transition-transform duration-300 group-hover:scale-110 sm:group-hover:scale-125" />
 
-                          {/* Tooltip */}
-                          <div className="absolute top-10 left-1/2 -translate-x-1/2 bg-gray-900/95 backdrop-blur-sm text-white px-4 py-3 rounded-xl text-sm font-medium opacity-0 group-hover:opacity-100 transition-all duration-300 whitespace-nowrap pointer-events-none shadow-2xl border border-gray-800">
-                            <div className="flex items-center gap-2">
-                              <div className="w-2 h-2 bg-orange-500 rounded-full animate-pulse" />
+                          
+                          <div className="hidden sm:block absolute top-6 sm:top-10 left-1/2 -translate-x-1/2 bg-gray-900/95 backdrop-blur-sm text-white px-3 py-2 sm:px-4 sm:py-3 rounded-lg sm:rounded-xl text-xs sm:text-sm font-medium opacity-0 group-hover:opacity-100 transition-all duration-300 whitespace-nowrap pointer-events-none shadow-xl sm:shadow-2xl border border-gray-800">
+                            <div className="flex items-center gap-1.5 sm:gap-2">
+                              <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-orange-500 rounded-full animate-pulse" />
                               <span>Kampala, Uganda</span>
                             </div>
-                            <div className="text-xs text-gray-400 mt-1">
+                            <div className="text-xs text-gray-400 mt-0.5 sm:mt-1">
                               Innovation Hub
                             </div>
                           </div>
                         </div>
                       </div>
-                    </div>
+                    </div> */}
                   </div>
 
-                  {/* Network Status */}
-                  <div className="absolute w-md bottom-4 left-1/2 -translate-x-1/2">
-                    <div className="flex items-center gap-3 bg-gray-900/90 backdrop-blur-sm px-6 py-3 rounded-full shadow-xl border border-gray-800">
-                      <div className="flex items-center gap-2">
-                        <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
-                        <span className="text-sm font-semibold text-white">
-                          African Innovation Network
+                  {/* Network Status - Simplified for mobile */}
+                  <div className="absolute bottom-2 sm:bottom-4 left-1/2 -translate-x-1/2 w-[100%] sm:w-auto">
+                    <div className="flex items-center justify-center gap-2 sm:gap-3 bg-gray-900/90 backdrop-blur-sm px-4 py-2 sm:px-6 sm:py-3 rounded-full shadow-lg sm:shadow-xl border border-gray-800">
+                      <div className="flex items-center gap-1.5 sm:gap-2">
+                        <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-green-500 rounded-full animate-pulse" />
+                        <span className="text-xs sm:text-sm font-semibold text-white">
+                          Pan African
                         </span>
                       </div>
-                      <div className="h-4 w-px bg-gray-700" />
-                      <div className="text-xs text-gray-400">
+                      <div className="hidden sm:block h-4 w-px bg-gray-700" />
+                      <div className="hidden sm:flex sm:gap-2 text-xs text-gray-400">
                         <span className="text-green-400">●</span> Connected
                       </div>
                     </div>
                   </div>
                 </div>
 
-                {/* Bottom Stats */}
-                <div className="grid grid-cols-3 gap-4 mt-6">
+                {/* Bottom Stats - Stack on mobile */}
+                <div className="grid grid-cols-3 xs:grid-cols-3 sm:grid-cols-3 gap-3 sm:gap-4 mt-4 sm:mt-6">
                   {[
                     { label: "Active Nodes", value: "247", change: "+12%" },
                     { label: "Data Flow", value: "2.4TB", change: "+8%" },
@@ -727,16 +723,16 @@ export default function HeroSection() {
                   ].map((stat) => (
                     <div
                       key={stat.label}
-                      className="text-center p-3 rounded-xl bg-white/5 border border-gray-800"
+                      className="text-center p-2.5 sm:p-3 rounded-lg sm:rounded-xl bg-white/5 border border-gray-800"
                     >
-                      <div className="text-2xl font-bold text-white">
+                      <div className="text-lg sm:text-xl md:text-2xl font-bold text-white">
                         {stat.value}
                       </div>
-                      <div className="text-xs text-gray-400 mt-1">
+                      <div className="text-xs text-gray-400 mt-0.5 sm:mt-1">
                         {stat.label}
                       </div>
                       <div
-                        className={`text-xs mt-1 ${
+                        className={`text-xs mt-0.5 ${
                           stat.change.startsWith("+")
                             ? "text-green-400"
                             : "text-red-400"
@@ -753,9 +749,9 @@ export default function HeroSection() {
         </div>
       </div>
 
-      {/* Decorative Elements */}
-      <div className="absolute top-20 left-10 w-72 h-72 bg-orange-500/10 rounded-full blur-3xl" />
-      <div className="absolute bottom-20 right-10 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl" />
+      {/* Decorative Elements - Responsive */}
+      <div className="absolute top-10 left-5 sm:top-20 sm:left-10 w-36 h-36 sm:w-72 sm:h-72 bg-orange-500/5 rounded-full blur-xl sm:blur-3xl" />
+      <div className="absolute bottom-10 right-5 sm:bottom-20 sm:right-10 w-36 h-36 sm:w-96 sm:h-96 bg-blue-500/3 rounded-full blur-xl sm:blur-3xl" />
     </section>
   );
 }

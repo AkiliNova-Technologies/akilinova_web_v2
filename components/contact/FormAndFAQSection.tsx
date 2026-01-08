@@ -73,50 +73,47 @@ export default function FormAndFAQSection() {
   };
 
   return (
-    <div className="bg-gradient-to-b from-white via-gray-50 to-white  py-20">
+    <div className="bg-gradient-to-b from-white via-gray-50 to-white py-12 sm:py-16 md:py-20">
+      {/* Background Elements - Reduced on mobile */}
+      <div className="absolute inset-0">
+        <div className="absolute top-1/4 left-1/4 w-64 h-64 sm:w-80 sm:h-80 md:w-96 md:h-96 bg-gradient-to-r from-orange-500/5 to-transparent rounded-full blur-xl sm:blur-2xl md:blur-3xl" />
+        <div className="absolute bottom-1/4 right-1/4 w-64 h-64 sm:w-80 sm:h-80 md:w-96 md:h-96 bg-blue-500/3 rounded-full blur-xl sm:blur-2xl md:blur-3xl" />
+      </div>
 
-       {/* Background Elements - Simplified in compact mode */}
-      
-        <div className="absolute inset-0">
-          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-gradient-to-r from-orange-500/10 to-transparent rounded-full blur-3xl" />
-          <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl" />
-        </div>
-      
-
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16 animate-fade-in">
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+      <div className="relative max-w-7xl mx-auto px-4 xs:px-5 sm:px-6 lg:px-8">
+        <div className="text-center mb-8 sm:mb-12 md:mb-16 animate-fade-in">
+          <h2 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-3 sm:mb-4">
             Get In Touch &
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FF6B00] to-[#FF8A33]">
               {" "}
               FAQs
             </span>
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto animate-slide-up delay-100">
+          <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-3xl mx-auto px-2 animate-slide-up delay-100">
             Send us your project details or get quick answers to common
             questions.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 md:gap-12">
           {/* Contact Form */}
           <div className="animate-slide-up">
-            <div className="bg-gray-50 rounded-2xl p-8 border border-gray-200 h-full shadow-sm hover:shadow-md transition-shadow duration-300">
-              <div className="text-center mb-8">
-                <h3 className="text-3xl font-bold text-gray-900 mb-4">
+            <div className="bg-gray-50 rounded-xl sm:rounded-2xl p-5 sm:p-6 md:p-8 border border-gray-200 h-full shadow-sm hover:shadow-md transition-shadow duration-300">
+              <div className="text-center mb-6 sm:mb-8">
+                <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-900 mb-2 sm:mb-3 md:mb-4">
                   Send Us a Message
                 </h3>
-                <p className="text-gray-600">
+                <p className="text-sm sm:text-base text-gray-600">
                   Fill out the form and we'll get back to you within 2 hours.
                 </p>
               </div>
 
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-5 md:space-y-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5 md:gap-6">
                   <div className="animate-slide-up" style={{ animationDelay: '200ms' }}>
                     <label
                       htmlFor="name"
-                      className="block text-sm font-medium text-gray-700 mb-2"
+                      className="block text-xs sm:text-sm font-medium text-gray-700 mb-1.5 sm:mb-2"
                     >
                       Full Name *
                     </label>
@@ -127,14 +124,14 @@ export default function FormAndFAQSection() {
                       required
                       value={formData.name}
                       onChange={handleChange}
-                      className="w-full px-4 h-11 bg-white border border-gray-300 rounded-lg text-gray-900 placeholder-gray-500 focus:outline-none focus:border-[#FF6B00] focus:ring-2 focus:ring-[#FF6B00]/20 transition-all duration-300"
+                      className="w-full px-3 sm:px-4 h-10 sm:h-11 bg-white border border-gray-300 rounded-lg text-sm sm:text-base text-gray-900 placeholder-gray-500 focus:outline-none focus:border-[#FF6B00] focus:ring-2 focus:ring-[#FF6B00]/20 transition-all duration-300"
                       placeholder="Enter your full name"
                     />
                   </div>
                   <div className="animate-slide-up" style={{ animationDelay: '300ms' }}>
                     <label
                       htmlFor="email"
-                      className="block text-sm font-medium text-gray-700 mb-2"
+                      className="block text-xs sm:text-sm font-medium text-gray-700 mb-1.5 sm:mb-2"
                     >
                       Email Address *
                     </label>
@@ -145,17 +142,17 @@ export default function FormAndFAQSection() {
                       required
                       value={formData.email}
                       onChange={handleChange}
-                      className="w-full px-4 h-11 bg-white border border-gray-300 rounded-lg text-gray-900 placeholder-gray-500 focus:outline-none focus:border-[#FF6B00] focus:ring-2 focus:ring-[#FF6B00]/20 transition-all duration-300"
+                      className="w-full px-3 sm:px-4 h-10 sm:h-11 bg-white border border-gray-300 rounded-lg text-sm sm:text-base text-gray-900 placeholder-gray-500 focus:outline-none focus:border-[#FF6B00] focus:ring-2 focus:ring-[#FF6B00]/20 transition-all duration-300"
                       placeholder="Enter your email"
                     />
                   </div>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5 md:gap-6">
                   <div className="animate-slide-up" style={{ animationDelay: '400ms' }}>
                     <label
                       htmlFor="company"
-                      className="block text-sm font-medium text-gray-700 mb-2"
+                      className="block text-xs sm:text-sm font-medium text-gray-700 mb-1.5 sm:mb-2"
                     >
                       Company Name
                     </label>
@@ -165,16 +162,16 @@ export default function FormAndFAQSection() {
                       name="company"
                       value={formData.company}
                       onChange={handleChange}
-                      className="w-full px-4 h-11 bg-white border border-gray-300 rounded-lg text-gray-900 placeholder-gray-500 focus:outline-none focus:border-[#FF6B00] focus:ring-2 focus:ring-[#FF6B00]/20 transition-all duration-300"
+                      className="w-full px-3 sm:px-4 h-10 sm:h-11 bg-white border border-gray-300 rounded-lg text-sm sm:text-base text-gray-900 placeholder-gray-500 focus:outline-none focus:border-[#FF6B00] focus:ring-2 focus:ring-[#FF6B00]/20 transition-all duration-300"
                       placeholder="Enter your company name"
                     />
                   </div>
                   <div className="animate-slide-up" style={{ animationDelay: '500ms' }}>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                    <label className="block text-xs sm:text-sm font-medium text-gray-700 mb-1.5 sm:mb-2">
                       Project Budget
                     </label>
                     <Select onValueChange={(value) => handleSelectChange('budget', value)}>
-                      <SelectTrigger className="w-full min-h-11 bg-white border-gray-300 text-gray-900 hover:border-[#FF6B00] focus:border-[#FF6B00] focus:ring-[#FF6B00]/20">
+                      <SelectTrigger className="w-full min-h-10 sm:min-h-11 bg-white border-gray-300 text-sm sm:text-base text-gray-900 hover:border-[#FF6B00] focus:border-[#FF6B00] focus:ring-[#FF6B00]/20">
                         <SelectValue placeholder="Select budget range" />
                       </SelectTrigger>
                       <SelectContent>
@@ -191,11 +188,11 @@ export default function FormAndFAQSection() {
                 </div>
 
                 <div className="animate-slide-up" style={{ animationDelay: '600ms' }}>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                  <label className="block text-xs sm:text-sm font-medium text-gray-700 mb-1.5 sm:mb-2">
                     Service Interested In
                   </label>
                   <Select onValueChange={(value) => handleSelectChange('service', value)}>
-                    <SelectTrigger className="w-full min-h-11 bg-white border-gray-300 text-gray-900 hover:border-[#FF6B00] focus:border-[#FF6B00] focus:ring-[#FF6B00]/20">
+                    <SelectTrigger className="w-full min-h-10 sm:min-h-11 bg-white border-gray-300 text-sm sm:text-base text-gray-900 hover:border-[#FF6B00] focus:border-[#FF6B00] focus:ring-[#FF6B00]/20">
                       <SelectValue placeholder="Select a service" />
                     </SelectTrigger>
                     <SelectContent>
@@ -213,27 +210,27 @@ export default function FormAndFAQSection() {
                 <div className="animate-slide-up" style={{ animationDelay: '700ms' }}>
                   <label
                     htmlFor="message"
-                    className="block text-sm font-medium text-gray-700 mb-2"
+                    className="block text-xs sm:text-sm font-medium text-gray-700 mb-1.5 sm:mb-2"
                   >
                     Project Details *
                   </label>
                   <Textarea
                     id="message"
                     name="message"
-                    rows={4}
+                    rows={3}
                     required
                     value={formData.message}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 bg-white border border-gray-300 rounded-lg text-gray-900 placeholder-gray-500 focus:outline-none focus:border-[#FF6B00] focus:ring-2 focus:ring-[#FF6B00]/20 transition-all duration-300 resize-none"
-                    placeholder="Tell us about your project requirements, goals, and timeline..."
+                    className="w-full px-3 sm:px-4 py-2 sm:py-3 bg-white border border-gray-300 rounded-lg text-sm sm:text-base text-gray-900 placeholder-gray-500 focus:outline-none focus:border-[#FF6B00] focus:ring-2 focus:ring-[#FF6B00]/20 transition-all duration-300 resize-none"
+                    placeholder="Tell us about your project requirements..."
                   />
                 </div>
 
                 <button
                   type="submit"
-                  className="w-full bg-gradient-to-r from-[#FF6B00] to-[#FF8A33] text-white py-4 rounded-lg font-semibold text-lg hover:shadow-lg hover:shadow-orange-500/25 transition-all duration-300 flex items-center justify-center gap-3 active:scale-95 hover:scale-[1.02]"
+                  className="w-full bg-gradient-to-r from-[#FF6B00] to-[#FF8A33] text-white py-3 sm:py-4 rounded-lg font-semibold text-sm sm:text-base md:text-lg hover:shadow-lg hover:shadow-orange-500/25 transition-all duration-300 flex items-center justify-center gap-2 sm:gap-3 active:scale-95 hover:scale-[1.02]"
                 >
-                  <Send className="h-5 w-5" />
+                  <Send className="h-4 w-4 sm:h-5 sm:w-5" />
                   Send Message
                 </button>
               </form>
@@ -242,27 +239,27 @@ export default function FormAndFAQSection() {
 
           {/* FAQ Section */}
           <div className="animate-slide-up delay-300">
-            <div className="bg-gray-50 rounded-2xl p-8 border border-gray-200 h-full shadow-sm hover:shadow-md transition-shadow duration-300">
-              <div className="text-center mb-8">
-                <h3 className="text-3xl font-bold text-gray-900 mb-4">
+            <div className="bg-gray-50 rounded-xl sm:rounded-2xl p-5 sm:p-6 md:p-8 border border-gray-200 h-full shadow-sm hover:shadow-md transition-shadow duration-300">
+              <div className="text-center mb-6 sm:mb-8">
+                <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-900 mb-2 sm:mb-3 md:mb-4">
                   Common Questions
                 </h3>
-                <p className="text-gray-600">
+                <p className="text-sm sm:text-base text-gray-600">
                   Quick answers to frequently asked questions.
                 </p>
               </div>
 
-              <div className="space-y-6">
+              <div className="space-y-4 sm:space-y-5 md:space-y-6">
                 {faqs.map((faq, index) => (
                   <div 
                     key={index}
-                    className="animate-slide-up bg-white rounded-xl p-6 border border-gray-200 hover:border-[#FF6B00]/50 transition-all duration-300 hover:shadow-sm"
+                    className="animate-slide-up bg-white rounded-lg sm:rounded-xl p-4 sm:p-5 md:p-6 border border-gray-200 hover:border-[#FF6B00]/50 transition-all duration-300 hover:shadow-sm"
                     style={{ animationDelay: `${300 + index * 100}ms` }}
                   >
-                    <h4 className="text-lg font-bold text-gray-900 mb-3">
+                    <h4 className="text-base sm:text-lg font-bold text-gray-900 mb-2 sm:mb-3">
                       {faq.question}
                     </h4>
-                    <p className="text-gray-600 text-sm leading-relaxed">
+                    <p className="text-xs sm:text-sm text-gray-600 leading-relaxed">
                       {faq.answer}
                     </p>
                   </div>
@@ -270,26 +267,26 @@ export default function FormAndFAQSection() {
               </div>
 
               {/* Additional Help */}
-              <div className="mt-8 p-6 bg-gradient-to-r from-[#FF6B00]/10 to-[#FF8A33]/5 rounded-xl border border-[#FF6B00]/20 animate-fade-in delay-700">
-                <h4 className="text-lg font-bold text-gray-900 mb-2">
+              <div className="mt-6 sm:mt-8 p-4 sm:p-5 md:p-6 bg-gradient-to-r from-[#FF6B00]/10 to-[#FF8A33]/5 rounded-lg sm:rounded-xl border border-[#FF6B00]/20 animate-fade-in delay-700">
+                <h4 className="text-base sm:text-lg font-bold text-gray-900 mb-1.5 sm:mb-2">
                   Need Immediate Help?
                 </h4>
-                <p className="text-gray-600 text-sm mb-4">
+                <p className="text-xs sm:text-sm text-gray-600 mb-3 sm:mb-4">
                   Can't find what you're looking for? We're here to help.
                 </p>
-                <div className="flex flex-col sm:flex-row gap-3">
+                <div className="flex flex-col xs:flex-row gap-2 sm:gap-3">
                   <a
                     href="mailto:info@akilinovatech.com"
-                    className="flex-1 bg-gradient-to-r from-[#FF6B00] to-[#FF8A33] text-white! py-2 px-4 rounded-lg text-sm font-semibold text-center hover:shadow-md transition-all duration-300 active:scale-95 hover:scale-105 flex items-center justify-center gap-2"
+                    className="flex-1 bg-gradient-to-r from-[#FF6B00] to-[#FF8A33] text-white! py-2 px-3 sm:py-2 sm:px-4 rounded-lg text-xs sm:text-sm font-semibold text-center hover:shadow-md transition-all duration-300 active:scale-95 hover:scale-105 flex items-center justify-center gap-1.5 sm:gap-2"
                   >
-                    <Mail className="h-4 w-4" />
+                    <Mail className="h-3 w-3 sm:h-4 sm:w-4" />
                     Email Support
                   </a>
                   <a
                     href="tel:+254789874647"
-                    className="flex-1 border border-[#FF6B00] text-[#FF6B00] py-2 px-4 rounded-lg text-sm font-semibold text-center hover:bg-gradient-to-r hover:from-[#FF6B00] hover:to-[#FF8A33] hover:text-white! transition-all duration-300 active:scale-95 hover:scale-105 flex items-center justify-center gap-2"
+                    className="flex-1 border border-[#FF6B00] text-[#FF6B00] py-2 px-3 sm:py-2 sm:px-4 rounded-lg text-xs sm:text-sm font-semibold text-center hover:bg-gradient-to-r hover:from-[#FF6B00] hover:to-[#FF8A33] hover:text-white transition-all duration-300 active:scale-95 hover:scale-105 flex items-center justify-center gap-1.5 sm:gap-2"
                   >
-                    <Phone className="h-4 w-4" />
+                    <Phone className="h-3 w-3 sm:h-4 sm:w-4" />
                     Call Now
                   </a>
                 </div>

@@ -202,24 +202,18 @@ export default function ServicesSection({
                 : "text-4xl md:text-5xl lg:text-6xl"
             } font-bold text-gray-900 mb-4`}
           >
-             Building the Future of 
-            {" "}
-              <span className="relative">
-                <span className="relative z-10 bg-gradient-to-r from-orange-400 via-orange-500 to-orange-600 bg-clip-text text-transparent">
-                  African Tech
-                </span>
-                <div className="absolute -bottom-2 left-0 right-0 h-1 bg-gradient-to-r from-orange-500/50 to-transparent rounded-full" />
+            Building the Future of{" "}
+            <span className="relative">
+              <span className="relative z-10 bg-gradient-to-r from-orange-400 via-orange-500 to-orange-600 bg-clip-text text-transparent">
+                African Tech
               </span>
-            
+            </span>
           </h2>
 
-          
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-              Comprehensive technology solutions tailored for African
-              businesses, combining global standards with local context and
-              expertise.
-            </p>
-          
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+            Comprehensive technology solutions tailored for African businesses,
+            combining global standards with local context and expertise.
+          </p>
         </div>
 
         {/* Services Grid */}
@@ -259,7 +253,6 @@ export default function ServicesSection({
                         {service.shortDescription || service.description}
                       </p>
 
-
                       {/* Features List */}
                       <div className="mb-6">
                         <h4 className="text-sm font-semibold text-orange-600 mb-3 uppercase tracking-wide flex items-center gap-2">
@@ -270,9 +263,9 @@ export default function ServicesSection({
                           {service.features.map((feature, featureIndex) => (
                             <li
                               key={featureIndex}
-                              className="flex items-start text-gray-600"
+                              className="flex flex-row items-center text-gray-600"
                             >
-                              <span className="text-orange-500 mr-2 mt-1 font-bold">
+                              <span className="text-orange-500 mr-2 font-bold">
                                 •
                               </span>
                               <span className="text-sm">{feature}</span>

@@ -208,7 +208,6 @@ export default function ServicesSection({
                 <span className="relative z-10 bg-gradient-to-r from-orange-400 via-orange-500 to-orange-600 bg-clip-text text-transparent">
                   African Tech
                 </span>
-                <div className="absolute -bottom-2 left-0 right-0 h-1 bg-gradient-to-r from-orange-500/50 to-transparent rounded-full" />
               </span>
             
           </h2>
@@ -371,12 +370,12 @@ export default function ServicesSection({
                   </div>
 
                   {/* Learn More Link */}
-                  <div className="mt-6 pt-6 border-t border-gray-100">
+                  {/* <div className="mt-6 pt-6 border-t border-gray-100">
                     <button className="inline-flex items-center gap-2 text-orange-600 font-semibold hover:gap-3 transition-all duration-300">
                       Learn more
                       <ArrowRight className="w-4 h-4" />
                     </button>
-                  </div>
+                  </div> */}
                 </div>
               </div>
             );

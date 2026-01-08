@@ -90,7 +90,7 @@ export default function CoreValuesSection({
           {values.map((value, index) => (
             <div
               key={index}
-              className="group bg-white rounded-2xl p-6 lg:p-8 border border-gray-200 hover:border-orange-300 hover:shadow-xl transition-all duration-300"
+              className="group bg-white rounded-2xl p-5 lg:p-8 border border-gray-200 hover:border-orange-300 hover:shadow-xl transition-all duration-300"
             >
               {/* Icon */}
               <div

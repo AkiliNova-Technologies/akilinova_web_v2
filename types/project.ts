@@ -16,6 +16,7 @@ export interface Project {
   challenges: string[];
   solutions: string[];
   impact: string[];
+  objectives?: string[];
   stackExplanation: {
     ai?: string;
     frontend?: string;

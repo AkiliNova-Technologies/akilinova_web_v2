@@ -38,7 +38,7 @@ interface FooterProps {
 }
 
 const Footer: React.FC<FooterProps> = ({
-  companyName = "AkiliNova",
+  companyName = "AkiliNova Tech",
   description = "Pioneering digital transformation across Africa with innovative technology solutions.",
   year = new Date().getFullYear(),
   sections = [

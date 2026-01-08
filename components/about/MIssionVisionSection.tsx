@@ -47,7 +47,7 @@ export default function MissionVisionSection({
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
           {/* Mission */}
-          <div className="group bg-white rounded-2xl p-8 border border-gray-200 hover:border-orange-300 hover:shadow-xl transition-all duration-300">
+          <div className="group bg-white rounded-2xl p-6 md:p-8 lg:p-8 border border-gray-200 hover:border-orange-300 hover:shadow-xl transition-all duration-300">
             <div className="flex items-center gap-4 mb-6">
               <div className="w-16 h-16 rounded-2xl bg-gradient-to-r from-orange-500 to-orange-600 flex items-center justify-center">
                 <Target className="w-8 h-8 text-white" />
@@ -73,7 +73,7 @@ export default function MissionVisionSection({
           </div>
 
           {/* Vision */}
-          <div className="group bg-white rounded-2xl p-8 border border-gray-200 hover:border-orange-300 hover:shadow-xl transition-all duration-300">
+          <div className="group bg-white rounded-2xl p-6 border border-gray-200 hover:border-orange-300 hover:shadow-xl transition-all duration-300">
             <div className="flex items-center gap-4 mb-6">
               <div className="w-16 h-16 rounded-2xl bg-gradient-to-r from-blue-500 to-cyan-500 flex items-center justify-center">
                 <Globe className="w-8 h-8 text-white" />

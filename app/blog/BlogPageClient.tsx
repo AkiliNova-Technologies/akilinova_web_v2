@@ -17,6 +17,11 @@ export default function BlogPageClient() {
   const [activeCategory, setActiveCategory] = useState("all");
   const [loading, setLoading] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
 
   // Use your actual blog data
   const blogs = dummyBlogs.filter(blog => blog.isPublished);
@@ -66,6 +71,13 @@ export default function BlogPageClient() {
     const blogGrid = document.getElementById('blog-grid');
     if (blogGrid) {
       blogGrid.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  // Handle scroll to top
+  const handleScrollToTop = () => {
+    if (typeof window !== 'undefined') {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     }
   };
 
@@ -294,7 +306,7 @@ export default function BlogPageClient() {
                       <div className="mt-12 pt-8 border-t border-gray-200">
                         <div className="flex justify-end">
                           <button
-                            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+                            onClick={handleScrollToTop}
                             className="text-[#FF6B00] text-sm font-medium hover:text-[#FF8A33] transition-colors duration-300 flex items-center gap-1"
                           >
                             Back to top

@@ -291,13 +291,6 @@ export default function Navbar({
                 </button>
               </div>
 
-              {/* Language/Location Indicator */}
-              <div className="px-4 mt-6 pt-6 border-t border-gray-200">
-                <div className="flex items-center justify-center gap-2 text-gray-600">
-                  <Globe className="h-4 w-4" />
-                  <span className="text-sm font-medium">Africa • Global</span>
-                </div>
-              </div>
             </div>
           )}
         </div>

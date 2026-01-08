@@ -10,7 +10,7 @@ export const SITE_CONFIG = {
   description:
     "AkiliNova delivers cutting-edge web development, mobile apps, AI solutions, and cloud services for businesses across Africa. Transform your digital presence with our expert team.",
   url: "https://akilinovatech.com",
-  ogImage: "https://akilinovatech.com/og-image.jpg",
+  ogImage: "https://akilinovatech.com/og-image.png",
   twitterHandle: "@akilinovatech",
   email: "info@akilinovatechnologies.com",
   phone: "+256-789-874-647",
@@ -132,7 +132,7 @@ export function generateOrganizationSchema() {
     "@type": "Organization",
     name: SITE_CONFIG.name,
     url: SITE_CONFIG.url,
-    logo: `${SITE_CONFIG.url}/logo.png`,
+    logo: `${SITE_CONFIG.url}/Logo.png`,
     description: SITE_CONFIG.description,
     address: {
       "@type": "PostalAddress",
@@ -187,7 +187,7 @@ export function generateArticleSchema({
       name: SITE_CONFIG.name,
       logo: {
         "@type": "ImageObject",
-        url: `${SITE_CONFIG.url}/logo.png`,
+        url: `${SITE_CONFIG.url}/Logo.png`,
       },
     },
     mainEntityOfPage: {

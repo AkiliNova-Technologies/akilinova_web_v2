@@ -243,7 +243,7 @@ export default function RootLayout({
               name: "AkiliNova Technologies",
               alternateName: "AkiliNova Technology Solutions",
               url: "https://akilinovatech.com",
-              logo: "https://akilinovatech.com/logo.png",
+              logo: "https://akilinovatech.com/Logo.png",
               description:
                 "Expert web development, mobile apps, AI solutions, and cloud services for African businesses",
               address: {
