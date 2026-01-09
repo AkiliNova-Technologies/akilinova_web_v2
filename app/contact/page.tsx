@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     siteName: SITE_CONFIG.name,
     images: [
       {
-        url: `${SITE_CONFIG.url}/og-contact.jpg`,
+        url: `${SITE_CONFIG.url}/og-image.png`,
         width: 1200,
         height: 630,
         alt: `Contact ${SITE_CONFIG.name}`,
@@ -43,7 +43,7 @@ export const metadata: Metadata = {
     site: SITE_CONFIG.twitterHandle,
     title: `Contact ${SITE_CONFIG.name}`,
     description: "Get in touch for your next project",
-    images: [`${SITE_CONFIG.url}/og-contact.jpg`],
+    images: [`${SITE_CONFIG.url}/og-image.png`],
   },
   alternates: {
     canonical: `${SITE_CONFIG.url}/contact`,

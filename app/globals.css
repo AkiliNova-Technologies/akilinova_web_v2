@@ -76,16 +76,6 @@ body {
   transition: all 0.2s ease;
 }
 
-/* Better link styles */
-a {
-  color: var(--primary-dark);
-  text-decoration: none;
-  transition: color 0.2s ease;
-}
-
-a:hover {
-  color: var(--primary);
-}
 
 /* Ensure images don't cause layout shift */
 img {

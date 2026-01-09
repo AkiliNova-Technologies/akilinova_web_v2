@@ -40,7 +40,7 @@ export const metadata: Metadata = {
     site: SITE_CONFIG.twitterHandle,
     title: `${SITE_CONFIG.name} Blog`,
     description: "Latest insights on web development, AI, and cloud computing",
-    images: [`${SITE_CONFIG.url}/og-image.png`],
+    images: [`${SITE_CONFIG.url}/og-image.png`], 
   },
   alternates: {
     canonical: `${SITE_CONFIG.url}/blog`,
