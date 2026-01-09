@@ -6,9 +6,10 @@
 // Site Configuration
 export const SITE_CONFIG = {
   name: "AkiliNova Technologies",
-  title: "AkiliNova Technologies - Expert Web & Mobile Development Solutions in Africa",
+  title:
+    "AkiliNova Technologies | Software, AI & Digital Innovation for Business Growth",
   description:
-    "AkiliNova delivers cutting-edge web development, mobile apps, AI solutions, and cloud services for businesses across Africa. Transform your digital presence with our expert team.",
+    "AkiliNova Technologies builds custom software, AI-driven platforms, and intelligent systems that help businesses scale, automate, and innovate across Africa and beyond.",
   url: "https://akilinovatech.com",
   ogImage: "https://akilinovatech.com/og-image.png",
   twitterHandle: "@akilinovatech",
@@ -20,17 +21,18 @@ export const SITE_CONFIG = {
 
 // Common Keywords
 export const COMMON_KEYWORDS = [
-  "web development",
-  "mobile app development",
   "custom software development",
-  "AI solutions",
-  "machine learning",
-  "cloud computing",
-  "digital transformation",
-  "Kenya web development",
-  "East Africa technology",
-  "Nairobi software company",
+  "enterprise software solutions",
+  "AI solutions for business",
+  "digital transformation services",
+  "intelligent platforms",
+  "automation systems",
+  "cloud-based business solutions",
+  "technology innovation company",
+  "B2B software development",
+  "African technology company"
 ];
+
 
 // Social Media Links
 export const SOCIAL_LINKS = {
@@ -198,7 +200,9 @@ export function generateArticleSchema({
 }
 
 // Generate BreadcrumbList JSON-LD
-export function generateBreadcrumbSchema(items: { name: string; url: string }[]) {
+export function generateBreadcrumbSchema(
+  items: { name: string; url: string }[]
+) {
   return {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
@@ -216,12 +220,12 @@ export function generateServiceSchema({
   name,
   description,
   serviceType,
-  areaServed = "Kenya",
+  areaServed = ["Africa", "Global"]
 }: {
   name: string;
   description: string;
   serviceType: string;
-  areaServed?: string;
+  areaServed?: string[] | string;
 }) {
   return {
     "@context": "https://schema.org",
@@ -241,7 +245,9 @@ export function generateServiceSchema({
 }
 
 // Generate FAQ JSON-LD
-export function generateFAQSchema(faqs: { question: string; answer: string }[]) {
+export function generateFAQSchema(
+  faqs: { question: string; answer: string }[]
+) {
   return {
     "@context": "https://schema.org",
     "@type": "FAQPage",

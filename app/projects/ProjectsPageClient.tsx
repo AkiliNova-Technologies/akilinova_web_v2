@@ -63,12 +63,19 @@ export default function ProjectsPageClient() {
       "@type": "ListItem",
       position: index + 1,
       item: {
-        "@type": "SoftwareApplication",
-        name: project.title,
-        description: project.description,
-        applicationCategory: "BusinessApplication",
-        url: `${SITE_CONFIG.url}/projects/${project.id}`,
-      },
+  "@type": "CreativeWork",
+  name: project.title,
+  description: project.description,
+  url: `${SITE_CONFIG.url}/projects/${project.id}`,
+  about: {
+    "@type": "Service",
+    name: project.serviceType,
+    provider: {
+      "@type": "Organization",
+      name: SITE_CONFIG.name,
+    },
+  },
+}
     })),
   };
 

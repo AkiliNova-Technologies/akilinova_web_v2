@@ -177,29 +177,37 @@ export default function ProjectDetailsPage({
 
   const project = currentProject;
 
-  // Generate SEO schemas when we have a project
-  const projectSchema = project
-    ? {
-        "@context": "https://schema.org",
-        "@type": "SoftwareApplication",
-        name: project.title,
-        description: project.fullDescription,
-        applicationCategory: "BusinessApplication",
-        operatingSystem: "Web, iOS, Android",
-        datePublished: project.launchDate,
-        offers: {
-          "@type": "Offer",
-          price: "0",
-          priceCurrency: "USD",
-        },
-        url: project.liveUrl,
-        creator: {
-          "@type": "Organization",
-          name: SITE_CONFIG.name,
-          url: SITE_CONFIG.url,
-        },
-      }
-    : null;
+  if (loading || !id) {
+    return (
+      <div className="min-h-screen bg-white flex items-center justify-center px-4">
+        <div className="text-center">
+          <div className="inline-block animate-spin rounded-full h-8 w-8 border-b-2 border-[#FF6B00]"></div>
+          <p className="mt-4 text-gray-600 text-sm sm:text-base">
+            Loading project...
+          </p>
+        </div>
+      </div>
+    );
+  }
+
+  if (!project) {
+    return (
+      <div className="min-h-screen bg-white flex items-center justify-center px-4">
+        <div className="text-center">
+          <h1 className="text-2xl sm:text-4xl font-bold text-gray-900 mb-4">
+            Project Not Found
+          </h1>
+          <Link
+            href="/projects"
+            className="text-[#FF6B00] hover:text-[#FF8A33] transition-colors inline-flex items-center gap-2"
+          >
+            <ArrowLeft className="h-4 w-4" />
+            Back to Projects
+          </Link>
+        </div>
+      </div>
+    );
+  }
 
   const breadcrumbSchema = project
     ? {
@@ -228,35 +236,26 @@ export default function ProjectDetailsPage({
       }
     : null;
 
-  if (loading || !id) {
-    return (
-      <div className="min-h-screen bg-white flex items-center justify-center px-4">
-        <div className="text-center">
-          <div className="inline-block animate-spin rounded-full h-8 w-8 border-b-2 border-[#FF6B00]"></div>
-          <p className="mt-4 text-gray-600 text-sm sm:text-base">Loading project...</p>
-        </div>
-      </div>
-    );
-  }
+  const resolvedProject: Project = project;
 
-  if (!project) {
-    return (
-      <div className="min-h-screen bg-white flex items-center justify-center px-4">
-        <div className="text-center">
-          <h1 className="text-2xl sm:text-4xl font-bold text-gray-900 mb-4">
-            Project Not Found
-          </h1>
-          <Link
-            href="/projects"
-            className="text-[#FF6B00] hover:text-[#FF8A33] transition-colors inline-flex items-center gap-2"
-          >
-            <ArrowLeft className="h-4 w-4" />
-            Back to Projects
-          </Link>
-        </div>
-      </div>
-    );
-  }
+  const caseStudySchema = {
+    "@context": "https://schema.org",
+    "@type": "CreativeWork",
+    name: resolvedProject.title,
+    description: resolvedProject.fullDescription,
+    url: `${SITE_CONFIG.url}/projects/${resolvedProject.id}`,
+    creator: {
+      "@type": "Organization",
+      name: SITE_CONFIG.name,
+      url: SITE_CONFIG.url,
+    },
+    about: {
+      "@type": "Service",
+      name: resolvedProject.serviceType,
+    },
+    dateCreated: resolvedProject.createdAt,
+    datePublished: resolvedProject.launchDate,
+  };
 
   return (
     <>
@@ -274,12 +273,11 @@ export default function ProjectDetailsPage({
                 className="flex items-center gap-2 px-3 py-2 rounded-lg text-gray-700 hover:bg-gray-50"
               >
                 <span className="border p-1 rounded-sm border-gray-300 hover:bg-[#FF6B00]">
-
-                {isMobileMenuOpen ? (
-                  <X className="h-4 w-4" />
-                ) : (
-                  <Menu className="h-4 w-4" />
-                )}
+                  {isMobileMenuOpen ? (
+                    <X className="h-4 w-4" />
+                  ) : (
+                    <Menu className="h-4 w-4" />
+                  )}
                 </span>
                 <span className="text-sm font-medium">Menu</span>
               </button>
@@ -287,7 +285,7 @@ export default function ProjectDetailsPage({
                 {activeSection.replace("-", " ")}
               </div>
             </div>
-            
+
             {isMobileMenuOpen && (
               <div className="mt-3 pb-3 animate-slide-down">
                 <nav className="grid grid-cols-2 gap-2">
@@ -329,11 +327,31 @@ export default function ProjectDetailsPage({
                 <div className="bg-gray-50 rounded-xl sm:rounded-2xl p-4 sm:p-6 border border-gray-200 sticky top-8">
                   <nav className="space-y-2">
                     {[
-                      { id: "overview", label: "Project Overview", icon: Target },
-                      { id: "challenges", label: "Challenges & Solutions", icon: Zap },
-                      { id: "technology", label: "Technology Stack", icon: Code },
-                      { id: "impact", label: "Impact & Results", icon: BarChart3 },
-                      { id: "features", label: "Key Features", icon: CheckCircle },
+                      {
+                        id: "overview",
+                        label: "Project Overview",
+                        icon: Target,
+                      },
+                      {
+                        id: "challenges",
+                        label: "Challenges & Solutions",
+                        icon: Zap,
+                      },
+                      {
+                        id: "technology",
+                        label: "Technology Stack",
+                        icon: Code,
+                      },
+                      {
+                        id: "impact",
+                        label: "Impact & Results",
+                        icon: BarChart3,
+                      },
+                      {
+                        id: "features",
+                        label: "Key Features",
+                        icon: CheckCircle,
+                      },
                     ].map((item) => (
                       <button
                         key={item.id}
@@ -358,7 +376,10 @@ export default function ProjectDetailsPage({
                     <div className="space-y-3">
                       <div className="flex items-center gap-2 sm:gap-3 text-sm text-gray-700">
                         <Calendar className="h-4 w-4 text-[#FF6B00] flex-shrink-0" />
-                        <span>Launched: {new Date(project.launchDate).toLocaleDateString()}</span>
+                        <span>
+                          Launched:{" "}
+                          {new Date(project.launchDate).toLocaleDateString()}
+                        </span>
                       </div>
                       <div className="flex items-center gap-2 sm:gap-3 text-sm text-gray-700">
                         <Clock className="h-4 w-4 text-[#FF6B00] flex-shrink-0" />
@@ -411,18 +432,18 @@ export default function ProjectDetailsPage({
       <Footer />
 
       {/* SEO Schemas */}
-      {project && projectSchema && (
+      {resolvedProject && (
         <Script
-          id="project-schema"
+          id="case-study-schema"
           type="application/ld+json"
           strategy="afterInteractive"
           dangerouslySetInnerHTML={{
-            __html: JSON.stringify(projectSchema),
+            __html: JSON.stringify(caseStudySchema),
           }}
         />
       )}
 
-      {project && breadcrumbSchema && (
+      {breadcrumbSchema && (
         <Script
           id="breadcrumb-schema"
           type="application/ld+json"
@@ -477,7 +498,9 @@ const ProjectHeroSection = ({
       <div className="absolute inset-0">
         <div
           className={`absolute top-1/4 -left-10 w-40 h-40 sm:w-56 sm:h-56 md:w-72 md:h-72 bg-gradient-to-r from-[#FF6B00]/15 to-[#FF8A33]/15 rounded-full blur-xl sm:blur-2xl lg:blur-3xl transition-all duration-1000 ${
-            isInView ? "opacity-20 sm:opacity-30 scale-100" : "opacity-0 scale-90"
+            isInView
+              ? "opacity-20 sm:opacity-30 scale-100"
+              : "opacity-0 scale-90"
           }`}
         ></div>
       </div>
@@ -539,7 +562,7 @@ const ProjectHeroSection = ({
               <ExternalLink className="h-4 w-4" />
               Live Demo
             </a>
-            
+
             {/* Mobile Stats - Hidden on desktop */}
             <div className="sm:hidden flex items-center gap-4 text-white/80 text-sm">
               <div className="flex items-center gap-1.5">
@@ -554,7 +577,7 @@ const ProjectHeroSection = ({
           </div>
         </AnimatedHeading>
       </div>
-      
+
       {/* Scroll Indicator - Hidden on mobile */}
       <div
         className={`absolute bottom-4 sm:bottom-8 left-1/2 transform -translate-x-1/2 transition-opacity duration-500 hidden sm:block ${
@@ -590,21 +613,30 @@ const ProjectOverview = ({ project }: { project: Project }) => {
                 Objectives
               </h3>
               <ul className="space-y-2 sm:space-y-3 text-gray-600">
-                {project.objectives?.slice(0, 3).map((objective: string, index: number) => (
-                  <li key={index} className="flex items-start gap-2 text-sm sm:text-base">
-                    <Target className="h-4 w-4 sm:h-5 sm:w-5 text-[#FF6B00] mt-0.5 flex-shrink-0" />
-                    {objective}
-                  </li>
-                )) || [
-                  "Create scalable architecture",
-                  "Ensure high performance",
-                  "Provide excellent UX"
-                ].map((objective, index) => (
-                  <li key={index} className="flex items-start gap-2 text-sm sm:text-base">
-                    <Target className="h-4 w-4 sm:h-5 sm:w-5 text-[#FF6B00] mt-0.5 flex-shrink-0" />
-                    {objective}
-                  </li>
-                ))}
+                {project.objectives
+                  ?.slice(0, 3)
+                  .map((objective: string, index: number) => (
+                    <li
+                      key={index}
+                      className="flex items-start gap-2 text-sm sm:text-base"
+                    >
+                      <Target className="h-4 w-4 sm:h-5 sm:w-5 text-[#FF6B00] mt-0.5 flex-shrink-0" />
+                      {objective}
+                    </li>
+                  )) ||
+                  [
+                    "Create scalable architecture",
+                    "Ensure high performance",
+                    "Provide excellent UX",
+                  ].map((objective, index) => (
+                    <li
+                      key={index}
+                      className="flex items-start gap-2 text-sm sm:text-base"
+                    >
+                      <Target className="h-4 w-4 sm:h-5 sm:w-5 text-[#FF6B00] mt-0.5 flex-shrink-0" />
+                      {objective}
+                    </li>
+                  ))}
               </ul>
             </div>
             <div>
@@ -612,14 +644,16 @@ const ProjectOverview = ({ project }: { project: Project }) => {
                 Technologies
               </h3>
               <div className="flex flex-wrap gap-2">
-                {project.technologies.slice(0, 5).map((tech: string, index: number) => (
-                  <span
-                    key={index}
-                    className="px-2.5 py-1 sm:px-3 sm:py-1.5 bg-gray-100 rounded-full text-xs sm:text-sm text-gray-700 border border-gray-200"
-                  >
-                    {tech}
-                  </span>
-                ))}
+                {project.technologies
+                  .slice(0, 5)
+                  .map((tech: string, index: number) => (
+                    <span
+                      key={index}
+                      className="px-2.5 py-1 sm:px-3 sm:py-1.5 bg-gray-100 rounded-full text-xs sm:text-sm text-gray-700 border border-gray-200"
+                    >
+                      {tech}
+                    </span>
+                  ))}
                 {project.technologies.length > 5 && (
                   <span className="px-2.5 py-1 bg-gray-100 rounded-full text-xs text-gray-500 border border-gray-200">
                     +{project.technologies.length - 5}
@@ -649,21 +683,30 @@ const ChallengesSection = ({ project }: { project: Project }) => {
               Challenges
             </h3>
             <ul className="space-y-2 sm:space-y-3">
-              {project.challenges?.slice(0, 3).map((challenge: string, index: number) => (
-                <li key={index} className="text-gray-600 text-sm sm:text-base flex items-start gap-2">
-                  <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-[#FF6B00] rounded-full mt-2 flex-shrink-0" />
-                  {challenge}
-                </li>
-              )) || [
-                "High traffic scalability requirements",
-                "Complex data processing needs",
-                "Tight project deadlines"
-              ].map((challenge, index) => (
-                <li key={index} className="text-gray-600 text-sm sm:text-base flex items-start gap-2">
-                  <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-[#FF6B00] rounded-full mt-2 flex-shrink-0" />
-                  {challenge}
-                </li>
-              ))}
+              {project.challenges
+                ?.slice(0, 3)
+                .map((challenge: string, index: number) => (
+                  <li
+                    key={index}
+                    className="text-gray-600 text-sm sm:text-base flex items-start gap-2"
+                  >
+                    <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-[#FF6B00] rounded-full mt-2 flex-shrink-0" />
+                    {challenge}
+                  </li>
+                )) ||
+                [
+                  "High traffic scalability requirements",
+                  "Complex data processing needs",
+                  "Tight project deadlines",
+                ].map((challenge, index) => (
+                  <li
+                    key={index}
+                    className="text-gray-600 text-sm sm:text-base flex items-start gap-2"
+                  >
+                    <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-[#FF6B00] rounded-full mt-2 flex-shrink-0" />
+                    {challenge}
+                  </li>
+                ))}
             </ul>
           </div>
           <div>
@@ -672,21 +715,30 @@ const ChallengesSection = ({ project }: { project: Project }) => {
               Solutions
             </h3>
             <ul className="space-y-2 sm:space-y-3">
-              {project.solutions?.slice(0, 3).map((solution: string, index: number) => (
-                <li key={index} className="text-gray-600 text-sm sm:text-base flex items-start gap-2">
-                  <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-[#FF6B00] rounded-full mt-2 flex-shrink-0" />
-                  {solution}
-                </li>
-              )) || [
-                "Implemented microservices architecture",
-                "Used distributed caching system",
-                "Adopted agile development methodology"
-              ].map((solution, index) => (
-                <li key={index} className="text-gray-600 text-sm sm:text-base flex items-start gap-2">
-                  <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-[#FF6B00] rounded-full mt-2 flex-shrink-0" />
-                  {solution}
-                </li>
-              ))}
+              {project.solutions
+                ?.slice(0, 3)
+                .map((solution: string, index: number) => (
+                  <li
+                    key={index}
+                    className="text-gray-600 text-sm sm:text-base flex items-start gap-2"
+                  >
+                    <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-[#FF6B00] rounded-full mt-2 flex-shrink-0" />
+                    {solution}
+                  </li>
+                )) ||
+                [
+                  "Implemented microservices architecture",
+                  "Used distributed caching system",
+                  "Adopted agile development methodology",
+                ].map((solution, index) => (
+                  <li
+                    key={index}
+                    className="text-gray-600 text-sm sm:text-base flex items-start gap-2"
+                  >
+                    <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-[#FF6B00] rounded-full mt-2 flex-shrink-0" />
+                    {solution}
+                  </li>
+                ))}
             </ul>
           </div>
         </div>
@@ -717,19 +769,23 @@ const TechnologySection = ({ project }: { project: Project }) => {
         </h2>
 
         <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 gap-3 sm:gap-4 md:gap-6 mb-6 sm:mb-8">
-          {project.technologies.slice(0, 6).map((tech: string, index: number) => (
-            <div
-              key={index}
-              className="bg-gray-50 rounded-lg sm:rounded-xl p-3 sm:p-4 border border-gray-200 flex items-center gap-2 sm:gap-3 transition-all duration-200 hover:scale-102 hover:bg-gray-100"
-            >
-              <div className="text-[#FF6B00]">
-                {stackIcons[tech] || <Code className="h-5 w-5 sm:h-6 sm:w-6" />}
+          {project.technologies
+            .slice(0, 6)
+            .map((tech: string, index: number) => (
+              <div
+                key={index}
+                className="bg-gray-50 rounded-lg sm:rounded-xl p-3 sm:p-4 border border-gray-200 flex items-center gap-2 sm:gap-3 transition-all duration-200 hover:scale-102 hover:bg-gray-100"
+              >
+                <div className="text-[#FF6B00]">
+                  {stackIcons[tech] || (
+                    <Code className="h-5 w-5 sm:h-6 sm:w-6" />
+                  )}
+                </div>
+                <span className="text-gray-900 font-medium text-sm sm:text-base truncate">
+                  {tech}
+                </span>
               </div>
-              <span className="text-gray-900 font-medium text-sm sm:text-base truncate">
-                {tech}
-              </span>
-            </div>
-          ))}
+            ))}
           {project.technologies.length > 6 && (
             <div className="bg-gray-50 rounded-lg sm:rounded-xl p-3 sm:p-4 border border-gray-200 flex items-center justify-center">
               <span className="text-gray-500 text-sm sm:text-base">
@@ -745,7 +801,8 @@ const TechnologySection = ({ project }: { project: Project }) => {
               Frontend Architecture
             </h3>
             <p className="text-gray-600 text-sm sm:text-base leading-relaxed">
-              {project.stackExplanation?.frontend || "Modern React-based SPA with TypeScript and Tailwind CSS."}
+              {project.stackExplanation?.frontend ||
+                "Modern React-based SPA with TypeScript and Tailwind CSS."}
             </p>
           </div>
           <div>
@@ -753,7 +810,8 @@ const TechnologySection = ({ project }: { project: Project }) => {
               Backend Infrastructure
             </h3>
             <p className="text-gray-600 text-sm sm:text-base leading-relaxed">
-              {project.stackExplanation?.backend || "Node.js with Express, MongoDB, and Redis caching."}
+              {project.stackExplanation?.backend ||
+                "Node.js with Express, MongoDB, and Redis caching."}
             </p>
           </div>
         </div>
@@ -777,21 +835,26 @@ const ImpactSection = ({ project }: { project: Project }) => {
               className="bg-gray-50 rounded-lg sm:rounded-xl p-4 sm:p-6 border border-gray-200 transition-all duration-200 hover:scale-102 hover:bg-gray-100"
             >
               <TrendingUp className="h-6 w-6 sm:h-8 sm:w-8 text-[#FF6B00] mx-auto mb-2 sm:mb-3" />
-              <p className="text-gray-900 text-xs sm:text-sm text-center">{result}</p>
+              <p className="text-gray-900 text-xs sm:text-sm text-center">
+                {result}
+              </p>
             </div>
-          )) || [
-            "50% increase in user engagement",
-            "90% reduction in loading time",
-            "Scaled to handle 10x more traffic"
-          ].map((result, index) => (
-            <div
-              key={index}
-              className="bg-gray-50 rounded-lg sm:rounded-xl p-4 sm:p-6 border border-gray-200 transition-all duration-200 hover:scale-102 hover:bg-gray-100"
-            >
-              <TrendingUp className="h-6 w-6 sm:h-8 sm:w-8 text-[#FF6B00] mx-auto mb-2 sm:mb-3" />
-              <p className="text-gray-900 text-xs sm:text-sm text-center">{result}</p>
-            </div>
-          ))}
+          )) ||
+            [
+              "50% increase in user engagement",
+              "90% reduction in loading time",
+              "Scaled to handle 10x more traffic",
+            ].map((result, index) => (
+              <div
+                key={index}
+                className="bg-gray-50 rounded-lg sm:rounded-xl p-4 sm:p-6 border border-gray-200 transition-all duration-200 hover:scale-102 hover:bg-gray-100"
+              >
+                <TrendingUp className="h-6 w-6 sm:h-8 sm:w-8 text-[#FF6B00] mx-auto mb-2 sm:mb-3" />
+                <p className="text-gray-900 text-xs sm:text-sm text-center">
+                  {result}
+                </p>
+              </div>
+            ))}
         </div>
       </div>
     </AnimatedCard>
@@ -807,28 +870,35 @@ const FeaturesSection = ({ project }: { project: Project }) => {
           Key Features
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4 md:gap-6">
-          {project.keyFeatures?.slice(0, 4).map((feature: string, index: number) => (
-            <div
-              key={index}
-              className="bg-gray-50 rounded-lg sm:rounded-xl p-3 sm:p-4 border border-gray-200 flex items-start gap-2 sm:gap-3 transition-all duration-200 hover:scale-102 hover:bg-gray-100"
-            >
-              <CheckCircle className="h-4 w-4 sm:h-5 sm:w-5 text-[#FF6B00] mt-0.5 flex-shrink-0" />
-              <span className="text-gray-900 text-sm sm:text-base">{feature}</span>
-            </div>
-          )) || [
-            "Real-time data synchronization",
-            "Advanced analytics dashboard",
-            "Multi-platform support",
-            "Enterprise-grade security"
-          ].map((feature, index) => (
-            <div
-              key={index}
-              className="bg-gray-50 rounded-lg sm:rounded-xl p-3 sm:p-4 border border-gray-200 flex items-start gap-2 sm:gap-3 transition-all duration-200 hover:scale-102 hover:bg-gray-100"
-            >
-              <CheckCircle className="h-4 w-4 sm:h-5 sm:w-5 text-[#FF6B00] mt-0.5 flex-shrink-0" />
-              <span className="text-gray-900 text-sm sm:text-base">{feature}</span>
-            </div>
-          ))}
+          {project.keyFeatures
+            ?.slice(0, 4)
+            .map((feature: string, index: number) => (
+              <div
+                key={index}
+                className="bg-gray-50 rounded-lg sm:rounded-xl p-3 sm:p-4 border border-gray-200 flex items-start gap-2 sm:gap-3 transition-all duration-200 hover:scale-102 hover:bg-gray-100"
+              >
+                <CheckCircle className="h-4 w-4 sm:h-5 sm:w-5 text-[#FF6B00] mt-0.5 flex-shrink-0" />
+                <span className="text-gray-900 text-sm sm:text-base">
+                  {feature}
+                </span>
+              </div>
+            )) ||
+            [
+              "Real-time data synchronization",
+              "Advanced analytics dashboard",
+              "Multi-platform support",
+              "Enterprise-grade security",
+            ].map((feature, index) => (
+              <div
+                key={index}
+                className="bg-gray-50 rounded-lg sm:rounded-xl p-3 sm:p-4 border border-gray-200 flex items-start gap-2 sm:gap-3 transition-all duration-200 hover:scale-102 hover:bg-gray-100"
+              >
+                <CheckCircle className="h-4 w-4 sm:h-5 sm:w-5 text-[#FF6B00] mt-0.5 flex-shrink-0" />
+                <span className="text-gray-900 text-sm sm:text-base">
+                  {feature}
+                </span>
+              </div>
+            ))}
         </div>
       </div>
     </AnimatedCard>

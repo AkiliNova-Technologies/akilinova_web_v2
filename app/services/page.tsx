@@ -7,11 +7,17 @@ import ServicesSection from "@/components/services/ServicesSection";
 import WhyChooseUsSection from "@/components/services/WhyChooseUsSection";
 import Script from "next/script";
 import { Metadata } from "next";
-import { SITE_CONFIG, COMMON_KEYWORDS, SERVICE_KEYWORDS, generateServiceSchema } from "@/lib/seo-utils";
+import {
+  SITE_CONFIG,
+  COMMON_KEYWORDS,
+  SERVICE_KEYWORDS,
+  generateServiceSchema,
+} from "@/lib/seo-utils";
 
 export const metadata: Metadata = {
-  title: `Services - ${SITE_CONFIG.name} | Web, Mobile & AI Development`,
-  description: `Comprehensive technology services including web development, mobile apps, AI solutions, and cloud computing. ${SITE_CONFIG.name} delivers cutting-edge solutions for businesses across Africa.`,
+  title: `Software Development & AI Solutions for Businesses | ${SITE_CONFIG.name}`,
+  description: `End-to-end software development, AI solutions, cloud systems, and emerging technologies designed to solve complex business challenges and scale operations.
+. ${SITE_CONFIG.name} delivers cutting-edge solutions for businesses across Africa.`,
   keywords: [
     ...COMMON_KEYWORDS,
     ...SERVICE_KEYWORDS.web,
@@ -27,7 +33,8 @@ export const metadata: Metadata = {
   ],
   openGraph: {
     title: `Technology Services - ${SITE_CONFIG.name}`,
-    description: "Web development, mobile apps, AI solutions, and cloud services for African businesses",
+    description:
+      "Web development, mobile apps, AI solutions, and cloud services for African businesses",
     url: `${SITE_CONFIG.url}/services`,
     type: "website",
     siteName: SITE_CONFIG.name,
@@ -60,30 +67,33 @@ export default function Services() {
   // Service schemas for all offerings
   const webDevSchema = generateServiceSchema({
     name: "Web Development",
-    description: "Custom web applications, e-commerce platforms, and progressive web apps using modern technologies",
+    description:
+      "We build secure, scalable web applications and platforms tailored to business workflows, performance, and long-term growth.",
     serviceType: "Web Development",
-    areaServed: "Uganda",
+    areaServed: ["Africa", "Global"],
   });
 
   const mobileDevSchema = generateServiceSchema({
     name: "Mobile App Development",
-    description: "Native and cross-platform mobile applications for iOS and Android",
+    description:
+      "Native and cross-platform mobile applications for iOS and Android",
     serviceType: "Mobile Application Development",
-    areaServed: "Uganda",
+    areaServed: ["Africa", "Global"],
   });
 
   const aiSolutionsSchema = generateServiceSchema({
     name: "AI & Machine Learning Solutions",
-    description: "Artificial intelligence, machine learning, and data analytics solutions",
+    description:
+      "Artificial intelligence, machine learning, and data analytics solutions",
     serviceType: "Artificial Intelligence Services",
-    areaServed: "Uganda",
+    areaServed: ["Africa", "Global"],
   });
 
   const cloudServicesSchema = generateServiceSchema({
     name: "Cloud Computing Services",
     description: "Cloud migration, infrastructure setup, and DevOps solutions",
     serviceType: "Cloud Computing Services",
-    areaServed: "Uganda",
+    areaServed: ["Africa", "Global"],
   });
 
   // Service catalog schema
@@ -175,7 +185,7 @@ export default function Services() {
       <WhyChooseUsSection />
       <IndustriesWeServeSection />
       <Footer />
-      
+
       {/* Structured Data - Web Development Service */}
       <Script
         id="web-dev-schema"
@@ -185,7 +195,7 @@ export default function Services() {
           __html: JSON.stringify(webDevSchema),
         }}
       />
-      
+
       {/* Structured Data - Mobile Development Service */}
       <Script
         id="mobile-dev-schema"
@@ -195,7 +205,7 @@ export default function Services() {
           __html: JSON.stringify(mobileDevSchema),
         }}
       />
-      
+
       {/* Structured Data - AI Solutions Service */}
       <Script
         id="ai-solutions-schema"
@@ -205,7 +215,7 @@ export default function Services() {
           __html: JSON.stringify(aiSolutionsSchema),
         }}
       />
-      
+
       {/* Structured Data - Cloud Services */}
       <Script
         id="cloud-services-schema"
@@ -215,7 +225,7 @@ export default function Services() {
           __html: JSON.stringify(cloudServicesSchema),
         }}
       />
-      
+
       {/* Structured Data - Service Catalog */}
       <Script
         id="service-catalog-schema"
@@ -225,7 +235,7 @@ export default function Services() {
           __html: JSON.stringify(serviceCatalogSchema),
         }}
       />
-      
+
       {/* Structured Data - Breadcrumb */}
       <Script
         id="breadcrumb-schema"

@@ -78,7 +78,7 @@ export default function ContactPage() {
           email: SITE_CONFIG.email,
           contactType: "Customer Service",
           availableLanguage: ["English"],
-          areaServed: ["UG", "KE", "TZ", "RW"],
+          areaServed: ["Africa", "Global"]
         },
         {
           "@type": "ContactPoint",

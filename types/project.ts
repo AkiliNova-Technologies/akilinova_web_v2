@@ -8,6 +8,7 @@ export interface Project {
   technologies: string[];
   image: string;
   liveUrl?: string;
+  serviceType?: string;
   githubUrl?: string;
   gradient: string;
   timeline: string;
