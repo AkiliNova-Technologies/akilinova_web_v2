@@ -3,77 +3,69 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import StoreProvider from "./StoreProvider";
 
-
 const inter = Inter({
   subsets: ["latin"],
   display: "optional",
   variable: "--font-inter",
-  weight: ["400", "600", "700"], 
+  weight: ["400", "600", "700"],
   preload: true,
   fallback: ["system-ui", "Arial", "sans-serif"],
-  adjustFontFallback: true, 
+  adjustFontFallback: true,
 });
 
 // Comprehensive metadata for better SEO
 export const metadata: Metadata = {
   // Basic Metadata
   title: {
-    default: "AkiliNova Technologies - Expert Web & Mobile Development Solutions in Africa",
+    default:
+      "AkiliNova Technologies | Web & Mobile App Development Company in Africa",
     template: "%s | AkiliNova Technologies - Solutions",
   },
   description:
-    "AkiliNova Technologies delivers cutting-edge web development, mobile apps, AI solutions, and cloud services for businesses across Africa. Transform your digital presence with our expert team in Kenya and East Africa.",
-  
+    "AkiliNova Technologies is a leading web and mobile app development company in Africa. We build custom software, AI-powered systems, and cloud applications for startups and enterprises.",
+
   // Enhanced Keywords
   keywords: [
-    // Core Services
-    "web development",
-    "mobile app development",
-    "custom software development",
-    "AI solutions",
-    "machine learning",
-    "cloud computing",
-    "digital transformation",
-    
-    // Geographic
-    "Kenya web development",
-    "East Africa technology",
-    "Nairobi software company",
-    "African tech solutions",
-    "Uganda web development",
-    "Tanzania software development",
-    
-    // Technologies
-    "React development",
-    "Next.js development",
-    "Node.js development",
-    "React Native apps",
-    "Python development",
-    "TypeScript development",
-    
-    // Industry-Specific
-    "e-commerce development",
-    "healthcare technology",
-    "fintech solutions",
-    "logistics software",
-    "education technology",
-    "SaaS development",
-    
-    // Business Focus
-    "enterprise software",
-    "startup technology partner",
-    "business automation",
-    "API development",
-    "progressive web apps",
-    "mobile-first development",
+    // Brand (VERY IMPORTANT)
+    "AkiliNova Technologies",
+    "AkiliNova Tech",
+    "AkiliNova software company",
+
+    // Core Services (commercial intent)
+    "custom web development company",
+    "mobile app development company",
+    "enterprise software development",
+    "AI software development services",
+    "cloud application development",
+    "business automation software",
+
+    // Regional Authority (pick your REAL market)
+    "software development company in Uganda",
+    "web development company Kampala",
+    "mobile app developers in Uganda",
+    "African software development company",
+    "East Africa technology partner",
+
+    // Technologies (buyer-focused, not generic)
+    "Next.js development company",
+    "React web development services",
+    "Node.js backend development",
+    "React Native mobile app developers",
+    "cloud-native application development",
+
+    // Use-case driven (search intent)
+    "custom business software solutions",
+    "startup MVP development Africa",
+    "enterprise digital transformation Africa",
+    "API development services Africa",
   ],
 
   // Authors and Creator
   authors: [
-    { 
+    {
       name: "AkiliNova Technology Solutions",
-      url: "https://akilinovatech.com"
-    }
+      url: "https://akilinovatech.com",
+    },
   ],
   creator: "AkiliNova Technologies",
   publisher: "AkiliNova Technology Solutions",
@@ -94,12 +86,13 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: "https://akilinovatech.com",
     siteName: "AkiliNova Technologies",
-    title: "AkiliNova Technologies - Expert Web & Mobile Development Solutions in Africa",
+    title:
+      "AkiliNova Technologies - Expert Web & Mobile Development Solutions in Africa",
     description:
       "Leading technology partner for African businesses. We deliver custom web applications, mobile apps, AI solutions, and cloud services that drive business growth and digital transformation.",
     images: [
       {
-        url: "https://akilinovatech.com/og-image.png", 
+        url: "https://akilinovatech.com/og-image.png",
         width: 1200,
         height: 630,
         alt: "AkiliNova Technologies - Solutions for Africa",
@@ -188,22 +181,19 @@ export const metadata: Metadata = {
     "contact:email": "info@akilinovatechnologies.com",
     "contact:phone": "+256-789-874-647",
     "contact:address": "Kampala, Uganda",
-    
+
     // Geographic
     "geo.region": "UG",
     "geo.placename": "Kampala",
-    
+
     // Rating
-    "rating": "general",
-    
-    // Revisit
-    "revisit-after": "7 days",
-    
+    rating: "general",
+
     // Language
-    "language": "English",
-    
+    language: "English",
+
     // Copyright
-    "copyright": `© ${new Date().getFullYear()} AkiliNova Technologies. All rights reserved.`,
+    copyright: `© ${new Date().getFullYear()} AkiliNova Technologies. All rights reserved.`,
   },
 };
 
@@ -217,22 +207,35 @@ export default function RootLayout({
       <head>
         {/* Additional SEO Enhancements */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        
+        <link
+          rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossOrigin="anonymous"
+        />
+
         {/* DNS Prefetch for Performance */}
         <link rel="dns-prefetch" href="https://www.google-analytics.com" />
-        
+
         {/* Canonical URL - Important for SEO */}
         <link rel="canonical" href="https://akilinovatech.com" />
-        
+
+        {/* Google Search Console Verification */}
+        <meta
+          name="google-site-verification"
+          content="Qphz0wWnP-Nk7SL26MpKwfE49KJheIJValWqYhULeQI"
+        />
+
         {/* Theme Color for Mobile Browsers */}
-        <meta name="theme-color" content="#FF6B00" /> 
+        <meta name="theme-color" content="#FF6B00" />
         <meta name="msapplication-TileColor" content="#122A44" />
-        
+
         {/* Apple Mobile Web App */}
         <meta name="apple-mobile-web-app-capable" content="yes" />
-        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-        
+        <meta
+          name="apple-mobile-web-app-status-bar-style"
+          content="black-translucent"
+        />
+
         {/* Structured Data (JSON-LD) for Rich Snippets */}
         <script
           type="application/ld+json"
@@ -307,8 +310,7 @@ export default function RootLayout({
                   itemOffered: {
                     "@type": "Service",
                     name: "Mobile App Development",
-                    description:
-                      "iOS and Android mobile applications",
+                    description: "iOS and Android mobile applications",
                   },
                 },
                 {
@@ -336,7 +338,8 @@ export default function RootLayout({
               url: "https://akilinovatech.com",
               potentialAction: {
                 "@type": "SearchAction",
-                target: "https://akilinovatech.com/search?q={search_term_string}",
+                target:
+                  "https://akilinovatech.com/search?q={search_term_string}",
                 "query-input": "required name=search_term_string",
               },
             }),
