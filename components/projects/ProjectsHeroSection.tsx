@@ -114,12 +114,15 @@ export default function ProjectsHeroSection({
       {/* Scroll Indicator - Optimized for mobile */}
       <div className="absolute bottom-4 sm:bottom-6 md:bottom-8 left-1/2 transform -translate-x-1/2">
         <div className="flex flex-col items-center gap-1.5 sm:gap-2">
-          <div className={`animate-bounce transition-opacity duration-500 ${isInView ? 'opacity-100' : 'opacity-0'}`}>
-            <div className="w-5 h-8 sm:w-6 sm:h-10 py-1.5 border border-gray-300 rounded-full flex justify-center">
+          <div
+            className={`animate-bounce transition-opacity duration-500 ${
+              isInView ? "opacity-100" : "opacity-0"
+            }`}
+          >
+            <div className="w-5 h-8 sm:w-6 sm:h-10 border border-gray-300 rounded-full flex justify-center">
               <div className="w-1 h-2.5 sm:h-3 bg-[#FF6B00] rounded-full mt-1.5 sm:mt-2 animate-pulse" />
             </div>
           </div>
-          <span className="text-xs text-gray-400 hidden sm:block">Scroll to explore</span>
         </div>
       </div>
 

@@ -66,7 +66,7 @@ export default function BlogCard({ blog, index }: BlogCardProps) {
       bg-white rounded-xl sm:rounded-2xl border border-gray-200
       hover:border-[#FF6B00]/50 transition-all duration-300 
       group overflow-hidden flex flex-col h-full
-      hover:-translate-y-0.5 sm:hover:-translate-y-1 shadow-sm hover:shadow-md sm:hover:shadow-lg
+      hover:-translate-y-0.5 sm:hover:-translate-y-1 shadow-xs hover:shadow-md sm:hover:shadow-lg
     ">
       {/* Blog Image */}
       <div className="relative h-40 sm:h-48 overflow-hidden shrink-0">

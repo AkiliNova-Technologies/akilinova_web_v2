@@ -157,7 +157,7 @@ export default function ProjectsFilterSection({
           {/* Horizontal scrollable container */}
           <div
             ref={containerRef}
-            className="flex gap-2 overflow-x-auto pb-3 scrollbar-hide"
+            className="flex gap-2 overflow-x-auto py-3 px-2 scrollbar-hide"
             onScroll={checkScroll}
             onTouchStart={handleTouchStart}
             style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}

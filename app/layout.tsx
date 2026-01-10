@@ -63,7 +63,7 @@ export const metadata: Metadata = {
   // Authors and Creator
   authors: [
     {
-      name: "AkiliNova Technology Solutions",
+      name: "AkiliNova Technologies",
       url: "https://akilinovatech.com",
     },
   ],

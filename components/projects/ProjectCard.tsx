@@ -137,7 +137,7 @@ export default function ProjectCard({
       className={`
         bg-white rounded-xl sm:rounded-2xl border border-gray-200 
         transition-all duration-200 group overflow-hidden flex flex-col h-full
-        shadow-sm hover:shadow-md sm:hover:shadow-lg hover:border-[#FF6B00]/30
+        shadow-xs hover:shadow-md sm:hover:shadow-lg hover:border-[#FF6B00]/30
         cursor-pointer active:scale-[0.995] sm:active:scale-100
         ${isHovered ? "border-[#FF6B00]/30 shadow-md sm:shadow-lg" : ""}
         ${isTouched ? "bg-gray-50" : ""}

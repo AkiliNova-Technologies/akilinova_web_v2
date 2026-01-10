@@ -36,11 +36,11 @@ export const COMMON_KEYWORDS = [
 
 // Social Media Links
 export const SOCIAL_LINKS = {
-  linkedin: "https://www.linkedin.com/company/akilinovatech",
+  linkedin: "https://www.linkedin.com/company/akilinova-technologies?trk=blended-typeahead",
   twitter: "https://twitter.com/akilinovatech",
   github: "https://github.com/akilinovatech",
-  facebook: "https://www.facebook.com/akilinovatech",
-  instagram: "https://www.instagram.com/akilinovatech",
+  facebook: "https://www.facebook.com/people/AkiliNova-Technologies/61577379476873/",
+  instagram: "https://www.instagram.com/akilinova_technologies?igsh=N2FmZWd4Y3RoMTlu",
 };
 
 // Service-Specific Keywords
