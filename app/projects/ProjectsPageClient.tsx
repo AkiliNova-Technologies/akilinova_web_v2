@@ -27,7 +27,7 @@ export default function ProjectsPageClient() {
   // Calculate project counts
   const projectCounts = {
     all: dummyProjects.length,
-    web: dummyProjects.filter((p) => p.category === "web").length,
+    website: dummyProjects.filter((p) => p.category === "website").length,
     "web-app": dummyProjects.filter((p) => p.category === "web-app").length,
     mobile: dummyProjects.filter((p) => p.category === "mobile").length,
     ecommerce: dummyProjects.filter((p) => p.category === "ecommerce").length,

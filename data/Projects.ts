@@ -917,5 +917,236 @@ export const dummyProjects: Project[] = [
     featured: true,
     createdAt: "2024-01-10T00:00:00Z",
     updatedAt: "2024-11-05T00:00:00Z",
-  }
+  },
+  {
+  id: "16",
+  title: "Wellness Booking & Brand Platform - Serenova",
+  status: "Completed",
+  category: "website",
+  description:
+    "Luxury wellness brand platform with appointment scheduling, service management, automated notifications, and immersive brand storytelling experience.",
+  fullDescription:
+    "Serenova is a premium wellness and spa brand platform designed to deliver tranquility through technology. The system combines elegant brand presentation with robust booking infrastructure. Clients can explore services, book consultations, purchase wellness packages, and manage appointments seamlessly. The admin dashboard enables service configuration, therapist scheduling, automated reminders via SMS and email, analytics tracking, and customer relationship management. Built with performance and aesthetic precision, the platform balances emotional storytelling with operational efficiency.",
+  technologies: ["Next.js", "TypeScript", "Node.js", "PostgreSQL", "Prisma", "Stripe", "Twilio", "AWS"],
+  image: "https://images.unsplash.com/photo-1544161515-4ab6ce6db874?w=1200&h=630&fit=crop",
+  liveUrl: "https://serenovawellness.netlify.app",
+  githubUrl: "https://github.com/akilinova/serenova",
+  gradient: "from-[#1F2B2E] to-[#0F1719]",
+  timeline: "4 months",
+  teamSize: "3 developers + 1 brand strategist",
+  launchDate: "2025-01-10",
+  challenges: [
+    "Balancing luxury brand aesthetics with high-performance web architecture",
+    "Building flexible scheduling with therapist availability constraints",
+    "Ensuring reliable automated reminders and booking confirmations",
+  ],
+  solutions: [
+    "Implemented modular service management with dynamic time-slot allocation",
+    "Integrated Stripe for deposits and full-service payments",
+    "Used Twilio for automated SMS reminders and booking confirmations",
+  ],
+  impact: [
+    "Reduced manual booking workload by 80%",
+    "Increased consultation bookings by 45% within 3 months",
+    "Improved brand perception and digital presence significantly",
+  ],
+  stackExplanation: {
+    frontend: "Next.js enabled high-performance SSR with immersive brand visuals.",
+    backend: "Node.js with Prisma ensured reliable scheduling and booking workflows.",
+    infrastructure: "AWS deployment with secure database hosting and scalable architecture.",
+  },
+  keyFeatures: [
+    "Online consultation booking",
+    "Automated SMS & email reminders",
+    "Service & package management",
+    "Admin analytics dashboard",
+    "Luxury brand storytelling UI",
+  ],
+  featured: true,
+  createdAt: "2024-09-01T00:00:00Z",
+  updatedAt: "2025-01-10T00:00:00Z",
+},
+{
+  id: "17",
+  title: "Real Estate & Architecture Showcase - Archeon",
+  status: "Completed",
+  category: "website",
+  description:
+    "Premium property consultancy and architectural showcase platform combining portfolio presentation, property listings, and client acquisition funnels.",
+  fullDescription:
+    "Archeon is a high-end property consultancy and architectural brand platform crafted to position the firm as a visionary force in real estate and design. The system features immersive project portfolios, interactive property listings, inquiry funnels, consultation booking, and lead management. It emphasizes elegance, trust, and strategic positioning for luxury real estate markets.",
+  technologies: ["Next.js", "TypeScript", "Node.js", "MongoDB", "Prisma", "AWS", "Cloudinary"],
+  image: "https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=1200&h=630&fit=crop",
+  liveUrl: "https://archeon-agency.netlify.app",
+  githubUrl: "https://github.com/akilinova/archeon",
+  gradient: "from-[#1A1F2B] to-[#0C0F14]",
+  timeline: "5 months",
+  teamSize: "4 developers + 1 architect consultant",
+  launchDate: "2025-02-15",
+  challenges: [
+    "Designing immersive property showcases without compromising performance",
+    "Managing high-resolution architectural media assets",
+    "Creating structured lead capture funnels for high-value clients",
+  ],
+  solutions: [
+    "Optimized image delivery using Cloudinary transformations",
+    "Implemented dynamic property filtering with server-side rendering",
+    "Built CRM-ready lead intake system for seamless sales follow-up",
+  ],
+  impact: [
+    "Generated 3x increase in qualified property inquiries",
+    "Improved brand authority positioning in luxury real estate market",
+    "Reduced manual follow-up time by 60%",
+  ],
+  stackExplanation: {
+    frontend: "Next.js SSR ensures SEO dominance for property listings.",
+    backend: "Node.js with MongoDB supports flexible property data schemas.",
+    infrastructure: "AWS hosting with Cloudinary for optimized media management.",
+  },
+  keyFeatures: [
+    "Interactive property listings",
+    "Architectural project portfolio",
+    "Consultation booking funnel",
+    "Lead management dashboard",
+    "SEO-optimized property pages",
+  ],
+  featured: true,
+  createdAt: "2024-10-05T00:00:00Z",
+  updatedAt: "2025-02-15T00:00:00Z",
+},
+{
+  id: "18",
+  title: "Luxury Interior & Exterior Design Platform - Aureon",
+  status: "Completed",
+  category: "website",
+  description:
+    "High-end design studio website combining immersive storytelling, service presentation, and project showcase galleries.",
+  fullDescription:
+    "Aureon represents a modern luxury design studio specializing in interior and exterior architecture. The digital platform merges bold typography, immersive visuals, and strategic brand storytelling to reflect refinement and precision. It includes project galleries, service breakdowns, brand narrative sections, consultation booking, and a lightweight CMS for content updates.",
+  technologies: ["Next.js", "TypeScript", "Node.js", "PostgreSQL", "Prisma", "AWS S3"],
+  image: "https://images.unsplash.com/photo-1493809842364-78817add7ffb?w=1200&h=630&fit=crop",
+  liveUrl: "https://aureon-store.netlify.app",
+  githubUrl: "https://github.com/akilinova/aureon",
+  gradient: "from-[#2C1F17] to-[#140E0B]",
+  timeline: "4 months",
+  teamSize: "3 developers + 1 brand director",
+  launchDate: "2025-01-28",
+  challenges: [
+    "Maintaining visual richness while preserving performance metrics",
+    "Designing typography-driven layout with fluid responsiveness",
+  ],
+  solutions: [
+    "Used image lazy loading and CDN optimization",
+    "Built modular CMS components for content scalability",
+  ],
+  impact: [
+    "Increased consultation requests by 55%",
+    "Strengthened brand differentiation in competitive luxury market",
+  ],
+  stackExplanation: {
+    frontend: "Next.js for high-performance luxury web experience.",
+    backend: "Prisma with PostgreSQL ensures reliable content management.",
+  },
+  keyFeatures: [
+    "Immersive project galleries",
+    "Consultation request forms",
+    "Brand storytelling sections",
+    "CMS-based content editing",
+  ],
+  featured: false,
+  createdAt: "2024-09-20T00:00:00Z",
+  updatedAt: "2025-01-28T00:00:00Z",
+},
+{
+  id: "19",
+  title: "Early Learning Academy Website - BrightNest",
+  status: "Completed",
+  category: "website",
+  description:
+    "Modern preschool website featuring admissions system, parent communication tools, and curriculum showcase.",
+  fullDescription:
+    "BrightNest is a digital platform built for an early childhood education academy. It combines warmth, safety, and structured learning presentation. The platform includes admissions applications, curriculum overview, teacher profiles, event announcements, and parent communication portal. SEO optimization ensures discoverability for local parents searching for quality early learning institutions.",
+  technologies: ["Next.js", "TypeScript", "Node.js", "MongoDB", "AWS"],
+  image: "https://images.unsplash.com/photo-1509062522246-3755977927d7?w=1200&h=630&fit=crop",
+  liveUrl: "https://brightnestacademy.netlify.app",
+  githubUrl: "https://github.com/akilinova/brightnest",
+  gradient: "from-[#2A3B59] to-[#121D2E]",
+  timeline: "3 months",
+  teamSize: "2 developers + 1 education consultant",
+  launchDate: "2024-12-12",
+  challenges: [
+    "Creating child-friendly design without losing professional credibility",
+    "Implementing structured admissions workflow",
+  ],
+  solutions: [
+    "Built multi-step admissions form with validation",
+    "Implemented SEO schema markup for local search visibility",
+  ],
+  impact: [
+    "Increased admissions inquiries by 70%",
+    "Improved online visibility within first 2 months",
+  ],
+  stackExplanation: {
+    frontend: "Next.js ensures SEO optimization and fast page loads.",
+    backend: "Node.js API handles admissions and event management.",
+  },
+  keyFeatures: [
+    "Online admissions application",
+    "Curriculum showcase",
+    "Event announcements",
+    "Parent communication portal",
+  ],
+  featured: false,
+  createdAt: "2024-08-10T00:00:00Z",
+  updatedAt: "2024-12-12T00:00:00Z",
+},
+{
+  id: "20",
+  title: "Corporate Technology Company Website - NovaCore",
+  status: "Completed",
+  category: "website",
+  description:
+    "Enterprise technology company website showcasing services, case studies, and innovation-driven brand positioning.",
+  fullDescription:
+    "NovaCore Technologies is a corporate digital platform built to position a forward-thinking technology firm at the forefront of innovation. The system includes service breakdowns, portfolio case studies, blog CMS, testimonial management, event announcements, and investor-ready presentation pages. Designed with a bold, modern aesthetic, the platform communicates precision, intelligence, and scalability.",
+  technologies: ["Next.js", "TypeScript", "Node.js", "PostgreSQL", "Prisma", "AWS", "Docker"],
+  image: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=1200&h=630&fit=crop",
+  liveUrl: "https://novacore.akilinova.com",
+  githubUrl: "https://github.com/akilinova/novacore",
+  gradient: "from-[#0F1C2E] to-[#050A12]",
+  timeline: "5 months",
+  teamSize: "4 developers + 1 content strategist",
+  launchDate: "2025-02-01",
+  challenges: [
+    "Positioning brand authority through digital storytelling",
+    "Designing modular CMS for blog, portfolio, and testimonials",
+  ],
+  solutions: [
+    "Built reusable CMS-driven sections for scalable content management",
+    "Optimized technical SEO and performance scoring above 95%",
+  ],
+  impact: [
+    "Increased inbound leads by 60%",
+    "Strengthened enterprise client trust and positioning",
+  ],
+  stackExplanation: {
+    frontend: "Next.js with SSR for SEO-heavy corporate presence.",
+    backend: "Prisma + PostgreSQL ensures structured, scalable data handling.",
+    infrastructure: "Dockerized deployment on AWS for scalability.",
+  },
+  keyFeatures: [
+    "Service breakdown pages",
+    "Case study portfolio",
+    "Blog CMS",
+    "Testimonial management",
+    "Event and offer management",
+  ],
+  featured: true,
+  createdAt: "2024-09-15T00:00:00Z",
+  updatedAt: "2025-02-01T00:00:00Z",
+}
+
+
+
+
 ];

@@ -23,7 +23,7 @@ export default function ProjectsFilterSection({
   onCategoryChange,
   categories = [
     { id: "all", label: "All Projects", shortLabel: "All" },
-    { id: "web", label: "Websites", shortLabel: "Websites" },
+    { id: "website", label: "Websites", shortLabel: "Websites" },
     { id: "web-app", label: "Web Apps", shortLabel: "Web Apps" },
     { id: "mobile", label: "Mobile Apps", shortLabel: "Mobile Apps" },
     { id: "ecommerce", label: "E-Commerce", shortLabel: "E-Commerce" },
@@ -33,7 +33,7 @@ export default function ProjectsFilterSection({
   showCount = true,
   projectCounts = {
     all: 0,
-    web: 0,
+    website: 0,
     "web-app": 0,
     mobile: 0,
     ecommerce: 0,
