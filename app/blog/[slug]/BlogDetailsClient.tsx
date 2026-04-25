@@ -26,7 +26,12 @@ import {
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { dummyBlogs } from "@/data/Blogs";
-import { IconBrandFacebook, IconBrandLinkedin, IconBrandWhatsapp, IconBrandX } from "@tabler/icons-react";
+import {
+  IconBrandFacebook,
+  IconBrandLinkedin,
+  IconBrandWhatsapp,
+  IconBrandX,
+} from "@tabler/icons-react";
 
 interface BlogAuthor {
   name: string;
@@ -127,10 +132,10 @@ const AnimatedCard: React.FC<AnimatedCardProps> = ({
         if (entry.isIntersecting) {
           setTimeout(() => {
             setIsInView(true);
-          }, delay * 1000);
+          }, delay * 100);
         }
       },
-      { threshold: 0.1, rootMargin: "-30px" }, // Reduced margin for mobile
+      { threshold: 0.1, rootMargin: "-30px" },
     );
 
     if (ref.current) {
@@ -349,7 +354,7 @@ export default function BlogDetailsClient({ slug }: { slug: string }) {
               </div>
 
               {/* Blog Content Card */}
-              <AnimatedCard delay={0.1}>
+              
                 <div className="bg-white rounded-xl sm:rounded-2xl p-4 sm:p-6 md:p-8 border border-gray-200">
                   {/* Categories - Simplified on mobile */}
                   <div className="flex flex-wrap gap-2 mb-4 sm:mb-6 md:mb-8">
@@ -419,7 +424,6 @@ export default function BlogDetailsClient({ slug }: { slug: string }) {
                     </div>
                   </div>
                 </div>
-              </AnimatedCard>
 
               {/* Desktop Author Card - Hidden on mobile */}
               <AnimatedCard className="hidden lg:block">
@@ -611,7 +615,6 @@ export default function BlogDetailsClient({ slug }: { slug: string }) {
                 className="flex items-center justify-center gap-2 rounded-xl border border-gray-200 px-4 py-3 text-sm font-semibold text-gray-700 transition hover:border-[#FF6B00]/40 hover:bg-orange-50 hover:text-[#FF6B00]"
               >
                 <IconBrandWhatsapp className="h-6 w-6" />
-                
               </a>
 
               <a
@@ -621,7 +624,6 @@ export default function BlogDetailsClient({ slug }: { slug: string }) {
                 className="flex items-center justify-center gap-2 rounded-xl border border-gray-200 px-4 py-3 text-sm font-semibold text-gray-700 transition hover:border-[#FF6B00]/40 hover:bg-orange-50 hover:text-[#FF6B00]"
               >
                 <IconBrandLinkedin className="h-6 w-6" />
-                
               </a>
 
               <a
@@ -666,7 +668,6 @@ export default function BlogDetailsClient({ slug }: { slug: string }) {
     </>
   );
 }
-
 
 const BlogHeroSection = ({ blog }: { blog: BlogPost }) => {
   const containerRef = useRef<HTMLDivElement>(null);
