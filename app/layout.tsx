@@ -95,15 +95,15 @@ export const metadata: Metadata = {
         url: "https://akilinovatech.com/og-image.png",
         width: 1200,
         height: 630,
-        alt: "AkiliNova Technologies - Solutions for Africa",
-        type: "image/jpeg",
+        alt: "AkiliNova Technologies - Software, AI and Digital Innovation",
+        type: "image/png",
       },
       {
         url: "https://akilinovatech.com/og-image.png",
         width: 1200,
         height: 1200,
         alt: "AkiliNova Technologies Logo",
-        type: "image/jpeg",
+        type: "image/png",
       },
     ],
   },
@@ -113,10 +113,18 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     site: "@akilinovatech", // Replace with your Twitter handle
     creator: "@akilinova",
-    title: "AkiliNova - Expert Web & Mobile Development Solutions in Africa",
+    title: "AkiliNova Technologies - Software, AI and Digital Innovation in Africa",
     description:
       "Leading technology partner for African businesses. Custom web applications, mobile apps, AI solutions, and cloud services.",
-    images: ["https://akilinovatech.com/og-image.png"], // Replace with actual image
+    images: [
+    {
+      url: "/og-image.png",
+      width: 1200,
+      height: 630,
+      alt: "AkiliNova Technologies",
+      type: "image/png",
+    },
+  ],
   },
 
   // Robots
@@ -135,15 +143,8 @@ export const metadata: Metadata = {
 
   // Icons and Favicons
   icons: {
-    icon: [
-      // { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
-      // { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
-      { url: "/Logo.png", sizes: "any" },
-    ],
-    apple: [
-      // { url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
-      { url: "/Logo.png", sizes: "180x180", type: "image/png" },
-    ],
+    icon: [{ url: "/Logo.png", sizes: "any" }],
+    apple: [{ url: "/Logo.png", sizes: "180x180", type: "image/png" }],
     other: [
       {
         rel: "mask-icon",
@@ -181,18 +182,11 @@ export const metadata: Metadata = {
     "contact:email": "info@akilinovatechnologies.com",
     "contact:phone": "+256-789-874-647",
     "contact:address": "Kampala, Uganda",
-
-    // Geographic
     "geo.region": "UG",
     "geo.placename": "Kampala",
 
-    // Rating
     rating: "general",
-
-    // Language
     language: "English",
-
-    // Copyright
     copyright: `© ${new Date().getFullYear()} AkiliNova Technologies. All rights reserved.`,
   },
 };
@@ -215,9 +209,6 @@ export default function RootLayout({
 
         {/* DNS Prefetch for Performance */}
         <link rel="dns-prefetch" href="https://www.google-analytics.com" />
-
-        {/* Canonical URL - Important for SEO */}
-        <link rel="canonical" href="https://akilinovatech.com" />
 
         {/* Google Search Console Verification */}
         <meta

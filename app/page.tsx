@@ -45,7 +45,7 @@ export const metadata: Metadata = {
     creator: SITE_CONFIG.twitterHandle,
     title: SITE_CONFIG.title,
     description: SITE_CONFIG.description,
-    images: [SITE_CONFIG.ogImage],
+    images: ["/og-image.png"],
   },
   alternates: {
     canonical: SITE_CONFIG.url,
@@ -76,21 +76,13 @@ export default function Home() {
 
   // Website schema
   const websiteSchema = {
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    name: SITE_CONFIG.name,
-    alternateName: "AkiliNova Tech",
-    url: SITE_CONFIG.url,
-    description: SITE_CONFIG.description,
-    potentialAction: {
-      "@type": "SearchAction",
-      target: {
-        "@type": "EntryPoint",
-        urlTemplate: `${SITE_CONFIG.url}/search?q={search_term_string}`,
-      },
-      "query-input": "required name=search_term_string",
-    },
-  };
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "@id": `${SITE_CONFIG.url}/#website`,
+  name: "AkiliNova Technologies",
+  alternateName: ["AkiliNova Tech", "AkiliNova"],
+  url: SITE_CONFIG.url,
+};
 
   // Local Business Schema (for better local SEO in Uganda)
   const localBusinessSchema = {

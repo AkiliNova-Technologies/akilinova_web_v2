@@ -49,9 +49,6 @@ export default function MissionVisionSection({
           {/* Mission */}
           <div className="group bg-white rounded-lg sm:rounded-xl md:rounded-2xl p-4 sm:p-5 md:p-6 lg:p-8 border border-gray-200 hover:border-orange-300 hover:shadow-lg sm:hover:shadow-xl transition-all duration-300">
             <div className="flex items-center gap-3 sm:gap-4 mb-4 sm:mb-5 md:mb-6">
-              <div className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 rounded-lg sm:rounded-xl md:rounded-2xl bg-gradient-to-r from-orange-500 to-orange-600 flex items-center justify-center flex-shrink-0">
-                <Target className="w-5 h-5 sm:w-6 sm:h-6 md:w-8 md:h-8 text-white" />
-              </div>
               <div className="min-w-0 flex-1">
                 <h3 className="text-xl sm:text-2xl font-bold text-gray-900">{missionTitle}</h3>
                 <div className="w-10 sm:w-12 h-0.5 sm:h-1 bg-gradient-to-r from-orange-500 to-orange-600 rounded-full mt-1.5 sm:mt-2" />
@@ -75,9 +72,6 @@ export default function MissionVisionSection({
           {/* Vision */}
           <div className="group bg-white rounded-lg sm:rounded-xl md:rounded-2xl p-4 sm:p-5 md:p-6 lg:p-8 border border-gray-200 hover:border-orange-300 hover:shadow-lg sm:hover:shadow-xl transition-all duration-300">
             <div className="flex items-center gap-3 sm:gap-4 mb-4 sm:mb-5 md:mb-6">
-              <div className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 rounded-lg sm:rounded-xl md:rounded-2xl bg-gradient-to-r from-blue-500 to-cyan-500 flex items-center justify-center flex-shrink-0">
-                <Globe className="w-5 h-5 sm:w-6 sm:h-6 md:w-8 md:h-8 text-white" />
-              </div>
               <div className="min-w-0 flex-1">
                 <h3 className="text-xl sm:text-2xl font-bold text-gray-900">{visionTitle}</h3>
                 <div className="w-10 sm:w-12 h-0.5 sm:h-1 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full mt-1.5 sm:mt-2" />

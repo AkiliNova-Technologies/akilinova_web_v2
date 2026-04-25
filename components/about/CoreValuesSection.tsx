@@ -66,12 +66,11 @@ export default function CoreValuesSection({
   ],
 }: CoreValuesProps) {
   return (
-    <section className="py-12 md:py-16 lg:py-24 bg-gradient-to-b from-gray-50 to-white">
+    <section className="pb-12 md:pb-16 lg:pb-24 bg-gradient-to-b from-gray-50 to-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-5 md:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-8 md:mb-12 lg:mb-16">
           <div className="inline-flex items-center gap-1.5 sm:gap-2 px-3 py-1.5 sm:px-4 sm:py-2 rounded-full bg-gradient-to-r from-orange-500/10 to-orange-500/5 border border-orange-500/20 mb-3 md:mb-4">
-            <Award className="w-3 h-3 sm:w-4 sm:h-4 text-orange-500" />
             <span className="text-xs sm:text-sm font-semibold bg-gradient-to-r from-orange-400 to-orange-500 bg-clip-text text-transparent">
               {subtitle}
             </span>
@@ -93,13 +92,13 @@ export default function CoreValuesSection({
               className="group bg-white rounded-lg sm:rounded-xl md:rounded-2xl p-4 sm:p-5 md:p-6 lg:p-8 border border-gray-200 hover:border-orange-300 hover:shadow-lg sm:hover:shadow-xl transition-all duration-300"
             >
               {/* Icon */}
-              <div
+              {/* <div
                 className={`w-12 h-12 sm:w-13 sm:h-13 md:w-14 md:h-14 rounded-lg sm:rounded-xl md:rounded-2xl bg-gradient-to-br ${value.color} p-2.5 sm:p-3 md:p-3 mb-4 sm:mb-5 md:mb-6 group-hover:scale-105 sm:group-hover:scale-110 transition-transform duration-300 flex items-center justify-center`}
               >
                 <div className="text-white flex items-center justify-center">
                   {value.icon}
                 </div>
-              </div>
+              </div> */}
 
               {/* Content */}
               <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-2 sm:mb-3">

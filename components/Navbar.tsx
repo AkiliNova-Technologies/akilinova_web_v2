@@ -28,7 +28,7 @@ interface NavbarProps {
 
 export default function Navbar({
   logo,
-  brandName = "AkiliNova Tech",
+  brandName = "AkiliNova Technologies",
   navItems = [
     { label: "Home", href: "/" },
     {
@@ -115,7 +115,7 @@ export default function Navbar({
   return (
     <>
       <nav
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        className={`fixed top-0 left-0 right-0 z-50 duration-300 ${
           isScrolled
             ? "bg-white/95 backdrop-blur-xl shadow-lg border-b border-gray-100"
             : "bg-gradient-to-b from-gray-900/90 via-gray-900/80 to-transparent backdrop-blur-md"
@@ -139,9 +139,6 @@ export default function Navbar({
                 ) : (
                   <div className="relative">
                     <div className="absolute inset-0 bg-gradient-to-r from-orange-500 to-orange-600 rounded-full blur opacity-70 group-hover:opacity-100 transition-opacity duration-300" />
-                    <div className="relative h-8 w-8 lg:h-10 lg:w-10 rounded-full bg-gradient-to-r from-orange-500 to-orange-600 flex items-center justify-center">
-                      <Sparkles className="h-4 w-4 lg:h-5 lg:w-5 text-white" />
-                    </div>
                   </div>
                 )}
                 <span
@@ -230,11 +227,6 @@ export default function Navbar({
                   )}
                 </div>
               ))}
-
-              <button className="ml-4 px-6 py-2.5 bg-gradient-to-r from-orange-500 to-orange-600 text-white font-semibold rounded-xl hover:shadow-xl hover:shadow-orange-500/25 transition-all duration-300 hover:-translate-y-0.5 active:translate-y-0 group">
-                Get Started
-                <ArrowRight className="inline-block ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform duration-300" />
-              </button>
             </div>
 
             {/* Mobile Menu Button */}

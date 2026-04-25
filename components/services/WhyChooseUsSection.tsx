@@ -66,7 +66,7 @@ export default function WhyChooseUsSection({
   ],
 }: WhyChooseUsProps) {
   return (
-    <section className="py-8 sm:py-12 md:py-16 lg:py-20 bg-gradient-to-b from-white to-gray-50">
+    <section className="pb-8 sm:pb-12 md:pb-16 lg:pb-20 bg-gradient-to-b from-white to-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-5 md:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-8 sm:mb-10 md:mb-12">
@@ -103,14 +103,6 @@ export default function WhyChooseUsSection({
               key={index}
               className="group bg-white rounded-lg sm:rounded-xl md:rounded-2xl p-4 sm:p-5 md:p-6 lg:p-8 border border-gray-200 hover:border-orange-300 hover:shadow-lg sm:hover:shadow-xl transition-all duration-300"
             >
-              {/* Icon */}
-              <div
-                className={`w-12 h-12 sm:w-13 sm:h-13 md:w-14 md:h-14 rounded-lg sm:rounded-xl md:rounded-2xl bg-gradient-to-br ${benefit.color} p-2.5 sm:p-3 md:p-3 mb-4 sm:mb-5 md:mb-6 group-hover:scale-105 sm:group-hover:scale-110 transition-transform duration-300 flex items-center justify-center`}
-              >
-                <div className="text-white flex items-center justify-center">
-                  {benefit.icon}
-                </div>
-              </div>
 
               {/* Content */}
               <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-2 sm:mb-3 line-clamp-1">

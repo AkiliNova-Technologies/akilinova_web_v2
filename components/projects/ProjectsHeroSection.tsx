@@ -41,7 +41,7 @@ export default function ProjectsHeroSection({
   return (
     <section 
       ref={containerRef}
-      className="relative py-20 sm:py-20 md:py-20 lg:py-24 bg-gradient-to-br from-gray-900 via-gray-900 to-gray-950 overflow-hidden"
+      className="relative py-20 sm:py-20 md:py-20 lg:py-28 bg-gradient-to-br from-gray-900 via-gray-900 to-gray-950 overflow-hidden"
     >
       {/* Background Elements - Optimized for mobile */}
       <div className="absolute inset-0">
@@ -59,26 +59,10 @@ export default function ProjectsHeroSection({
         />
       </div>
 
-      {/* Mobile Stats Bar - Hidden on desktop */}
-      <div className="relative z-10 lg:hidden">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6">
-          <div className="flex items-center justify-between text-white/90 text-xs mb-6">
-            <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white/5 backdrop-blur-sm">
-              <TrendingUp className="h-3 w-3 text-orange-400" />
-              <span>50+ Projects</span>
-            </div>
-            <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white/5 backdrop-blur-sm">
-              <Globe className="h-3 w-3 text-blue-400" />
-              <span>15 Countries</span>
-            </div>
-          </div>
-        </div>
-      </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 xs:px-5 sm:px-6 lg:px-8 text-center">
         {/* Badge */}
         <div className="inline-flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full bg-gradient-to-r from-orange-500/10 to-orange-500/5 border border-orange-500/20 mb-4 sm:mb-6">
-          <Sparkles className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-orange-500" />
           <span className="text-xs sm:text-sm font-semibold bg-gradient-to-r from-orange-400 to-orange-500 bg-clip-text text-transparent">
             {subtitle}
           </span>
@@ -97,18 +81,6 @@ export default function ProjectsHeroSection({
           {description}
         </p>
 
-        {/* Desktop Stats - Hidden on mobile */}
-        <div className="hidden lg:flex items-center justify-center gap-6 mb-8">
-          <div className="flex items-center gap-2 text-white/80">
-            <TrendingUp className="h-5 w-5 text-orange-400" />
-            <span className="text-sm">50+ Projects Completed</span>
-          </div>
-          <div className="w-1 h-1 bg-gray-600 rounded-full" />
-          <div className="flex items-center gap-2 text-white/80">
-            <Globe className="h-5 w-5 text-blue-400" />
-            <span className="text-sm">15 African Countries</span>
-          </div>
-        </div>
       </div>
 
 

@@ -9,14 +9,13 @@ import {
   Mail,
   ChevronUp,
   ChevronDown,
-  Sparkles,
+  RotateCcw,
 } from "lucide-react";
 import { SendHorizonal } from "lucide-react";
 import { useReduxChat } from "@/hooks/useReduxChat";
-import { ChatMessage, AIAgent } from "@/types/chat";
+import type { ChatMessage, AIAgent } from "@/types/chat";
 import Avatar, { AvatarImage, AvatarFallback } from "./ui/avatar";
 
-// Memoized ChatBubble component with proper types and enhanced UI
 const ChatBubble = React.memo(
   ({ message, aiAgent }: { message: ChatMessage; aiAgent: AIAgent }) => {
     const isAI = message.sender === "ai";
@@ -43,7 +42,6 @@ const ChatBubble = React.memo(
           isAI ? "flex-row" : "flex-row-reverse"
         } mb-3 sm:mb-4 animate-in fade-in slide-in-from-bottom-2 duration-300`}
       >
-        {/* Avatar */}
         <div className={`shrink-0 ${isAI ? "" : "hidden sm:block"}`}>
           <Avatar className="size-7 sm:size-9 ring-2 ring-white shadow-sm">
             {isAI && aiAgent.avatar ? (
@@ -53,6 +51,7 @@ const ChatBubble = React.memo(
                 className="object-cover"
               />
             ) : null}
+
             <AvatarFallback
               className={`${
                 isAI
@@ -60,19 +59,18 @@ const ChatBubble = React.memo(
                   : "bg-gradient-to-br from-gray-100 to-gray-200 text-gray-700 text-xs sm:text-sm font-medium"
               }`}
             >
-              {isAI ? getInitials(aiAgent.name) : "You"}
+              {isAI ? getInitials(aiAgent.name) : "U"}
             </AvatarFallback>
           </Avatar>
         </div>
 
-        {/* Message Bubble */}
         <div
           className={`flex flex-col ${
             isAI ? "items-start" : "items-end"
           } max-w-[85%] sm:max-w-[75%]`}
         >
           <div
-            className={`px-3.5 py-2.5 sm:px-4 sm:py-3 rounded-2xl transition-all duration-200 shadow-xs hover:shadow-md ${
+            className={`px-3.5 py-2.5 sm:px-4 sm:py-3 rounded-2xl transition-all duration-200 ${
               isAI
                 ? "bg-white border border-gray-200 rounded-tl-none text-gray-800"
                 : "bg-gradient-to-br from-[#FF6B00] to-[#FF8A33] rounded-tr-none text-white shadow-orange-200"
@@ -82,6 +80,7 @@ const ChatBubble = React.memo(
               {message.content}
             </p>
           </div>
+
           <span className="text-[10px] sm:text-xs text-gray-400 mt-1 px-1">
             {formatTime(message.timestamp)}
           </span>
@@ -93,7 +92,6 @@ const ChatBubble = React.memo(
 
 ChatBubble.displayName = "ChatBubble";
 
-// Typing Indicator Component
 const TypingIndicator = React.memo(({ aiAgent }: { aiAgent: AIAgent }) => {
   const getInitials = (name: string) => {
     return name
@@ -115,19 +113,22 @@ const TypingIndicator = React.memo(({ aiAgent }: { aiAgent: AIAgent }) => {
               className="object-cover"
             />
           ) : null}
+
           <AvatarFallback className="bg-gradient-to-br from-[#FF6B00] to-[#FF8A33] text-white text-xs font-semibold">
             {aiAgent?.name ? getInitials(aiAgent.name) : "AI"}
           </AvatarFallback>
         </Avatar>
       </div>
+
       <div className="flex flex-col items-start max-w-[85%] sm:max-w-[75%]">
         <div className="bg-white border border-gray-200 rounded-2xl rounded-tl-none px-5 py-3.5 shadow-sm">
           <div className="flex gap-1.5">
-            <div className="w-2 h-2 bg-[#FF6B00] rounded-full animate-bounce [animation-duration:1s]"></div>
-            <div className="w-2 h-2 bg-[#FF7A1A] rounded-full animate-bounce [animation-duration:1s] [animation-delay:0.2s]"></div>
-            <div className="w-2 h-2 bg-[#FF8A33] rounded-full animate-bounce [animation-duration:1s] [animation-delay:0.4s]"></div>
+            <div className="w-2 h-2 bg-[#FF6B00] rounded-full animate-bounce [animation-duration:1s]" />
+            <div className="w-2 h-2 bg-[#FF7A1A] rounded-full animate-bounce [animation-duration:1s] [animation-delay:0.2s]" />
+            <div className="w-2 h-2 bg-[#FF8A33] rounded-full animate-bounce [animation-duration:1s] [animation-delay:0.4s]" />
           </div>
         </div>
+
         <span className="text-[10px] sm:text-xs text-gray-400 mt-1 px-1">
           Typing...
         </span>
@@ -173,7 +174,61 @@ const ChatWidget: React.FC = () => {
       .slice(0, 2);
   };
 
-  // Check if mobile on mount and resize
+  const getQuickReplies = useCallback(() => {
+    const stage = currentSession?.stage;
+
+    if (!stage || stage === "idle" || stage === "completed") {
+      return [
+        "I need a website",
+        "I need a mobile app",
+        "I need a business system",
+        "I want AI automation",
+        "Request a quote",
+      ];
+    }
+
+    if (stage === "discovering_service") {
+      return [
+        "Business website",
+        "E-commerce store",
+        "School system",
+        "Mobile app",
+        "Custom project",
+      ];
+    }
+
+    if (stage === "collecting_project_details") {
+      return [
+        "Admin dashboard",
+        "Online payments",
+        "User accounts",
+        "Reports",
+        "Custom features",
+      ];
+    }
+
+    if (stage === "collecting_budget_timeline") {
+      return ["1–2 weeks", "1 month", "2–3 months", "Flexible timeline"];
+    }
+
+    if (stage === "collecting_contact") {
+      return ["I’ll share my email", "I’ll share my phone", "Use WhatsApp"];
+    }
+
+    if (stage === "handoff_ready") {
+      return ["Add more details", "Start a new request"];
+    }
+
+    return [
+      "I need a website",
+      "I need a mobile app",
+      "I need a business system",
+      "Request a quote",
+    ];
+  }, [currentSession?.stage]);
+
+  const quickMessages = getQuickReplies();
+
   useEffect(() => {
     const checkMobile = () => {
       setIsMobile(window.innerWidth < 768);
@@ -181,25 +236,23 @@ const ChatWidget: React.FC = () => {
 
     checkMobile();
     window.addEventListener("resize", checkMobile);
+
     return () => window.removeEventListener("resize", checkMobile);
   }, []);
 
-  // Auto-scroll to bottom when new messages arrive or typing status changes
   useEffect(() => {
     if (messagesEndRef.current && !isMinimized) {
       messagesEndRef.current.scrollIntoView({ behavior: "smooth" });
     }
   }, [currentSession?.messages, isTyping, isMinimized]);
 
-  // Monitor for AI responses to stop typing indicator
   useEffect(() => {
     const currentMessageCount = currentSession?.messages?.length || 0;
     const previousMessageCount = previousMessageCountRef.current;
 
-    // If messages increased and we were typing, stop typing
     if (currentMessageCount > previousMessageCount && isTyping) {
-      // Check if the last message is from AI
       const lastMessage = currentSession?.messages?.[currentMessageCount - 1];
+
       if (lastMessage && lastMessage.sender === "ai") {
         setIsTyping(false);
       }
@@ -208,7 +261,6 @@ const ChatWidget: React.FC = () => {
     previousMessageCountRef.current = currentMessageCount;
   }, [currentSession?.messages, isTyping]);
 
-  // Start new chat when widget opens for the first time
   useEffect(() => {
     if (
       isOpen &&
@@ -221,15 +273,13 @@ const ChatWidget: React.FC = () => {
     }
   }, [isOpen, isMinimized, currentSession, startNewChat]);
 
-  // Reset initialization when chat closes
   useEffect(() => {
     if (!isOpen) {
       hasInitialized.current = false;
-      setIsTyping(false); // Reset typing state when chat closes
+      setIsTyping(false);
     }
   }, [isOpen]);
 
-  // Handle animations for chat window
   useEffect(() => {
     if (isOpen) {
       setIsWindowVisible(true);
@@ -244,7 +294,6 @@ const ChatWidget: React.FC = () => {
     }
   }, [isOpen, isMobile]);
 
-  // Focus input when chat opens or is maximized
   useEffect(() => {
     if (isOpen && !isMinimized && inputRef.current) {
       setTimeout(() => {
@@ -255,98 +304,108 @@ const ChatWidget: React.FC = () => {
 
   const handleSendMessage = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!inputMessage.trim() || isTyping) return; // Prevent sending while typing
 
-    const messageToSend = inputMessage;
+    if (!inputMessage.trim() || isTyping) return;
+
+    const messageToSend = inputMessage.trim();
     setInputMessage("");
     setIsTyping(true);
 
     try {
       await sendMessage(messageToSend);
-      
-      // The typing indicator will be turned off automatically
-      // when the AI response is detected in the useEffect above
-      // But as a fallback, set a timeout
+
       setTimeout(() => {
         setIsTyping(false);
-      }, 5000); // 5 second maximum timeout
+      }, 6000);
     } catch (error) {
       console.error("Error sending message:", error);
       setIsTyping(false);
     }
 
-    // Refocus input after sending
     setTimeout(() => {
       inputRef.current?.focus();
     }, 100);
   };
 
   const handleQuickMessage = async (message: string) => {
-    if (isTyping) return; // Prevent sending while typing
+    if (isTyping) return;
+
+    if (message === "Start a new request") {
+      startNewChat();
+      return;
+    }
 
     setIsTyping(true);
 
     try {
       await sendMessage(message);
-      
-      // Fallback timeout
+
       setTimeout(() => {
         setIsTyping(false);
-      }, 5000);
+      }, 6000);
     } catch (error) {
       console.error("Error sending quick message:", error);
       setIsTyping(false);
     }
   };
 
-  const handleKeyPress = (e: React.KeyboardEvent) => {
+  const handleKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === "Enter" && !e.shiftKey) {
       e.preventDefault();
-      handleSendMessage(e);
+
+      const form = e.currentTarget.form;
+      if (form) {
+        form.requestSubmit();
+      }
     }
   };
 
   const handleButtonClick = () => {
     toggleChat();
+
     if (buttonRef.current) {
       buttonRef.current.classList.add("active:scale-95");
+
       setTimeout(() => {
         buttonRef.current?.classList.remove("active:scale-95");
       }, 150);
     }
   };
 
-  // Mobile contact shortcuts
   const handleCallClick = () => {
-    window.location.href = "tel:+254789874647";
+    window.location.href = "tel:+256767110711";
   };
 
   const handleEmailClick = () => {
-    window.location.href = "mailto:info@akilinovatech.com";
+    window.location.href = "mailto:akilinovatechnologies@gmail.com";
   };
 
-  // Quick message presets
-  const quickMessages = [
-    "Tell me about your services",
-    "What are your pricing plans?",
-    "Can you help with a custom project?",
-    "Do you have any portfolio examples?",
-    "What's your typical project timeline?",
-  ];
+  const inputHint = (() => {
+    if (isTyping) return "AI is responding...";
+
+    if (currentSession?.stage === "collecting_contact") {
+      return "Share your email or phone so the team can follow up";
+    }
+
+    if (currentSession?.stage === "handoff_ready") {
+      return "Your request is captured. You may add more details.";
+    }
+
+    return "Type your message or use quick options";
+  })();
 
   return (
     <>
-      {/* Chat Toggle Button with Pulse Animation */}
       {isChatButtonVisible && (
         <button
           ref={buttonRef}
           onClick={handleButtonClick}
           className={`
-            fixed z-50 bg-gradient-to-br from-[#FF6B00] to-[#FF8A33] 
-            text-white rounded-full shadow-xl hover:shadow-orange-500/50 
-            transition-all duration-300
-            hover:scale-110 active:scale-95
-            before:absolute before:inset-0 before:rounded-full before:bg-gradient-to-br before:from-[#FF6B00] before:to-[#FF8A33]
+            fixed z-50 bg-gradient-to-br from-[#FF6B00] to-[#FF8A33]
+            text-white rounded-full shadow-xl hover:shadow-orange-500/50
+            transition-all duration-300 hover:scale-110 active:scale-95
+            before:absolute before:inset-0 before:rounded-full
+            before:bg-gradient-to-br before:from-[#FF6B00] before:to-[#FF8A33]
             before:animate-pulse before:opacity-0 hover:before:opacity-30
             ${
               isMobile
@@ -363,21 +422,19 @@ const ChatWidget: React.FC = () => {
               <MessageCircle className="h-5 w-5 sm:h-6 sm:w-6" />
             )}
 
-            {/* Notification Badge */}
             {!isOpen &&
               currentSession?.messages &&
               currentSession.messages.length > 1 && (
-                <div className="absolute -top-1 -right-1 w-3 h-3 bg-red-500 rounded-full border-2 border-white animate-bounce"></div>
+                <div className="absolute -top-1 -right-1 w-3 h-3 bg-red-500 rounded-full border-2 border-white animate-bounce" />
               )}
           </div>
         </button>
       )}
 
-      {/* Chat Window */}
       {isWindowVisible && (
         <div
           className={`
-            fixed z-50 bg-white rounded-t-2xl sm:rounded-2xl border border-gray-200 
+            fixed z-50 bg-white rounded-t-2xl sm:rounded-2xl border border-gray-200
             shadow-2xl overflow-hidden flex flex-col transition-all duration-300
             ${
               isMobile
@@ -399,11 +456,9 @@ const ChatWidget: React.FC = () => {
             }
           `}
         >
-          {/* Header */}
           <div className="bg-gradient-to-br from-[#FF6B00] via-[#FF7A1A] to-[#FF8A33] p-3.5 sm:p-4 flex items-center justify-between shrink-0 relative overflow-hidden">
-            {/* Animated background pattern */}
             <div className="absolute inset-0 opacity-10">
-              <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.3),transparent_50%)]"></div>
+              <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.3),transparent_50%)]" />
             </div>
 
             <div className="flex items-center gap-2.5 sm:gap-3 relative z-10">
@@ -415,19 +470,21 @@ const ChatWidget: React.FC = () => {
                     className="object-cover"
                   />
                 ) : null}
+
                 <AvatarFallback className="bg-white/20 text-white font-bold text-sm">
                   {aiAgent?.name ? getInitials(aiAgent.name) : "AI"}
                 </AvatarFallback>
               </Avatar>
+
               <div>
-                <h3 className="text-white font-bold text-sm sm:text-base flex items-center gap-1.5">
+                <h3 className="text-white font-bold text-sm sm:text-base">
                   {aiAgent?.name || "AI Assistant"}
-                  <Sparkles className="h-3.5 w-3.5 text-yellow-300 animate-pulse" />
                 </h3>
+
                 <p className="text-white/90 text-xs font-medium">
                   {isTyping ? (
                     <span className="flex items-center gap-1">
-                      <span className="inline-block w-1 h-1 bg-white rounded-full animate-pulse"></span>
+                      <span className="inline-block w-1 h-1 bg-white rounded-full animate-pulse" />
                       Typing...
                     </span>
                   ) : (
@@ -439,11 +496,17 @@ const ChatWidget: React.FC = () => {
 
             <div className="flex items-center gap-1.5 sm:gap-2 relative z-10">
               <button
+                onClick={startNewChat}
+                className="text-white/90 hover:text-white transition-all duration-200 p-1.5 hover:bg-white/20 rounded-lg hover:scale-110 active:scale-95"
+                aria-label="Restart conversation"
+                title="Restart conversation"
+              >
+                <RotateCcw className="h-4 w-4 sm:h-5 sm:w-5" />
+              </button>
+
+              <button
                 onClick={toggleMinimize}
-                className="
-                  text-white/90 hover:text-white transition-all duration-200 p-1.5
-                  hover:bg-white/20 rounded-lg hover:scale-110 active:scale-95
-                "
+                className="text-white/90 hover:text-white transition-all duration-200 p-1.5 hover:bg-white/20 rounded-lg hover:scale-110 active:scale-95"
                 aria-label={isMinimized ? "Maximize chat" : "Minimize chat"}
               >
                 {isMinimized ? (
@@ -452,12 +515,10 @@ const ChatWidget: React.FC = () => {
                   <ChevronDown className="h-4 w-4 sm:h-5 sm:w-5" />
                 )}
               </button>
+
               <button
                 onClick={closeChat}
-                className="
-                  text-white/90 hover:text-white transition-all duration-200 p-1.5
-                  hover:bg-white/20 rounded-lg hover:scale-110 active:scale-95
-                "
+                className="text-white/90 hover:text-white transition-all duration-200 p-1.5 hover:bg-white/20 rounded-lg hover:scale-110 active:scale-95"
                 aria-label="Close chat"
               >
                 <X className="h-4 w-4 sm:h-5 sm:w-5" />
@@ -465,7 +526,6 @@ const ChatWidget: React.FC = () => {
             </div>
           </div>
 
-          {/* Quick Actions Bar (Mobile) */}
           {isMobile && !isMinimized && (
             <div className="bg-gradient-to-r from-gray-50 to-white border-b border-gray-200 p-2 flex gap-1.5 overflow-x-auto [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
               <button
@@ -475,6 +535,7 @@ const ChatWidget: React.FC = () => {
                 <Phone className="h-3.5 w-3.5 text-green-600" />
                 <span className="font-medium text-gray-700">Call</span>
               </button>
+
               <button
                 onClick={handleEmailClick}
                 className="flex items-center gap-1.5 px-3 py-2 rounded-lg bg-white border border-gray-200 hover:border-blue-300 hover:bg-blue-50 transition-all text-xs shrink-0 shadow-xs hover:shadow"
@@ -482,78 +543,50 @@ const ChatWidget: React.FC = () => {
                 <Mail className="h-3.5 w-3.5 text-blue-600" />
                 <span className="font-medium text-gray-700">Email</span>
               </button>
-              {quickMessages.slice(0, 2).map((msg, index) => (
+
+              {quickMessages.slice(0, 3).map((msg, index) => (
                 <button
-                  key={index}
+                  key={`${msg}-${index}`}
                   onClick={() => handleQuickMessage(msg)}
                   disabled={isTyping}
                   className="px-3 py-2 rounded-lg bg-gradient-to-r from-[#FF6B00]/10 to-[#FF8A33]/10 border border-[#FF6B00]/20 hover:from-[#FF6B00]/20 hover:to-[#FF8A33]/20 transition-all text-xs shrink-0 shadow-sm hover:shadow disabled:opacity-50 disabled:cursor-not-allowed"
                 >
-                  <span className="font-medium text-gray-700">
-                    {msg.split(" ").slice(0, 3).join(" ")}...
-                  </span>
+                  <span className="font-medium text-gray-700">{msg}</span>
                 </button>
               ))}
             </div>
           )}
 
-          {/* Chat Content - Only show when NOT minimized */}
           {!isMinimized && (
             <div className="flex flex-col flex-1 min-h-0">
-              {/* Messages Container */}
               <div className="flex-1 overflow-y-auto p-3 sm:p-4 space-y-2 sm:space-y-3 bg-gradient-to-b from-gray-50 to-white">
                 {!currentSession || currentSession.messages.length === 0 ? (
                   <div className="flex flex-col items-center justify-center h-full text-gray-500 p-4">
                     <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-gradient-to-br from-[#FF6B00]/20 to-[#FF8A33]/20 flex items-center justify-center mb-4 animate-pulse">
                       <Bot className="h-8 w-8 sm:h-10 sm:w-10 text-[#FF6B00]" />
                     </div>
+
                     <p className="text-base sm:text-lg font-bold text-gray-800 text-center">
-                      Hi! I'm {aiAgent?.name || "your assistant"}
-                    </p>
-                    <p className="text-gray-500 text-xs sm:text-sm mt-2 text-center max-w-xs">
-                      I'm here to help answer questions about our services,
-                      pricing, and projects. How can I assist you today?
+                      Hi, I’m {aiAgent?.name || "your assistant"}
                     </p>
 
-                    {/* Quick Question Buttons */}
-                    {isMobile ? (
-                      <div className="mt-4 space-y-2 w-full">
-                        {quickMessages.map((msg, index) => (
-                          <button
-                            key={index}
-                            onClick={() => handleQuickMessage(msg)}
-                            disabled={isTyping}
-                            className="w-full px-4 py-2.5 text-xs bg-white border border-gray-300 rounded-xl hover:bg-gray-50 hover:border-[#FF6B00]/30 transition-all text-left shadow-sm hover:shadow font-medium text-gray-700 disabled:opacity-50 disabled:cursor-not-allowed"
-                          >
-                            {msg}
-                          </button>
-                        ))}
-                      </div>
-                    ) : (
-                      <div className="mt-5 flex flex-wrap gap-2 justify-center">
+                    <p className="text-gray-500 text-xs sm:text-sm mt-2 text-center max-w-xs">
+                      Tell me what you want to build, and I’ll guide you step by
+                      step.
+                    </p>
+
+                    <div className="mt-4 space-y-2 w-full">
+                      {quickMessages.map((msg, index) => (
                         <button
-                          onClick={() => handleQuickMessage("Tell me about your services")}
+                          key={`${msg}-${index}`}
+                          onClick={() => handleQuickMessage(msg)}
                           disabled={isTyping}
-                          className="px-4 py-2 text-xs bg-white border border-gray-300 rounded-full hover:bg-gradient-to-r hover:from-[#FF6B00] hover:to-[#FF8A33] hover:text-white hover:border-transparent transition-all shadow-sm hover:shadow font-medium disabled:opacity-50 disabled:cursor-not-allowed"
+                          className="w-full px-4 py-2.5 text-xs bg-white border border-gray-300 rounded-xl hover:bg-gray-50 hover:border-[#FF6B00]/30 transition-all text-left shadow-sm hover:shadow font-medium text-gray-700 disabled:opacity-50 disabled:cursor-not-allowed"
                         >
-                          Services
+                          {msg}
                         </button>
-                        <button
-                          onClick={() => handleQuickMessage("What are your pricing plans?")}
-                          disabled={isTyping}
-                          className="px-4 py-2 text-xs bg-white border border-gray-300 rounded-full hover:bg-gradient-to-r hover:from-[#FF6B00] hover:to-[#FF8A33] hover:text-white hover:border-transparent transition-all shadow-sm hover:shadow font-medium disabled:opacity-50 disabled:cursor-not-allowed"
-                        >
-                          Pricing
-                        </button>
-                        <button
-                          onClick={() => handleQuickMessage("Can you help with a custom project?")}
-                          disabled={isTyping}
-                          className="px-4 py-2 text-xs bg-white border border-gray-300 rounded-full hover:bg-gradient-to-r hover:from-[#FF6B00] hover:to-[#FF8A33] hover:text-white hover:border-transparent transition-all shadow-sm hover:shadow font-medium disabled:opacity-50 disabled:cursor-not-allowed"
-                        >
-                          Custom Projects
-                        </button>
-                      </div>
-                    )}
+                      ))}
+                    </div>
                   </div>
                 ) : (
                   <>
@@ -564,15 +597,38 @@ const ChatWidget: React.FC = () => {
                         aiAgent={aiAgent}
                       />
                     ))}
-                    
-                    {/* Typing Indicator - Only show when typing, not when there are messages */}
+
                     {isTyping && <TypingIndicator aiAgent={aiAgent} />}
+
+                    {currentSession?.stage === "handoff_ready" && (
+                      <div className="p-3 bg-green-50 border border-green-200 text-green-700 text-xs rounded-xl">
+                        Request captured. Our team can now review your details
+                        and follow up.
+                      </div>
+                    )}
+
+                    {quickMessages.length > 0 && (
+                      <div className="flex flex-col flex-wrap gap-2 pt-1 ml-12 mr-12">
+                        {quickMessages.map((msg, index) => (
+                          <button
+                            key={`${msg}-${index}`}
+                            onClick={() => handleQuickMessage(msg)}
+                            disabled={isTyping}
+                            className="px-3 py-2 rounded-full bg-white border border-gray-200 hover:border-[#FF6B00]/40 hover:bg-[#FF6B00]/5 transition-all text-xs shadow-xs disabled:opacity-50 disabled:cursor-not-allowed"
+                          >
+                            <span className="font-medium text-gray-700">
+                              {msg}
+                            </span>
+                          </button>
+                        ))}
+                      </div>
+                    )}
                   </>
                 )}
+
                 <div ref={messagesEndRef} />
               </div>
 
-              {/* Input Area */}
               <form
                 onSubmit={handleSendMessage}
                 className="p-3 sm:p-4 border-t border-gray-200 bg-white shrink-0"
@@ -584,23 +640,30 @@ const ChatWidget: React.FC = () => {
                     value={inputMessage}
                     onChange={(e) => setInputMessage(e.target.value)}
                     onKeyDown={handleKeyPress}
-                    placeholder={isTyping ? "Waiting for response..." : "Type your message here..."}
+                    placeholder={
+                      isTyping
+                        ? "Waiting for response..."
+                        : currentSession?.stage === "collecting_contact"
+                        ? "Enter your email or phone..."
+                        : "Type your message here..."
+                    }
                     disabled={isTyping}
                     className="
-                      flex-1 bg-gray-50 border border-gray-300 rounded-xl 
-                      px-3.5 sm:px-4 py-2.5 sm:py-3 text-gray-800 placeholder-gray-400 
+                      flex-1 bg-gray-50 border border-gray-300 rounded-xl
+                      px-3.5 sm:px-4 py-2.5 sm:py-3 text-gray-800 placeholder-gray-400
                       focus:outline-none focus:border-[#FF6B00] focus:ring-0 focus:ring-[#FF6B00]/20 focus:bg-white
                       transition-all duration-200 text-xs sm:text-sm
                       disabled:opacity-60 disabled:cursor-not-allowed
                     "
                     autoComplete="off"
                   />
+
                   <button
                     type="submit"
                     disabled={!inputMessage.trim() || isTyping}
                     className="
-                      bg-gradient-to-br from-[#FF6B00] to-[#FF8A33] text-white p-2.5 sm:p-3 
-                      rounded-xl disabled:opacity-50 disabled:cursor-not-allowed 
+                      bg-gradient-to-br from-[#FF6B00] to-[#FF8A33] text-white p-2.5 sm:p-3
+                      rounded-xl disabled:opacity-50 disabled:cursor-not-allowed
                       transition-all duration-200 shrink-0
                       hover:scale-105 active:scale-95 hover:shadow-lg hover:shadow-orange-200
                       disabled:hover:scale-100 disabled:hover:shadow-none
@@ -610,14 +673,9 @@ const ChatWidget: React.FC = () => {
                     <SendHorizonal className="h-4 w-4 sm:h-5 sm:w-5" />
                   </button>
                 </div>
+
                 <p className="text-gray-400 text-[10px] sm:text-xs mt-2 text-center">
-                  {isTyping ? (
-                    "AI is responding..."
-                  ) : isMobile ? (
-                    "Tap quick options above or type your question"
-                  ) : (
-                    "Ask about services, pricing, or projects • Press Enter to send"
-                  )}
+                  {inputHint}
                 </p>
               </form>
             </div>

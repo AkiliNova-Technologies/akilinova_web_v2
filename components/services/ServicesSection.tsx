@@ -54,7 +54,7 @@ export default function ServicesSection({
       ],
       keyFeatures: ["Modern frameworks", "Scalable backends", "PWA support"],
       technologies: ["React", "Node.js", "TypeScript", "Next.js"],
-      color: "from-blue-500 to-cyan-500",
+      color: "from-orange-500 to-red-500",
       stats: "100+ projects delivered",
     },
     {
@@ -72,7 +72,7 @@ export default function ServicesSection({
       ],
       keyFeatures: ["iOS/Android", "React Native", "Offline support"],
       technologies: ["React Native", "Flutter", "Swift", "Kotlin"],
-      color: "from-purple-500 to-pink-500",
+      color: "from-orange-500 to-red-500",
       stats: "50M+ app downloads",
     },
     {
@@ -175,20 +175,11 @@ export default function ServicesSection({
         compactMode ? "py-8 md:py-12 lg:py-16" : "py-12 md:py-20 lg:py-28"
       } bg-gradient-to-b from-white via-gray-50 to-white overflow-hidden`}
     >
-      {/* Background Elements - Simplified in compact mode */}
-      {!compactMode && (
-        <div className="absolute inset-0">
-          <div className="absolute top-1/4 left-1/4 w-64 md:w-96 h-64 md:h-96 bg-gradient-to-r from-orange-500/10 to-transparent rounded-full blur-2xl md:blur-3xl" />
-          <div className="absolute bottom-1/4 right-1/4 w-64 md:w-96 h-64 md:h-96 bg-blue-500/5 rounded-full blur-2xl md:blur-3xl" />
-        </div>
-      )}
-
       <div className="relative max-w-7xl mx-auto px-4 sm:px-4 md:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-8 md:mb-10 lg:mb-12">
           {!compactMode && (
             <div className="inline-flex items-center gap-2 px-3 py-1.5 md:px-4 md:py-2 rounded-full bg-gradient-to-r from-orange-500/10 to-orange-500/5 border border-orange-500/20 mb-4 md:mb-6">
-              <Sparkles className="w-3 h-3 md:w-4 md:h-4 text-orange-500" />
               <span className="text-xs md:text-sm font-semibold bg-gradient-to-r from-orange-400 to-orange-500 bg-clip-text text-transparent">
                 Our Expertise
               </span>
@@ -300,12 +291,12 @@ export default function ServicesSection({
                   }`}
                 >
                   {/* Icon with gradient */}
-                  <div
+                  {/* <div
                     className={`relative w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 rounded-lg sm:rounded-xl md:rounded-2xl bg-gradient-to-br ${service.color} p-3 sm:p-3.5 md:p-4 mb-4 sm:mb-5 md:mb-6`}
                   >
                     <div className="absolute inset-0 bg-white/10 rounded-lg sm:rounded-xl md:rounded-2xl" />
                     <IconComponent className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 text-white relative z-10" />
-                  </div>
+                  </div> */}
 
                   {/* Stats badge */}
                   <div className="inline-flex items-center gap-1.5 sm:gap-2 px-2.5 sm:px-3 py-1 rounded-full bg-gray-100 text-gray-600 text-xs sm:text-sm font-medium mb-3 sm:mb-4">
@@ -366,12 +357,12 @@ export default function ServicesSection({
                   </div>
 
                   {/* Learn More Link */}
-                  <div className="mt-4 sm:mt-5 md:mt-6 pt-4 sm:pt-5 md:pt-6 border-t border-gray-100">
+                  {/* <div className="mt-4 sm:mt-5 md:mt-6 pt-4 sm:pt-5 md:pt-6 border-t border-gray-100">
                     <button className="inline-flex items-center gap-1.5 sm:gap-2 text-orange-600 text-sm sm:text-base font-semibold hover:gap-2 sm:hover:gap-3 transition-all duration-300">
                       Learn more
                       <ArrowRight className="w-3 h-3 sm:w-4 sm:h-4" />
                     </button>
-                  </div>
+                  </div> */}
                 </div>
               </div>
             );

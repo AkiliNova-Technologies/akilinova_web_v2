@@ -7,7 +7,7 @@
 export const SITE_CONFIG = {
   name: "AkiliNova Technologies",
   title:
-    "AkiliNova Technologies | Software, AI & Digital Innovation for Business Growth",
+    "AkiliNova Technologies | Software, AI & Digital Innovation for Business Growth in Africa",
   description:
     "AkiliNova Technologies builds custom software, AI-driven platforms, and intelligent systems that help businesses scale, automate, and innovate across Africa and beyond.",
   url: "https://akilinovatech.com",
@@ -127,27 +127,50 @@ export function generatePageMetadata({
   };
 }
 
+export function generateWebsiteSchema() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "@id": `${SITE_CONFIG.url}/#website`,
+    name: SITE_CONFIG.name,
+    alternateName: ["AkiliNova Tech", "AkiliNova"],
+    url: SITE_CONFIG.url,
+    publisher: {
+      "@id": `${SITE_CONFIG.url}/#organization`,
+    },
+  };
+}
+
 // Generate Organization JSON-LD
 export function generateOrganizationSchema() {
   return {
     "@context": "https://schema.org",
     "@type": "Organization",
+    "@id": `${SITE_CONFIG.url}/#organization`,
     name: SITE_CONFIG.name,
+    alternateName: ["AkiliNova Tech", "AkiliNova"],
     url: SITE_CONFIG.url,
-    logo: `${SITE_CONFIG.url}/Logo.png`,
+    logo: {
+      "@type": "ImageObject",
+      url: `${SITE_CONFIG.url}/Logo.png`,
+      width: 512,
+      height: 512,
+    },
     description: SITE_CONFIG.description,
+    email: SITE_CONFIG.email,
+    telephone: SITE_CONFIG.phone,
     address: {
       "@type": "PostalAddress",
       addressCountry: "UG",
       addressLocality: "Kampala",
-      addressRegion: "Kampala County",
+      addressRegion: "Central Region",
     },
     contactPoint: {
       "@type": "ContactPoint",
       contactType: "Customer Service",
       email: SITE_CONFIG.email,
       telephone: SITE_CONFIG.phone,
-      availableLanguage: ["English", "Swahili"],
+      availableLanguage: ["English"],
     },
     sameAs: Object.values(SOCIAL_LINKS),
     foundingDate: SITE_CONFIG.foundingYear,

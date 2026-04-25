@@ -50,7 +50,7 @@ export default function ContactHeroSection({
   return (
     <section
       ref={containerRef}
-      className="relative py-20 sm:py-20 md:py-20 lg:py-24 bg-gradient-to-br from-gray-900 via-gray-900 to-gray-950 overflow-hidden"
+      className="relative py-20 sm:py-20 md:py-20 lg:py-28 bg-gradient-to-br from-gray-900 via-gray-900 to-gray-950 overflow-hidden"
     >
       {/* Background Elements - Optimized for mobile */}
       <div className="absolute inset-0">
@@ -80,7 +80,6 @@ export default function ContactHeroSection({
               isHovered ? "rotate-12" : ""
             }`}
           >
-            <MessageCircle className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-orange-500" />
           </div>
           <span className="text-xs sm:text-sm font-semibold bg-gradient-to-r from-orange-400 to-orange-500 bg-clip-text text-transparent">
             {subtitle}
@@ -143,48 +142,6 @@ export default function ContactHeroSection({
         </div> */}
       </div>
 
-      {/* Stats Section - Responsive grid */}
-      <div
-        className={`relative max-w-7xl mx-auto px-4 xs:px-5 sm:px-6 lg:px-8 mt-8 sm:mt-12 md:mt-16 transition-all duration-500 delay-300 ${
-          isInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
-        }`}
-      >
-        {/* Stats Section - Optional, similar to Projects */}
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 animate-slide-up delay-300">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-            <div className="text-center p-6 bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 hover:border-orange-500/30 transition-all duration-300 hover:scale-105">
-              <div className="text-3xl font-bold bg-gradient-to-r from-orange-400 to-orange-500 bg-clip-text text-transparent">
-                24/7
-              </div>
-              <div className="text-gray-300 text-sm mt-2">
-                Support Available
-              </div>
-            </div>
-            <div className="text-center p-6 bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 hover:border-orange-500/30 transition-all duration-300 hover:scale-105">
-              <div className="text-3xl font-bold bg-gradient-to-r from-orange-400 to-orange-500 bg-clip-text text-transparent">
-                2h
-              </div>
-              <div className="text-gray-300 text-sm mt-2">Response Time</div>
-            </div>
-            <div className="text-center p-6 bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 hover:border-orange-500/30 transition-all duration-300 hover:scale-105">
-              <div className="text-3xl font-bold bg-gradient-to-r from-orange-400 to-orange-500 bg-clip-text text-transparent">
-                98%
-              </div>
-              <div className="text-gray-300 text-sm mt-2">
-                Satisfaction Rate
-              </div>
-            </div>
-            <div className="text-center p-6 bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 hover:border-orange-500/30 transition-all duration-300 hover:scale-105">
-              <div className="text-3xl font-bold bg-gradient-to-r from-orange-400 to-orange-500 bg-clip-text text-transparent">
-                50+
-              </div>
-              <div className="text-gray-300 text-sm mt-2">
-                Projects Delivered
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
 
     </section>
   );

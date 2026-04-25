@@ -41,7 +41,7 @@ export default function AboutHeroSection({
   return (
     <section 
       ref={containerRef}
-      className="relative py-20 sm:py-20 md:py-20 lg:py-24 bg-gradient-to-b from-gray-900 via-gray-900 to-gray-950 overflow-hidden"
+      className="relative py-20 sm:py-20 md:py-20 lg:py-28 bg-gradient-to-b from-gray-900 via-gray-900 to-gray-950 overflow-hidden"
     >
       {/* Gradient Orbs - Optimized for mobile */}
       <div className="absolute -top-10 -right-10 w-48 h-48 sm:w-64 sm:h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 bg-gradient-to-r from-orange-500/15 to-transparent rounded-full blur-xl sm:blur-2xl lg:blur-3xl" />
@@ -60,7 +60,6 @@ export default function AboutHeroSection({
       <div className="relative max-w-7xl mx-auto px-4 xs:px-5 sm:px-6 lg:px-8 text-center">
         {/* Badge */}
         <div className="inline-flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full bg-gradient-to-r from-orange-500/10 to-orange-500/5 border border-orange-500/20 mb-4 sm:mb-6">
-          <Sparkles className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-orange-500" />
           <span className="text-xs sm:text-sm font-semibold bg-gradient-to-r from-orange-400 to-orange-500 bg-clip-text text-transparent">
             {subtitle}
           </span>

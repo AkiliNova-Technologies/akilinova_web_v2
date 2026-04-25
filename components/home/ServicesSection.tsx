@@ -54,7 +54,7 @@ export default function ServicesSection({
       ],
       keyFeatures: ["Modern frameworks", "Scalable backends", "PWA support"],
       technologies: ["React", "Node.js", "TypeScript", "Next.js"],
-      color: "from-blue-500 to-cyan-500",
+      color: "from-orange-500 to-red-500",
       stats: "100+ projects delivered",
     },
     {
@@ -72,7 +72,7 @@ export default function ServicesSection({
       ],
       keyFeatures: ["iOS/Android", "React Native", "Offline support"],
       technologies: ["React Native", "Flutter", "Swift", "Kotlin"],
-      color: "from-purple-500 to-pink-500",
+      color: "from-orange-500 to-red-500",
       stats: "50M+ app downloads",
     },
     {

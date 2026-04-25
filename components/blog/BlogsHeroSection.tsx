@@ -49,7 +49,7 @@ export default function BlogsHeroSection({
   return (
     <section
       ref={containerRef}
-      className="relative py-20 sm:py-20 md:py-20 lg:py-24 bg-gradient-to-br from-gray-900 via-gray-900 to-gray-950 overflow-hidden"
+      className="relative py-20 sm:py-20 md:py-20 lg:py-28 bg-gradient-to-br from-gray-900 via-gray-900 to-gray-950 overflow-hidden"
     >
       {/* Background Elements - Optimized for mobile */}
       <div className="absolute inset-0">
@@ -79,7 +79,6 @@ export default function BlogsHeroSection({
               isHovered ? "rotate-12" : ""
             } hidden sm:block`}
           >
-            <Sparkles className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-orange-500" />
           </div>
           <span className="text-xs sm:text-sm font-semibold bg-gradient-to-r from-orange-400 to-orange-500 bg-clip-text text-transparent">
             {subtitle}
@@ -99,33 +98,6 @@ export default function BlogsHeroSection({
           {description}
         </p>
 
-        {/* Stats Section */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-2xl mx-auto mt-12">
-          <div className="text-center p-4 bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 hover:border-orange-500/30 transition-all duration-300 hover:scale-105">
-            <div className="text-2xl font-bold bg-gradient-to-r from-orange-400 to-orange-500 bg-clip-text text-transparent">
-              100+
-            </div>
-            <div className="text-gray-400 text-xs mt-1">Articles Published</div>
-          </div>
-          <div className="text-center p-4 bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 hover:border-orange-500/30 transition-all duration-300 hover:scale-105">
-            <div className="text-2xl font-bold bg-gradient-to-r from-orange-400 to-orange-500 bg-clip-text text-transparent">
-              10K+
-            </div>
-            <div className="text-gray-400 text-xs mt-1">Monthly Readers</div>
-          </div>
-          <div className="text-center p-4 bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 hover:border-orange-500/30 transition-all duration-300 hover:scale-105">
-            <div className="text-2xl font-bold bg-gradient-to-r from-orange-400 to-orange-500 bg-clip-text text-transparent">
-              15+
-            </div>
-            <div className="text-gray-400 text-xs mt-1">Expert Authors</div>
-          </div>
-          <div className="text-center p-4 bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 hover:border-orange-500/30 transition-all duration-300 hover:scale-105">
-            <div className="text-2xl font-bold bg-gradient-to-r from-orange-400 to-orange-500 bg-clip-text text-transparent">
-              8+
-            </div>
-            <div className="text-gray-400 text-xs mt-1">Categories</div>
-          </div>
-        </div>
       </div>
     </section>
   );

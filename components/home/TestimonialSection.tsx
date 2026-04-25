@@ -1,6 +1,6 @@
 "use client";
 
-import { Quote, Star, Globe, TrendingUp, Sparkles } from "lucide-react";
+import { Quote, Star, Globe } from "lucide-react";
 
 export default function TestimonialSection() {
   const testimonials = [
@@ -10,7 +10,7 @@ export default function TestimonialSection() {
       position: "CTO, TechInnovate Africa",
       company: "TechInnovate",
       country: "Kenya",
-      content: "Working with AkiliNova transformed our digital infrastructure. Their innovative solutions helped us scale across 5 African countries in just 6 months.",
+      content: "Working with AkiliNova Technologies transformed our digital infrastructure. Their innovative solutions helped us scale across 5 African countries in just 6 months.",
       rating: 5,
       achievement: "Scaled to 5 countries",
       duration: "6 months",
@@ -58,7 +58,6 @@ export default function TestimonialSection() {
         {/* Section Header */}
         <div className="text-center mb-8 md:mb-12 lg:mb-16">
           <div className="inline-flex items-center gap-1.5 sm:gap-2 px-3 py-1.5 sm:px-4 sm:py-2 rounded-full bg-gradient-to-r from-orange-500/10 to-orange-500/5 border border-orange-500/20 mb-4 md:mb-6">
-            <Sparkles className="w-3 h-3 sm:w-4 sm:h-4 text-orange-500" />
             <span className="text-xs sm:text-sm font-semibold bg-gradient-to-r from-orange-400 to-orange-500 bg-clip-text text-transparent">
               Client Success Stories
             </span>
@@ -108,30 +107,12 @@ export default function TestimonialSection() {
                 </div>
               </div>
 
-              {/* Rating */}
-              <div className="flex items-center gap-0.5 sm:gap-1 mb-3 sm:mb-4">
-                {[...Array(testimonial.rating)].map((_, i) => (
-                  <Star
-                    key={i}
-                    className="w-3 h-3 sm:w-4 sm:h-4 text-orange-500 fill-orange-500"
-                  />
-                ))}
-              </div>
-
               {/* Content */}
               <blockquote className="text-gray-700 italic mb-4 sm:mb-5 md:mb-6 leading-relaxed text-sm sm:text-base line-clamp-4 sm:line-clamp-4">
                 "{testimonial.content}"
               </blockquote>
 
-              {/* Achievement Metric - Added for better mobile display */}
-              <div className="mb-4 sm:mb-5 md:mb-6">
-                <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-gradient-to-r from-gray-50 to-gray-100 border border-gray-200 w-fit">
-                  <TrendingUp className="w-3 h-3 sm:w-4 sm:h-4 text-orange-500" />
-                  <span className="text-xs sm:text-sm font-semibold text-gray-800">
-                    {testimonial.achievement}
-                  </span>
-                </div>
-              </div>
+            
 
               {/* Footer */}
               <div className="pt-4 sm:pt-5 md:pt-6 border-t border-gray-100 flex items-center justify-between">

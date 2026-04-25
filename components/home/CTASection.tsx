@@ -36,7 +36,7 @@ export default function CTASection() {
   };
 
   return (
-    <section className="relative py-12 sm:py-16 lg:py-20 xl:py-28 overflow-hidden bg-gradient-to-br from-gray-900 via-gray-900 to-gray-950">
+    <section className="relative py-12 sm:py-16 lg:py-16 xl:py-18 overflow-hidden bg-gradient-to-br from-gray-900 via-gray-900 to-gray-950">
       {/* Background Elements */}
       <div className="absolute inset-0">
         {/* Gradient Orbs */}
@@ -58,9 +58,8 @@ export default function CTASection() {
         <div className="text-center">
           {/* Badge */}
           <div className="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full bg-gradient-to-r from-orange-500/10 to-orange-500/5 border border-orange-500/20 mb-6 sm:mb-8">
-            <Sparkles className="w-3.5 sm:w-4 h-3.5 sm:h-4 text-orange-500" />
             <span className="text-xs sm:text-sm font-semibold bg-gradient-to-r from-orange-400 to-orange-500 bg-clip-text text-transparent">
-              Ready to Transform?
+              Ready to Transform
             </span>
           </div>
 
@@ -88,8 +87,8 @@ export default function CTASection() {
               onClick={() => handleClick("project")}
               onMouseEnter={() => handleMouseEnter("project")}
               onMouseLeave={handleMouseLeave}
-              className={`group relative inline-flex items-center justify-center gap-2 sm:gap-3 px-5 sm:px-6 md:px-12 py-2.5 sm:py-3 md:py-4 rounded-xl sm:rounded-2xl font-bold text-base sm:text-lg transition-all duration-300 transform w-full sm:w-auto ${
-                activeButton === "project" ? "scale-105" : ""
+              className={`group relative inline-flex items-center justify-center gap-2 sm:gap-3 px-6 sm:px-8 py-2.5 sm:py-3 md:py-4 rounded-lg sm:rounded-xl font-semibold text-sm sm:text-base md:text-lg bg-gradient-to-r from-orange-500 to-orange-600 text-white transition-all duration-300 focus:outline-none focus:ring-0 focus:ring-orange-500/30 overflow-hidden ${
+                activeButton === "project" ? "scale-101" : ""
               }`}
             >
               {/* Background Gradient */}
@@ -109,7 +108,7 @@ export default function CTASection() {
               onMouseEnter={() => handleMouseEnter("consultation")}
               onMouseLeave={handleMouseLeave}
               className={`group relative inline-flex items-center justify-center gap-2 sm:gap-3 px-5 sm:px-6 md:px-12 py-2.5 sm:py-3 md:py-4 rounded-xl sm:rounded-2xl font-bold text-base sm:text-lg border-2 transition-all duration-300 transform w-full sm:w-auto ${
-                activeButton === "consultation" ? "scale-105" : ""
+                activeButton === "consultation" ? "scale-101" : ""
               } ${
                 isHovered && activeButton !== "consultation"
                   ? "border-white/10 bg-white/5"
@@ -127,96 +126,6 @@ export default function CTASection() {
             </button>
           </div>
 
-          {/* Trust Indicators */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-3xl mx-auto mb-12">
-            {[
-              {
-                icon: <CheckCircle className="w-5 h-5" />,
-                text: "No upfront costs",
-                color: "text-green-400",
-                bgColor: "bg-green-400/10",
-              },
-              {
-                icon: <Zap className="w-5 h-5" />,
-                text: "Fast delivery",
-                color: "text-blue-400",
-                bgColor: "bg-blue-400/10",
-              },
-              {
-                icon: <Shield className="w-5 h-5" />,
-                text: "Quality guaranteed",
-                color: "text-purple-400",
-                bgColor: "bg-purple-400/10",
-              },
-              {
-                icon: <Globe className="w-5 h-5" />,
-                text: "Pan-African support",
-                color: "text-orange-400",
-                bgColor: "bg-orange-400/10",
-              },
-            ].map((item, index) => (
-              <div
-                key={index}
-                className={`flex items-center justify-center gap-3 px-4 py-3 rounded-xl ${item.bgColor} backdrop-blur-sm border border-white/10`}
-              >
-                <div className={item.color}>{item.icon}</div>
-                <span className="text-sm text-gray-300 font-medium">
-                  {item.text}
-                </span>
-              </div>
-            ))}
-          </div>
-
-          {/* Stats */}
-          <div className="flex justify-center px-2 sm:px-0">
-            <div className="flex items-center justify-center max-w-lg gap-4 sm:gap-6 md:gap-8 px-4 sm:px-6 py-2 sm:py-3 bg-white/5 backdrop-blur-sm rounded-full sm:rounded-full border border-white/10">
-              {[
-                { value: "48h", label: "Response Time" },
-                { value: "15+", label: "Countries" },
-                { value: "99%", label: "Satisfaction" },
-              ].map((stat, index) => (
-                <div key={index} className="flex items-center gap-1.5 sm:gap-2">
-                  <div className="text-white font-bold text-sm sm:text-base md:text-lg">
-                    {stat.value}
-                  </div>
-                  <div className="text-gray-400 text-xs sm:text-sm">
-                    {stat.label}
-                  </div>
-                  {index < 2 && (
-                    <div className="w-1 h-1 bg-gray-600 rounded-full" />
-                  )}
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Floating Corner Badges */}
-      <div className="hidden lg:block">
-        <div className="absolute top-6 sm:top-8 lg:top-10 left-6 sm:left-8 lg:left-10">
-          <div className="flex items-center gap-2 px-3 py-1.5 sm:px-4 sm:py-2 rounded-full bg-gradient-to-r from-white/10 to-white/5 backdrop-blur-sm border border-white/10 text-white text-xs sm:text-sm animate-float delay-0">
-            <Zap className="w-3.5 sm:w-4 h-3.5 sm:h-4 text-orange-400" />
-            Fast Delivery
-          </div>
-        </div>
-        <div className="absolute top-6 sm:top-8 lg:top-10 right-6 sm:right-8 lg:right-10">
-          <div className="flex items-center gap-2 px-3 py-1.5 sm:px-4 sm:py-2 rounded-full bg-gradient-to-r from-white/10 to-white/5 backdrop-blur-sm border border-white/10 text-white text-xs sm:text-sm animate-float delay-500">
-            <Sparkles className="w-3.5 sm:w-4 h-3.5 sm:h-4 text-blue-400" />
-            Innovative Solutions
-          </div>
-        </div>
-        <div className="absolute bottom-12 sm:bottom-16 lg:bottom-20 left-6 sm:left-8 lg:left-10">
-          <div className="flex items-center gap-2 px-3 py-1.5 sm:px-4 sm:py-2 rounded-full bg-gradient-to-r from-white/10 to-white/5 backdrop-blur-sm border border-white/10 text-white text-xs sm:text-sm animate-float delay-1000">
-            <Globe className="w-3.5 sm:w-4 h-3.5 sm:h-4 text-green-400" />
-            African Focus
-          </div>
-        </div>
-        <div className="absolute bottom-12 sm:bottom-16 lg:bottom-20 right-6 sm:right-8 lg:right-10">
-          <div className="flex items-center gap-2 px-3 py-1.5 sm:px-4 sm:py-2 rounded-full bg-gradient-to-r from-white/10 to-white/5 backdrop-blur-sm border border-white/10 text-white text-xs sm:text-sm animate-float delay-1500">
-            <Shield className="w-3.5 sm:w-4 h-3.5 sm:h-4 text-purple-400" />
-            5-Star Rated
-          </div>
         </div>
       </div>
 

@@ -420,3 +420,86 @@ html {
     scrollbar-width: none;
   }
 }
+
+.blog-section {
+  margin-bottom: 3rem;
+}
+
+.blog-section h2 {
+  margin-bottom: 1rem;
+  font-size: 1.875rem;
+  line-height: 2.25rem;
+  font-weight: 800;
+  color: #111827;
+}
+
+.blog-section h3 {
+  margin-bottom: 0.75rem;
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: #111827;
+}
+
+.blog-section p {
+  margin-bottom: 1.25rem;
+  font-size: 1.0625rem;
+  line-height: 1.9;
+  color: #374151;
+}
+
+.blog-section ul {
+  margin: 1.5rem 0;
+  padding-left: 1.5rem;
+}
+
+.blog-section li {
+  margin-bottom: 0.85rem;
+  line-height: 1.8;
+  color: #374151;
+}
+
+.lead {
+  font-size: 1.25rem !important;
+  line-height: 1.9 !important;
+  color: #1f2937 !important;
+  font-weight: 500;
+}
+
+.blog-highlight {
+  margin: 2rem 0;
+  padding: 1.25rem 1.5rem;
+  border-left: 4px solid #ff6b00;
+  background: #fff7ed;
+  border-radius: 0 1rem 1rem 0;
+  color: #374151;
+  line-height: 1.8;
+}
+
+.blog-grid {
+  display: grid;
+  gap: 1rem;
+  margin: 1.5rem 0 2rem;
+}
+
+.blog-card {
+  padding: 1.25rem;
+  border: 1px solid #e5e7eb;
+  border-radius: 1rem;
+  background: #ffffff;
+}
+
+.blog-section blockquote {
+  margin: 2rem 0;
+  padding: 1.25rem 1.5rem;
+  border-left: 4px solid #ff6b00;
+  background: #fff7ed;
+  border-radius: 0 1rem 1rem 0;
+  font-weight: 500;
+  color: #1f2937;
+}
+
+@media (min-width: 768px) {
+  .blog-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}

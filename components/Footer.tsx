@@ -38,7 +38,7 @@ interface FooterProps {
 }
 
 const Footer: React.FC<FooterProps> = ({
-  companyName = "AkiliNova Tech",
+  companyName = "AkiliNova Technologies",
   description = "Pioneering digital transformation across Africa with innovative technology solutions.",
   year = new Date().getFullYear(),
   sections = [
@@ -71,8 +71,8 @@ const Footer: React.FC<FooterProps> = ({
     },
   ],
   contactInfo = {
-    email: "hello@akilinova.com",
-    phone: "+256 789 874 647",
+    email: "akilinovatechnologies@gmail.com",
+    phone: "+256 7671 10711",
     address: "Kampala, Uganda",
   },
   className = "",
@@ -130,9 +130,6 @@ const Footer: React.FC<FooterProps> = ({
           {/* Brand Column */}
           <div className="lg:col-span-1">
             <div className="flex flex-row items-center gap-3 mb-6">
-              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-orange-500 to-orange-600 flex items-center justify-center shadow-lg">
-                <Sparkles className="h-5 w-5 text-white" />
-              </div>
               <div>
                 <h3 className="text-2xl font-bold text-white">{companyName}</h3>
                 <span className="text-xs text-orange-400 font-medium tracking-wider">PAN-AFRICAN</span>
@@ -216,18 +213,18 @@ const Footer: React.FC<FooterProps> = ({
                       key={idx}
                       className="flex items-start gap-3 text-gray-300 hover:text-white transition-colors"
                     >
-                      <div className="w-6 h-6 flex items-center justify-center mt-0.5">
+                      <div className="w-6 h-6 flex items-center justify-center">
                         {item.icon}
                       </div>
                       {item.href ? (
                         <a
                           href={item.href}
-                          className="text-sm hover:text-orange-400 transition-colors leading-tight"
+                          className="text-sm hover:text-orange-400 transition-colors leading-tight mt-1"
                         >
                           {item.text}
                         </a>
                       ) : (
-                        <span className="text-sm leading-tight">{item.text}</span>
+                        <span className="text-sm leading-tight mt-1">{item.text}</span>
                       )}
                     </div>
                   ))}
@@ -295,10 +292,6 @@ const Footer: React.FC<FooterProps> = ({
                 {link.label}
               </Link>
             ))}
-            <div className="hidden md:flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/5 border border-white/10">
-              <Globe className="h-3 w-3 text-orange-500" />
-              <span className="text-xs text-gray-400">Serving 15+ African Countries</span>
-            </div>
           </div>
         </div>
       </div>
