@@ -10,8 +10,22 @@ export const dummyProjects: Project[] = [
       "A comprehensive multi-vendor e-commerce solution with advanced inventory management, AI-powered recommendations, payment processing, and real-time analytics dashboard for enterprise retail operations.",
     fullDescription:
       "MarketHub revolutionizes online retail by providing a seamless, scalable shopping experience for both B2C and B2B markets. This enterprise-grade platform features real-time inventory tracking across multiple warehouses, AI-powered product recommendations using collaborative filtering, multi-payment gateway integration supporting 15+ currencies, advanced fraud detection, and a comprehensive seller dashboard. The platform was designed to handle massive traffic spikes during flash sales and seasonal events while maintaining sub-second response times. Built with a microservices architecture, it supports over 50,000 SKUs, processes 10,000+ orders daily, and integrates with major logistics providers for seamless order fulfillment. The admin panel provides deep insights into customer behavior, sales trends, and inventory optimization recommendations.",
-    technologies: ["React", "Next.js", "Node.js", "MongoDB", "PostgreSQL", "Stripe", "PayPal", "Redis", "Elasticsearch", "AWS", "Docker", "Kubernetes"],
-    image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=1200&h=630&fit=crop",
+    technologies: [
+      "React",
+      "Next.js",
+      "Node.js",
+      "MongoDB",
+      "PostgreSQL",
+      "Stripe",
+      "PayPal",
+      "Redis",
+      "Elasticsearch",
+      "AWS",
+      "Docker",
+      "Kubernetes",
+    ],
+    image:
+      "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=1200&h=630&fit=crop",
     liveUrl: "https://demo-ecommerce.akilinova.com",
     githubUrl: "https://github.com/akilinova/ecommerce-platform",
     gradient: "from-[#122A44] to-[#0D1C2E]",
@@ -95,12 +109,14 @@ export const dummyProjects: Project[] = [
       "Redis",
       "Docker",
     ],
-    image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=1200&h=630&fit=crop",
+    image:
+      "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=1200&h=630&fit=crop",
     liveUrl: "https://apps.apple.com/demo-healthcare",
     githubUrl: "https://github.com/akilinova/healthcare-app",
     gradient: "from-[#122A44] to-[#0D1C2E]",
     timeline: "8 months",
-    teamSize: "6 developers + 2 healthcare consultants + 1 compliance officer + 2 QA engineers",
+    teamSize:
+      "6 developers + 2 healthcare consultants + 1 compliance officer + 2 QA engineers",
     launchDate: "2024-02-20",
     challenges: [
       "Ensuring HIPAA compliance for all patient data storage, transmission, and access logging",
@@ -178,7 +194,8 @@ export const dummyProjects: Project[] = [
       "React",
       "Socket.io",
     ],
-    image: "https://images.unsplash.com/photo-1531746790731-6c087fecd65a?w=1200&h=630&fit=crop",
+    image:
+      "https://images.unsplash.com/photo-1531746790731-6c087fecd65a?w=1200&h=630&fit=crop",
     liveUrl: "https://demo-akilinova-ai-agent.com",
     githubUrl: "https://github.com/akilinova/ai-assistant",
     gradient: "from-[#1A1832] to-[#2D2B55]",
@@ -220,53 +237,65 @@ export const dummyProjects: Project[] = [
   },
   {
     id: "4",
-    title: "Smart Home IoT Dashboard",
+    title: "smart home IoT dashboard - Nexora Home",
     status: "Completed",
     category: "dashboard",
     description:
-      "Centralized dashboard for monitoring and controlling IoT-enabled home devices with real-time analytics.",
+      "Premium smart home IoT dashboard for managing rooms, devices, automation, security, analytics, alerts, and energy optimization.",
     fullDescription:
-      "Developed a web-based control center for smart home systems. The dashboard provides live energy consumption stats, device automation rules, and AI-based suggestions to optimize efficiency.",
-    technologies: ["Vue.js", "Python", "MQTT", "InfluxDB", "Docker", "AWS IoT"],
-    image: "https://images.unsplash.com/photo-1558002038-1055907df827?w=1200&h=630&fit=crop",
-    liveUrl: "https://smarthome.akilinova.com",
-    githubUrl: "https://github.com/akilinova/smart-home-dashboard",
-    gradient: "from-[#0D1F3A] to-[#163860]",
-    timeline: "7 months",
-    teamSize: "4 developers + 2 hardware engineers",
-    launchDate: "2024-07-30",
+      "Nexora Home is a polished smart home IoT dashboard demo built to showcase a complete connected-home control experience. It includes room-based device management, real-time-style device controls, automation rule building, security monitoring, energy insights, analytics, account settings, and alert preferences within a modern SaaS-style interface.",
+    technologies: [
+      "Next.js",
+      "TypeScript",
+      "Tailwind CSS",
+      "shadcn/ui",
+      "Recharts",
+      "Framer Motion",
+      "Lucide React",
+    ],
+    image: "https://nexora-home.vercel.app/opengraph-image",
+    liveUrl: "https://nexora-home.vercel.app",
+    githubUrl: "https://github.com/AkiliNova-Technologies/nexora",
+    gradient: "from-[#0B0F14] via-[#111827] to-[#163860]",
+    timeline: "Portfolio demo project",
+    teamSize: "Solo frontend build",
+    launchDate: "2026-04-28",
     challenges: [
-      "Real-time communication with low-latency devices",
-      "Data synchronization across multiple smart hubs",
-      "User-friendly visualization of complex IoT data",
+      "Designing a dashboard that feels like a real smart home product instead of a generic admin panel",
+      "Creating reusable components for metrics, tables, cards, and controls across multiple pages",
+      "Balancing rich visuals with responsiveness across dashboard pages",
     ],
     solutions: [
-      "Used MQTT protocol with WebSockets for real-time updates",
-      "Deployed time-series database for historical analytics",
-      "Built AI engine for energy optimization suggestions",
+      "Built a modular Next.js App Router structure with reusable dashboard components",
+      "Used shadcn/ui, Tailwind CSS, and Lucide icons for a consistent premium design system",
+      "Added Framer Motion, Recharts, and dynamic Open Graph metadata for portfolio-ready presentation",
     ],
     impact: [
-      "Cut average household energy use by 20%",
-      "Handled over 50,000 concurrent IoT events per second",
-      "Enhanced customer satisfaction through improved control UX",
+      "Created a complete product-style smart home dashboard experience",
+      "Demonstrates strong UI architecture, component reuse, and SaaS dashboard thinking",
+      "Showcases IoT-focused modules including rooms, devices, automation, analytics, security, energy, alerts, and settings",
     ],
     stackExplanation: {
       frontend:
-        "Vue.js for reactive UI components; real-time charts using Chart.js.",
+        "Next.js with TypeScript, Tailwind CSS, shadcn/ui, Lucide React, and Framer Motion for a polished responsive SaaS-style interface.",
       backend:
-        "Python with Flask and MQTT broker for fast device communication.",
-      infrastructure: "AWS IoT Core for managing connected devices.",
+        "Demo currently uses structured mock data, designed to later connect to IoT APIs, WebSockets, MQTT services, or device management backends.",
+      infrastructure:
+        "Designed for deployment on Vercel with dynamic metadata, Open Graph image generation, and portfolio-ready SEO previews.",
     },
     keyFeatures: [
-      "Live device monitoring",
-      "Energy optimization AI",
-      "Custom automation rules",
-      "Voice assistant integration",
-      "Mobile responsive dashboard",
+      "Smart home dashboard overview",
+      "Room-based device control",
+      "Device cards with type-aware controls",
+      "Automation rule builder UI",
+      "Analytics and energy usage charts",
+      "Security monitoring center",
+      "Alert preferences and user settings",
+      "SEO and Open Graph preview support",
     ],
-    featured: false,
-    createdAt: "2023-12-10T00:00:00Z",
-    updatedAt: "2024-07-30T00:00:00Z",
+    featured: true,
+    createdAt: "2026-04-28T00:00:00Z",
+    updatedAt: "2026-04-28T00:00:00Z",
   },
   {
     id: "5",
@@ -278,7 +307,8 @@ export const dummyProjects: Project[] = [
     fullDescription:
       "This fintech solution allows businesses to handle payments in multiple currencies through a robust, PCI DSS-compliant gateway. It supports instant settlements, API-based integration, and real-time fraud detection.",
     technologies: ["NestJS", "TypeScript", "PostgreSQL", "Kafka", "AWS"],
-    image: "https://images.unsplash.com/photo-1563986768609-322da13575f3?w=1200&h=630&fit=crop",
+    image:
+      "https://images.unsplash.com/photo-1563986768609-322da13575f3?w=1200&h=630&fit=crop",
     liveUrl: "https://demo-pay.akilinova.com",
     githubUrl: "https://github.com/akilinova/fintech-gateway",
     gradient: "from-[#11223B] to-[#0C1727]",
@@ -334,7 +364,8 @@ export const dummyProjects: Project[] = [
       "Socket.io",
       "AWS S3",
     ],
-    image: "https://images.unsplash.com/photo-1501504905252-473c47e087f8?w=1200&h=630&fit=crop",
+    image:
+      "https://images.unsplash.com/photo-1501504905252-473c47e087f8?w=1200&h=630&fit=crop",
     liveUrl: "https://learn.akilinova.com",
     githubUrl: "https://github.com/akilinova/edtech-platform",
     gradient: "from-[#102539] to-[#1B3B57]",
@@ -384,7 +415,8 @@ export const dummyProjects: Project[] = [
     fullDescription:
       "Developed an integrated platform for real estate companies to manage tenants, leases, maintenance, and payments. The platform provides a 360° view of operations with automated notifications and reporting.",
     technologies: ["React", "NestJS", "MongoDB", "Stripe", "AWS", "Docker"],
-    image: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=1200&h=630&fit=crop",
+    image:
+      "https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=1200&h=630&fit=crop",
     liveUrl: "https://realestate.akilinova.com",
     githubUrl: "https://github.com/akilinova/realestate-system",
     gradient: "from-[#112B44] to-[#0C1727]",
@@ -435,7 +467,8 @@ export const dummyProjects: Project[] = [
     fullDescription:
       "A digital solution for managing events, from registration to analytics. Features include custom event pages, ticket scanning, real-time updates, and engagement tracking via push notifications.",
     technologies: ["Next.js", "Express", "PostgreSQL", "Stripe", "Firebase"],
-    image: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=1200&h=630&fit=crop",
+    image:
+      "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=1200&h=630&fit=crop",
     liveUrl: "https://events.akilinova.com",
     githubUrl: "https://github.com/akilinova/event-system",
     gradient: "from-[#142A40] to-[#0C1929]",
@@ -486,7 +519,8 @@ export const dummyProjects: Project[] = [
     fullDescription:
       "Built an advanced analytics platform capable of ingesting data from multiple sources, performing predictive analysis, and visualizing trends. Integrates AI models for anomaly detection and automated report generation.",
     technologies: ["React", "Python", "TensorFlow", "FastAPI", "PostgreSQL"],
-    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&h=630&fit=crop",
+    image:
+      "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&h=630&fit=crop",
     liveUrl: "https://analytics.akilinova.com",
     githubUrl: "https://github.com/akilinova/ai-analytics-dashboard",
     gradient: "from-[#0E1E30] to-[#1A3553]",
@@ -535,8 +569,23 @@ export const dummyProjects: Project[] = [
       "End-to-end supply chain management platform for tracking shipments, managing warehouses, optimizing routes, and providing real-time visibility across the entire logistics network.",
     fullDescription:
       "LogisticsPro revolutionizes supply chain operations by providing comprehensive visibility and control across the entire logistics network. This enterprise platform manages everything from procurement and warehousing to transportation and last-mile delivery. Features include real-time shipment tracking with GPS integration, intelligent route optimization using machine learning, warehouse management with barcode/RFID scanning, supplier relationship management, demand forecasting, and automated reordering. The system integrates with major carriers (DHL, FedEx, UPS) for live tracking updates and supports multi-modal transportation (air, sea, road, rail). Advanced analytics provide insights into delivery performance, cost optimization, and supply chain bottlenecks. Mobile apps for drivers enable proof of delivery, route navigation, and real-time communication with dispatch.",
-    technologies: ["React", "TypeScript", "Node.js", "Python", "PostgreSQL", "MongoDB", "Redis", "RabbitMQ", "Elasticsearch", "Google Maps API", "AWS", "Docker", "Kubernetes"],
-    image: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=1200&h=630&fit=crop",
+    technologies: [
+      "React",
+      "TypeScript",
+      "Node.js",
+      "Python",
+      "PostgreSQL",
+      "MongoDB",
+      "Redis",
+      "RabbitMQ",
+      "Elasticsearch",
+      "Google Maps API",
+      "AWS",
+      "Docker",
+      "Kubernetes",
+    ],
+    image:
+      "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=1200&h=630&fit=crop",
     liveUrl: "https://logistics.akilinova.com",
     githubUrl: "https://github.com/akilinova/logistics-pro",
     gradient: "from-[#0F2233] to-[#1A3A52]",
@@ -569,10 +618,13 @@ export const dummyProjects: Project[] = [
       "Improved customer satisfaction scores from 3.2 to 4.6 out of 5",
     ],
     stackExplanation: {
-      frontend: "React with TypeScript provides type-safe, component-based UI for complex logistics dashboards. Real-time updates via WebSockets keep tracking information current without polling.",
-      backend: "Node.js handles real-time operations and API integrations. Python services power route optimization algorithms and demand forecasting ML models. Microservices architecture allows independent scaling of different logistics functions.",
+      frontend:
+        "React with TypeScript provides type-safe, component-based UI for complex logistics dashboards. Real-time updates via WebSockets keep tracking information current without polling.",
+      backend:
+        "Node.js handles real-time operations and API integrations. Python services power route optimization algorithms and demand forecasting ML models. Microservices architecture allows independent scaling of different logistics functions.",
       data: "PostgreSQL stores structured operational data with proper ACID compliance. MongoDB handles semi-structured shipment documents and carrier responses. Elasticsearch powers advanced search across millions of shipment records.",
-      infrastructure: "Kubernetes orchestrates containerized services with auto-scaling based on shipment volume. RabbitMQ manages message queuing for asynchronous processing. AWS provides global infrastructure with edge locations for low-latency tracking.",
+      infrastructure:
+        "Kubernetes orchestrates containerized services with auto-scaling based on shipment volume. RabbitMQ manages message queuing for asynchronous processing. AWS provides global infrastructure with edge locations for low-latency tracking.",
     },
     keyFeatures: [
       "Real-time GPS shipment tracking with map visualization",
@@ -601,8 +653,21 @@ export const dummyProjects: Project[] = [
       "Comprehensive restaurant management platform handling reservations, orders, inventory, staff scheduling, and customer loyalty programs with integrated POS system.",
     fullDescription:
       "DineFlow provides restaurants with a complete digital infrastructure to manage all aspects of operations from front-of-house to back-of-house. The platform includes table reservation system with floor plan visualization, integrated POS for order taking and payment processing, kitchen display system for order management, inventory tracking with supplier integration, employee scheduling and time tracking, customer loyalty program, online ordering with delivery integration, menu management with pricing and modifiers, and comprehensive reporting on sales, inventory, and staff performance. Multi-location support allows restaurant chains to manage multiple outlets from a single dashboard. The system works seamlessly across tablets for servers, kitchen displays for cooks, and mobile apps for customers and delivery drivers.",
-    technologies: ["React", "Next.js", "Node.js", "Express", "PostgreSQL", "Redis", "Stripe", "Twilio", "AWS", "Socket.io", "TypeScript"],
-    image: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1200&h=630&fit=crop",
+    technologies: [
+      "React",
+      "Next.js",
+      "Node.js",
+      "Express",
+      "PostgreSQL",
+      "Redis",
+      "Stripe",
+      "Twilio",
+      "AWS",
+      "Socket.io",
+      "TypeScript",
+    ],
+    image:
+      "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1200&h=630&fit=crop",
     liveUrl: "https://dineflow.akilinova.com",
     githubUrl: "https://github.com/akilinova/dineflow",
     gradient: "from-[#1A2332] to-[#0F1621]",
@@ -632,10 +697,14 @@ export const dummyProjects: Project[] = [
       "Increased customer retention by 35% through loyalty program",
     ],
     stackExplanation: {
-      frontend: "React-based POS interface optimized for touch input on tablets. Next.js powers customer-facing ordering website with SEO optimization.",
-      backend: "Node.js with Express provides RESTful API for all operations. Socket.io enables real-time order updates across devices.",
-      payments: "Stripe integration handles payment processing with support for split bills, tips, and various payment methods.",
-      infrastructure: "AWS deployment with RDS PostgreSQL for transactional data. Redis for real-time order queuing and caching.",
+      frontend:
+        "React-based POS interface optimized for touch input on tablets. Next.js powers customer-facing ordering website with SEO optimization.",
+      backend:
+        "Node.js with Express provides RESTful API for all operations. Socket.io enables real-time order updates across devices.",
+      payments:
+        "Stripe integration handles payment processing with support for split bills, tips, and various payment methods.",
+      infrastructure:
+        "AWS deployment with RDS PostgreSQL for transactional data. Redis for real-time order queuing and caching.",
     },
     keyFeatures: [
       "Table reservation management with floor plan visualization",
@@ -664,8 +733,21 @@ export const dummyProjects: Project[] = [
       "Complete human resource management system for recruitment, onboarding, payroll, performance management, and employee engagement with AI-powered analytics.",
     fullDescription:
       "TalentHub modernizes HR operations by providing an all-in-one platform that handles the complete employee lifecycle from recruitment to exit. The system features applicant tracking with AI-powered resume screening, automated onboarding workflows, employee database management, payroll processing with tax calculations, time and attendance tracking, performance review cycles, training and development management, employee self-service portal, and advanced workforce analytics. AI algorithms help identify top candidates, predict employee turnover risk, and recommend training programs. Integration with major job boards automates job posting and candidate sourcing. Mobile app allows employees to request time off, view payslips, and complete training on-the-go. The platform ensures compliance with labor laws and generates required government reports automatically.",
-    technologies: ["Vue.js", "Nuxt.js", "Python", "Django", "PostgreSQL", "Redis", "Celery", "Elasticsearch", "AWS", "Docker", "TensorFlow"],
-    image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=1200&h=630&fit=crop",
+    technologies: [
+      "Vue.js",
+      "Nuxt.js",
+      "Python",
+      "Django",
+      "PostgreSQL",
+      "Redis",
+      "Celery",
+      "Elasticsearch",
+      "AWS",
+      "Docker",
+      "TensorFlow",
+    ],
+    image:
+      "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=1200&h=630&fit=crop",
     liveUrl: "https://talenthub.akilinova.com",
     githubUrl: "https://github.com/akilinova/talenthub",
     gradient: "from-[#162D3D] to-[#0D1922]",
@@ -695,10 +777,13 @@ export const dummyProjects: Project[] = [
       "Identified high turnover risk employees with 82% accuracy enabling retention interventions",
     ],
     stackExplanation: {
-      frontend: "Vue.js with Nuxt.js provides reactive, SEO-friendly interfaces for both public job portals and internal dashboards.",
-      backend: "Python Django offers robust framework for complex business logic and data validation. Celery handles asynchronous tasks like payroll processing and email notifications.",
+      frontend:
+        "Vue.js with Nuxt.js provides reactive, SEO-friendly interfaces for both public job portals and internal dashboards.",
+      backend:
+        "Python Django offers robust framework for complex business logic and data validation. Celery handles asynchronous tasks like payroll processing and email notifications.",
       ai: "TensorFlow powers resume screening algorithms and predictive analytics for workforce planning.",
-      infrastructure: "PostgreSQL stores structured employee data with encryption at rest. Elasticsearch enables fast search across resumes and employee records. Redis caches frequently accessed data.",
+      infrastructure:
+        "PostgreSQL stores structured employee data with encryption at rest. Elasticsearch enables fast search across resumes and employee records. Redis caches frequently accessed data.",
     },
     keyFeatures: [
       "AI-powered applicant tracking and resume screening",
@@ -727,8 +812,23 @@ export const dummyProjects: Project[] = [
       "Netflix-style video streaming platform with live streaming capabilities, content management, recommendation engine, and multi-device support with adaptive bitrate streaming.",
     fullDescription:
       "StreamBox delivers a comprehensive video streaming experience similar to major OTT platforms. The platform supports both on-demand video libraries and live streaming events with features including adaptive bitrate streaming for optimal quality across network conditions, content management system for videos, series, and live channels, AI-powered recommendation engine based on viewing history, user profiles with watchlists and continue watching, subtitle support for accessibility, parental controls with content ratings, offline viewing capability, Chromecast and AirPlay integration, and comprehensive analytics on viewer engagement. The platform uses CDN for global content delivery, implements DRM for content protection, and supports multiple video formats and resolutions up to 4K. Social features allow users to share recommendations and create watch parties.",
-    technologies: ["React", "Next.js", "Node.js", "Express", "MongoDB", "Redis", "FFmpeg", "AWS MediaConvert", "CloudFront", "Elasticsearch", "WebRTC", "Docker", "Kubernetes"],
-    image: "https://images.unsplash.com/photo-1522869635100-9f4c5e86aa37?w=1200&h=630&fit=crop",
+    technologies: [
+      "React",
+      "Next.js",
+      "Node.js",
+      "Express",
+      "MongoDB",
+      "Redis",
+      "FFmpeg",
+      "AWS MediaConvert",
+      "CloudFront",
+      "Elasticsearch",
+      "WebRTC",
+      "Docker",
+      "Kubernetes",
+    ],
+    image:
+      "https://images.unsplash.com/photo-1522869635100-9f4c5e86aa37?w=1200&h=630&fit=crop",
     liveUrl: "https://streambox.akilinova.com",
     githubUrl: "https://github.com/akilinova/streambox",
     gradient: "from-[#1C1822] to-[#0E0A14]",
@@ -760,11 +860,15 @@ export const dummyProjects: Project[] = [
       "Successfully streamed live events to 100K+ concurrent viewers",
     ],
     stackExplanation: {
-      frontend: "React with Next.js provides fast, SEO-friendly pages. Custom video player built on Video.js with adaptive streaming support.",
-      backend: "Node.js microservices handle user management, content catalog, and streaming logic. Express serves API endpoints with JWT authentication.",
-      video: "FFmpeg for video processing and thumbnail generation. AWS MediaConvert for cloud-based transcoding. HLS/DASH for adaptive streaming.",
+      frontend:
+        "React with Next.js provides fast, SEO-friendly pages. Custom video player built on Video.js with adaptive streaming support.",
+      backend:
+        "Node.js microservices handle user management, content catalog, and streaming logic. Express serves API endpoints with JWT authentication.",
+      video:
+        "FFmpeg for video processing and thumbnail generation. AWS MediaConvert for cloud-based transcoding. HLS/DASH for adaptive streaming.",
       cdn: "CloudFront CDN delivers content globally. S3 stores original and transcoded video files. Lambda@Edge for request routing and authentication.",
-      search: "Elasticsearch powers content search with fuzzy matching and filters. MongoDB stores video metadata and user viewing history.",
+      search:
+        "Elasticsearch powers content search with fuzzy matching and filters. MongoDB stores video metadata and user viewing history.",
     },
     keyFeatures: [
       "Adaptive bitrate streaming up to 4K resolution",
@@ -794,13 +898,27 @@ export const dummyProjects: Project[] = [
       "Comprehensive fitness application with workout tracking, nutrition planning, AI personal trainer, social features, and wearable device integration.",
     fullDescription:
       "FitLife empowers users to achieve their health and fitness goals through a comprehensive mobile platform combining workout tracking, nutrition management, and community support. The app features AI-powered workout generation customized to user goals and equipment availability, exercise library with video demonstrations, nutrition tracking with barcode scanning, meal planning with recipes, progress tracking with body measurements and photos, integration with popular wearables (Apple Watch, Fitbit, Garmin), social features for challenges and motivation, personal trainer chat support, and detailed analytics on performance trends. Machine learning algorithms adapt workout difficulty based on user performance and provide form correction suggestions using phone camera. The platform includes specialized programs for weight loss, muscle gain, endurance training, and rehabilitation.",
-    technologies: ["React Native", "TypeScript", "Node.js", "Python", "TensorFlow", "PostgreSQL", "MongoDB", "Redis", "AWS", "HealthKit", "Google Fit"],
-    image: "https://images.unsplash.com/photo-1476480862126-209bfaa8edc8?w=1200&h=630&fit=crop",
+    technologies: [
+      "React Native",
+      "TypeScript",
+      "Node.js",
+      "Python",
+      "TensorFlow",
+      "PostgreSQL",
+      "MongoDB",
+      "Redis",
+      "AWS",
+      "HealthKit",
+      "Google Fit",
+    ],
+    image:
+      "https://images.unsplash.com/photo-1476480862126-209bfaa8edc8?w=1200&h=630&fit=crop",
     liveUrl: "https://apps.apple.com/fitlife",
     githubUrl: "https://github.com/akilinova/fitlife",
     gradient: "from-[#1F2A1A] to-[#0D140A]",
     timeline: "8 months",
-    teamSize: "6 developers + 2 fitness trainers + 1 nutritionist + 1 ML engineer",
+    teamSize:
+      "6 developers + 2 fitness trainers + 1 nutritionist + 1 ML engineer",
     launchDate: "2024-08-15",
     challenges: [
       "Creating accurate AI workout plans that adapt to individual fitness levels and limitations",
@@ -825,8 +943,10 @@ export const dummyProjects: Project[] = [
       "Community has shared 50K+ progress photos and success stories",
     ],
     stackExplanation: {
-      mobile: "React Native with TypeScript enables cross-platform development with native performance. HealthKit and Google Fit APIs integrate health data from iOS and Android ecosystems.",
-      backend: "Node.js handles real-time features and API endpoints. Python services power AI workout generation and nutritional analysis.",
+      mobile:
+        "React Native with TypeScript enables cross-platform development with native performance. HealthKit and Google Fit APIs integrate health data from iOS and Android ecosystems.",
+      backend:
+        "Node.js handles real-time features and API endpoints. Python services power AI workout generation and nutritional analysis.",
       ai: "TensorFlow Lite runs pose estimation models on-device for real-time form checking. Cloud ML models generate personalized workout and meal plans.",
       data: "PostgreSQL stores structured user data and workout history. MongoDB handles unstructured content like recipes and exercise videos.",
     },
@@ -859,8 +979,22 @@ export const dummyProjects: Project[] = [
       "Comprehensive travel booking platform for flights, hotels, car rentals, and activities with AI-powered trip planning and personalized recommendations.",
     fullDescription:
       "TravelEase simplifies travel planning by aggregating flights, accommodations, car rentals, and activities into a single, intuitive platform. Features include real-time flight search across 500+ airlines, hotel booking with 1M+ properties worldwide, car rental comparisons, local activities and tour bookings, AI-powered itinerary generator, price alerts and predictions, multi-city trip planning, group booking coordination, travel insurance integration, visa requirements checker, and mobile boarding pass wallet. The platform's AI analyzes user preferences, past bookings, and travel trends to suggest personalized destinations and create optimal itineraries. Integration with GDS systems provides real-time availability and pricing. Users can manage entire trips from a single dashboard with automatic updates for delays or changes.",
-    technologies: ["React", "Next.js", "Node.js", "Python", "PostgreSQL", "MongoDB", "Redis", "Elasticsearch", "Amadeus API", "Stripe", "AWS", "Docker"],
-    image: "https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=1200&h=630&fit=crop",
+    technologies: [
+      "React",
+      "Next.js",
+      "Node.js",
+      "Python",
+      "PostgreSQL",
+      "MongoDB",
+      "Redis",
+      "Elasticsearch",
+      "Amadeus API",
+      "Stripe",
+      "AWS",
+      "Docker",
+    ],
+    image:
+      "https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=1200&h=630&fit=crop",
     liveUrl: "https://travelease.akilinova.com",
     githubUrl: "https://github.com/akilinova/travelease",
     gradient: "from-[#1A2833] to-[#0C1419]",
@@ -892,11 +1026,15 @@ export const dummyProjects: Project[] = [
       "Reduced booking abandonment rate from 78% to 45%",
     ],
     stackExplanation: {
-      frontend: "React with Next.js provides fast page loads and SEO optimization for destination content. Progressive web app features enable offline trip viewing.",
-      backend: "Node.js handles booking workflows and payment processing. Python services power AI trip planning and price prediction models.",
-      search: "Elasticsearch enables fast, relevant search across millions of travel options with faceted filters.",
+      frontend:
+        "React with Next.js provides fast page loads and SEO optimization for destination content. Progressive web app features enable offline trip viewing.",
+      backend:
+        "Node.js handles booking workflows and payment processing. Python services power AI trip planning and price prediction models.",
+      search:
+        "Elasticsearch enables fast, relevant search across millions of travel options with faceted filters.",
       data: "PostgreSQL stores booking data and user profiles. MongoDB handles semi-structured travel content like destination guides and reviews.",
-      integrations: "Amadeus GDS API for flights and hotels. Multiple car rental and activity APIs aggregated through custom middleware.",
+      integrations:
+        "Amadeus GDS API for flights and hotels. Multiple car rental and activity APIs aggregated through custom middleware.",
     },
     keyFeatures: [
       "Flight search across 500+ airlines with flexible dates",
@@ -919,234 +1057,272 @@ export const dummyProjects: Project[] = [
     updatedAt: "2024-11-05T00:00:00Z",
   },
   {
-  id: "16",
-  title: "Wellness Booking & Brand Platform - Serenova",
-  status: "Completed",
-  category: "website",
-  description:
-    "Luxury wellness brand platform with appointment scheduling, service management, automated notifications, and immersive brand storytelling experience.",
-  fullDescription:
-    "Serenova is a premium wellness and spa brand platform designed to deliver tranquility through technology. The system combines elegant brand presentation with robust booking infrastructure. Clients can explore services, book consultations, purchase wellness packages, and manage appointments seamlessly. The admin dashboard enables service configuration, therapist scheduling, automated reminders via SMS and email, analytics tracking, and customer relationship management. Built with performance and aesthetic precision, the platform balances emotional storytelling with operational efficiency.",
-  technologies: ["Next.js", "TypeScript", "Node.js", "PostgreSQL", "Prisma", "Stripe", "Twilio", "AWS"],
-  image: "https://images.unsplash.com/photo-1544161515-4ab6ce6db874?w=1200&h=630&fit=crop",
-  liveUrl: "https://serenovawellness.vercel.app",
-  githubUrl: "https://github.com/akilinova/serenova",
-  gradient: "from-[#1F2B2E] to-[#0F1719]",
-  timeline: "4 months",
-  teamSize: "2 developers + 1 brand strategist",
-  launchDate: "2025-01-10",
-  challenges: [
-    "Balancing luxury brand aesthetics with high-performance web architecture",
-    "Building flexible scheduling with therapist availability constraints",
-    "Ensuring reliable automated reminders and booking confirmations",
-  ],
-  solutions: [
-    "Implemented modular service management with dynamic time-slot allocation",
-    "Integrated Stripe for deposits and full-service payments",
-    "Used Twilio for automated SMS reminders and booking confirmations",
-  ],
-  impact: [
-    "Reduced manual booking workload by 80%",
-    "Increased consultation bookings by 45% within 3 months",
-    "Improved brand perception and digital presence significantly",
-  ],
-  stackExplanation: {
-    frontend: "Next.js enabled high-performance SSR with immersive brand visuals.",
-    backend: "Node.js with Prisma ensured reliable scheduling and booking workflows.",
-    infrastructure: "AWS deployment with secure database hosting and scalable architecture.",
+    id: "16",
+    title: "Wellness Booking & Brand Platform - Serenova",
+    status: "Completed",
+    category: "website",
+    description:
+      "Luxury wellness brand platform with appointment scheduling, service management, automated notifications, and immersive brand storytelling experience.",
+    fullDescription:
+      "Serenova is a premium wellness and spa brand platform designed to deliver tranquility through technology. The system combines elegant brand presentation with robust booking infrastructure. Clients can explore services, book consultations, purchase wellness packages, and manage appointments seamlessly. The admin dashboard enables service configuration, therapist scheduling, automated reminders via SMS and email, analytics tracking, and customer relationship management. Built with performance and aesthetic precision, the platform balances emotional storytelling with operational efficiency.",
+    technologies: [
+      "Next.js",
+      "TypeScript",
+      "Node.js",
+      "PostgreSQL",
+      "Prisma",
+      "Stripe",
+      "Twilio",
+      "AWS",
+    ],
+    image:
+      "https://images.unsplash.com/photo-1544161515-4ab6ce6db874?w=1200&h=630&fit=crop",
+    liveUrl: "https://serenovawellness.vercel.app",
+    githubUrl: "https://github.com/akilinova/serenova",
+    gradient: "from-[#1F2B2E] to-[#0F1719]",
+    timeline: "4 months",
+    teamSize: "2 developers + 1 brand strategist",
+    launchDate: "2025-01-10",
+    challenges: [
+      "Balancing luxury brand aesthetics with high-performance web architecture",
+      "Building flexible scheduling with therapist availability constraints",
+      "Ensuring reliable automated reminders and booking confirmations",
+    ],
+    solutions: [
+      "Implemented modular service management with dynamic time-slot allocation",
+      "Integrated Stripe for deposits and full-service payments",
+      "Used Twilio for automated SMS reminders and booking confirmations",
+    ],
+    impact: [
+      "Reduced manual booking workload by 80%",
+      "Increased consultation bookings by 45% within 3 months",
+      "Improved brand perception and digital presence significantly",
+    ],
+    stackExplanation: {
+      frontend:
+        "Next.js enabled high-performance SSR with immersive brand visuals.",
+      backend:
+        "Node.js with Prisma ensured reliable scheduling and booking workflows.",
+      infrastructure:
+        "AWS deployment with secure database hosting and scalable architecture.",
+    },
+    keyFeatures: [
+      "Online consultation booking",
+      "Automated SMS & email reminders",
+      "Service & package management",
+      "Admin analytics dashboard",
+      "Luxury brand storytelling UI",
+    ],
+    featured: true,
+    createdAt: "2024-09-01T00:00:00Z",
+    updatedAt: "2025-01-10T00:00:00Z",
   },
-  keyFeatures: [
-    "Online consultation booking",
-    "Automated SMS & email reminders",
-    "Service & package management",
-    "Admin analytics dashboard",
-    "Luxury brand storytelling UI",
-  ],
-  featured: true,
-  createdAt: "2024-09-01T00:00:00Z",
-  updatedAt: "2025-01-10T00:00:00Z",
-},
-{
-  id: "17",
-  title: "Real Estate & Architecture Showcase - Archeon",
-  status: "Completed",
-  category: "website",
-  description:
-    "Premium property consultancy and architectural showcase platform combining portfolio presentation, property listings, and client acquisition funnels.",
-  fullDescription:
-    "Archeon is a high-end property consultancy and architectural brand platform crafted to position the firm as a visionary force in real estate and design. The system features immersive project portfolios, interactive property listings, inquiry funnels, consultation booking, and lead management. It emphasizes elegance, trust, and strategic positioning for luxury real estate markets.",
-  technologies: ["Next.js", "TypeScript", "Node.js", "MongoDB", "Prisma", "AWS", "Cloudinary"],
-  image: "https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=1200&h=630&fit=crop",
-  liveUrl: "https://archeon-agency.vercel.app",
-  githubUrl: "https://github.com/akilinova/archeon",
-  gradient: "from-[#1A1F2B] to-[#0C0F14]",
-  timeline: "5 months",
-  teamSize: "2 developers + 1 architect consultant",
-  launchDate: "2025-02-15",
-  challenges: [
-    "Designing immersive property showcases without compromising performance",
-    "Managing high-resolution architectural media assets",
-    "Creating structured lead capture funnels for high-value clients",
-  ],
-  solutions: [
-    "Optimized image delivery using Cloudinary transformations",
-    "Implemented dynamic property filtering with server-side rendering",
-    "Built CRM-ready lead intake system for seamless sales follow-up",
-  ],
-  impact: [
-    "Generated 3x increase in qualified property inquiries",
-    "Improved brand authority positioning in luxury real estate market",
-    "Reduced manual follow-up time by 60%",
-  ],
-  stackExplanation: {
-    frontend: "Next.js SSR ensures SEO dominance for property listings.",
-    backend: "Node.js with MongoDB supports flexible property data schemas.",
-    infrastructure: "AWS hosting with Cloudinary for optimized media management.",
+  {
+    id: "17",
+    title: "Real Estate & Architecture Showcase - Archeon",
+    status: "Completed",
+    category: "website",
+    description:
+      "Premium property consultancy and architectural showcase platform combining portfolio presentation, property listings, and client acquisition funnels.",
+    fullDescription:
+      "Archeon is a high-end property consultancy and architectural brand platform crafted to position the firm as a visionary force in real estate and design. The system features immersive project portfolios, interactive property listings, inquiry funnels, consultation booking, and lead management. It emphasizes elegance, trust, and strategic positioning for luxury real estate markets.",
+    technologies: [
+      "Next.js",
+      "TypeScript",
+      "Node.js",
+      "MongoDB",
+      "Prisma",
+      "AWS",
+      "Cloudinary",
+    ],
+    image:
+      "https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=1200&h=630&fit=crop",
+    liveUrl: "https://archeon-agency.vercel.app",
+    githubUrl: "https://github.com/akilinova/archeon",
+    gradient: "from-[#1A1F2B] to-[#0C0F14]",
+    timeline: "5 months",
+    teamSize: "2 developers + 1 architect consultant",
+    launchDate: "2025-02-15",
+    challenges: [
+      "Designing immersive property showcases without compromising performance",
+      "Managing high-resolution architectural media assets",
+      "Creating structured lead capture funnels for high-value clients",
+    ],
+    solutions: [
+      "Optimized image delivery using Cloudinary transformations",
+      "Implemented dynamic property filtering with server-side rendering",
+      "Built CRM-ready lead intake system for seamless sales follow-up",
+    ],
+    impact: [
+      "Generated 3x increase in qualified property inquiries",
+      "Improved brand authority positioning in luxury real estate market",
+      "Reduced manual follow-up time by 60%",
+    ],
+    stackExplanation: {
+      frontend: "Next.js SSR ensures SEO dominance for property listings.",
+      backend: "Node.js with MongoDB supports flexible property data schemas.",
+      infrastructure:
+        "AWS hosting with Cloudinary for optimized media management.",
+    },
+    keyFeatures: [
+      "Interactive property listings",
+      "Architectural project portfolio",
+      "Consultation booking funnel",
+      "Lead management dashboard",
+      "SEO-optimized property pages",
+    ],
+    featured: true,
+    createdAt: "2024-10-05T00:00:00Z",
+    updatedAt: "2025-02-15T00:00:00Z",
   },
-  keyFeatures: [
-    "Interactive property listings",
-    "Architectural project portfolio",
-    "Consultation booking funnel",
-    "Lead management dashboard",
-    "SEO-optimized property pages",
-  ],
-  featured: true,
-  createdAt: "2024-10-05T00:00:00Z",
-  updatedAt: "2025-02-15T00:00:00Z",
-},
-{
-  id: "18",
-  title: "Luxury Interior & Exterior Design Platform - Aureon",
-  status: "Completed",
-  category: "website",
-  description:
-    "High-end design studio website combining immersive storytelling, service presentation, and project showcase galleries.",
-  fullDescription:
-    "Aureon represents a modern luxury design studio specializing in interior and exterior architecture. The digital platform merges bold typography, immersive visuals, and strategic brand storytelling to reflect refinement and precision. It includes project galleries, service breakdowns, brand narrative sections, consultation booking, and a lightweight CMS for content updates.",
-  technologies: ["Next.js", "TypeScript", "Node.js", "PostgreSQL", "Prisma", "AWS S3"],
-  image: "https://images.unsplash.com/photo-1493809842364-78817add7ffb?w=1200&h=630&fit=crop",
-  liveUrl: "https://aureon-store.vercel.app",
-  githubUrl: "https://github.com/akilinova/aureon",
-  gradient: "from-[#2C1F17] to-[#140E0B]",
-  timeline: "4 months",
-  teamSize: "2 developers + 1 brand director",
-  launchDate: "2025-01-28",
-  challenges: [
-    "Maintaining visual richness while preserving performance metrics",
-    "Designing typography-driven layout with fluid responsiveness",
-  ],
-  solutions: [
-    "Used image lazy loading and CDN optimization",
-    "Built modular CMS components for content scalability",
-  ],
-  impact: [
-    "Increased consultation requests by 55%",
-    "Strengthened brand differentiation in competitive luxury market",
-  ],
-  stackExplanation: {
-    frontend: "Next.js for high-performance luxury web experience.",
-    backend: "Prisma with PostgreSQL ensures reliable content management.",
+  {
+    id: "18",
+    title: "Luxury Interior & Exterior Design Platform - Aureon",
+    status: "Completed",
+    category: "website",
+    description:
+      "High-end design studio website combining immersive storytelling, service presentation, and project showcase galleries.",
+    fullDescription:
+      "Aureon represents a modern luxury design studio specializing in interior and exterior architecture. The digital platform merges bold typography, immersive visuals, and strategic brand storytelling to reflect refinement and precision. It includes project galleries, service breakdowns, brand narrative sections, consultation booking, and a lightweight CMS for content updates.",
+    technologies: [
+      "Next.js",
+      "TypeScript",
+      "Node.js",
+      "PostgreSQL",
+      "Prisma",
+      "AWS S3",
+    ],
+    image:
+      "https://images.unsplash.com/photo-1493809842364-78817add7ffb?w=1200&h=630&fit=crop",
+    liveUrl: "https://aureon-store.vercel.app",
+    githubUrl: "https://github.com/akilinova/aureon",
+    gradient: "from-[#2C1F17] to-[#140E0B]",
+    timeline: "4 months",
+    teamSize: "2 developers + 1 brand director",
+    launchDate: "2025-01-28",
+    challenges: [
+      "Maintaining visual richness while preserving performance metrics",
+      "Designing typography-driven layout with fluid responsiveness",
+    ],
+    solutions: [
+      "Used image lazy loading and CDN optimization",
+      "Built modular CMS components for content scalability",
+    ],
+    impact: [
+      "Increased consultation requests by 55%",
+      "Strengthened brand differentiation in competitive luxury market",
+    ],
+    stackExplanation: {
+      frontend: "Next.js for high-performance luxury web experience.",
+      backend: "Prisma with PostgreSQL ensures reliable content management.",
+    },
+    keyFeatures: [
+      "Immersive project galleries",
+      "Consultation request forms",
+      "Brand storytelling sections",
+      "CMS-based content editing",
+    ],
+    featured: false,
+    createdAt: "2024-09-20T00:00:00Z",
+    updatedAt: "2025-01-28T00:00:00Z",
   },
-  keyFeatures: [
-    "Immersive project galleries",
-    "Consultation request forms",
-    "Brand storytelling sections",
-    "CMS-based content editing",
-  ],
-  featured: false,
-  createdAt: "2024-09-20T00:00:00Z",
-  updatedAt: "2025-01-28T00:00:00Z",
-},
-{
-  id: "19",
-  title: "Early Learning Academy Website - BrightNest",
-  status: "Completed",
-  category: "website",
-  description:
-    "Modern preschool website featuring admissions system, parent communication tools, and curriculum showcase.",
-  fullDescription:
-    "BrightNest is a digital platform built for an early childhood education academy. It combines warmth, safety, and structured learning presentation. The platform includes admissions applications, curriculum overview, teacher profiles, event announcements, and parent communication portal. SEO optimization ensures discoverability for local parents searching for quality early learning institutions.",
-  technologies: ["Next.js", "TypeScript", "Node.js", "MongoDB", "AWS"],
-  image: "https://images.unsplash.com/photo-1509062522246-3755977927d7?w=1200&h=630&fit=crop",
-  liveUrl: "https://brightnestacademy.vercel.app",
-  githubUrl: "https://github.com/akilinova/brightnest",
-  gradient: "from-[#2A3B59] to-[#121D2E]",
-  timeline: "3 months",
-  teamSize: "2 developers + 1 education consultant",
-  launchDate: "2024-12-12",
-  challenges: [
-    "Creating child-friendly design without losing professional credibility",
-    "Implementing structured admissions workflow",
-  ],
-  solutions: [
-    "Built multi-step admissions form with validation",
-    "Implemented SEO schema markup for local search visibility",
-  ],
-  impact: [
-    "Increased admissions inquiries by 70%",
-    "Improved online visibility within first 2 months",
-  ],
-  stackExplanation: {
-    frontend: "Next.js ensures SEO optimization and fast page loads.",
-    backend: "Node.js API handles admissions and event management.",
+  {
+    id: "19",
+    title: "Early Learning Academy Website - BrightNest",
+    status: "Completed",
+    category: "website",
+    description:
+      "Modern preschool website featuring admissions system, parent communication tools, and curriculum showcase.",
+    fullDescription:
+      "BrightNest is a digital platform built for an early childhood education academy. It combines warmth, safety, and structured learning presentation. The platform includes admissions applications, curriculum overview, teacher profiles, event announcements, and parent communication portal. SEO optimization ensures discoverability for local parents searching for quality early learning institutions.",
+    technologies: ["Next.js", "TypeScript", "Node.js", "MongoDB", "AWS"],
+    image:
+      "https://images.unsplash.com/photo-1509062522246-3755977927d7?w=1200&h=630&fit=crop",
+    liveUrl: "https://brightnestacademy.vercel.app",
+    githubUrl: "https://github.com/akilinova/brightnest",
+    gradient: "from-[#2A3B59] to-[#121D2E]",
+    timeline: "3 months",
+    teamSize: "2 developers + 1 education consultant",
+    launchDate: "2024-12-12",
+    challenges: [
+      "Creating child-friendly design without losing professional credibility",
+      "Implementing structured admissions workflow",
+    ],
+    solutions: [
+      "Built multi-step admissions form with validation",
+      "Implemented SEO schema markup for local search visibility",
+    ],
+    impact: [
+      "Increased admissions inquiries by 70%",
+      "Improved online visibility within first 2 months",
+    ],
+    stackExplanation: {
+      frontend: "Next.js ensures SEO optimization and fast page loads.",
+      backend: "Node.js API handles admissions and event management.",
+    },
+    keyFeatures: [
+      "Online admissions application",
+      "Curriculum showcase",
+      "Event announcements",
+      "Parent communication portal",
+    ],
+    featured: false,
+    createdAt: "2024-08-10T00:00:00Z",
+    updatedAt: "2024-12-12T00:00:00Z",
   },
-  keyFeatures: [
-    "Online admissions application",
-    "Curriculum showcase",
-    "Event announcements",
-    "Parent communication portal",
-  ],
-  featured: false,
-  createdAt: "2024-08-10T00:00:00Z",
-  updatedAt: "2024-12-12T00:00:00Z",
-},
-{
-  id: "20",
-  title: "Corporate Technology Company Website - NovaCore",
-  status: "Completed",
-  category: "website",
-  description:
-    "Enterprise technology company website showcasing services, case studies, and innovation-driven brand positioning.",
-  fullDescription:
-    "NovaCore Technologies is a corporate digital platform built to position a forward-thinking technology firm at the forefront of innovation. The system includes service breakdowns, portfolio case studies, blog CMS, testimonial management, event announcements, and investor-ready presentation pages. Designed with a bold, modern aesthetic, the platform communicates precision, intelligence, and scalability.",
-  technologies: ["Next.js", "TypeScript", "Node.js", "PostgreSQL", "Prisma", "AWS", "Docker"],
-  image: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=1200&h=630&fit=crop",
-  liveUrl: "https://novacore.akilinova.com",
-  githubUrl: "https://github.com/akilinova/novacore",
-  gradient: "from-[#0F1C2E] to-[#050A12]",
-  timeline: "5 months",
-  teamSize: "2 developers + 1 content strategist",
-  launchDate: "2025-02-01",
-  challenges: [
-    "Positioning brand authority through digital storytelling",
-    "Designing modular CMS for blog, portfolio, and testimonials",
-  ],
-  solutions: [
-    "Built reusable CMS-driven sections for scalable content management",
-    "Optimized technical SEO and performance scoring above 95%",
-  ],
-  impact: [
-    "Increased inbound leads by 60%",
-    "Strengthened enterprise client trust and positioning",
-  ],
-  stackExplanation: {
-    frontend: "Next.js with SSR for SEO-heavy corporate presence.",
-    backend: "Prisma + PostgreSQL ensures structured, scalable data handling.",
-    infrastructure: "Dockerized deployment on AWS for scalability.",
+  {
+    id: "20",
+    title: "Corporate Technology Company Website - NovaCore",
+    status: "Completed",
+    category: "website",
+    description:
+      "Enterprise technology company website showcasing services, case studies, and innovation-driven brand positioning.",
+    fullDescription:
+      "NovaCore Technologies is a corporate digital platform built to position a forward-thinking technology firm at the forefront of innovation. The system includes service breakdowns, portfolio case studies, blog CMS, testimonial management, event announcements, and investor-ready presentation pages. Designed with a bold, modern aesthetic, the platform communicates precision, intelligence, and scalability.",
+    technologies: [
+      "Next.js",
+      "TypeScript",
+      "Node.js",
+      "PostgreSQL",
+      "Prisma",
+      "AWS",
+      "Docker",
+    ],
+    image:
+      "https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=1200&h=630&fit=crop",
+    liveUrl: "https://novacore.akilinova.com",
+    githubUrl: "https://github.com/akilinova/novacore",
+    gradient: "from-[#0F1C2E] to-[#050A12]",
+    timeline: "5 months",
+    teamSize: "2 developers + 1 content strategist",
+    launchDate: "2025-02-01",
+    challenges: [
+      "Positioning brand authority through digital storytelling",
+      "Designing modular CMS for blog, portfolio, and testimonials",
+    ],
+    solutions: [
+      "Built reusable CMS-driven sections for scalable content management",
+      "Optimized technical SEO and performance scoring above 95%",
+    ],
+    impact: [
+      "Increased inbound leads by 60%",
+      "Strengthened enterprise client trust and positioning",
+    ],
+    stackExplanation: {
+      frontend: "Next.js with SSR for SEO-heavy corporate presence.",
+      backend:
+        "Prisma + PostgreSQL ensures structured, scalable data handling.",
+      infrastructure: "Dockerized deployment on AWS for scalability.",
+    },
+    keyFeatures: [
+      "Service breakdown pages",
+      "Case study portfolio",
+      "Blog CMS",
+      "Testimonial management",
+      "Event and offer management",
+    ],
+    featured: true,
+    createdAt: "2024-09-15T00:00:00Z",
+    updatedAt: "2025-02-01T00:00:00Z",
   },
-  keyFeatures: [
-    "Service breakdown pages",
-    "Case study portfolio",
-    "Blog CMS",
-    "Testimonial management",
-    "Event and offer management",
-  ],
-  featured: true,
-  createdAt: "2024-09-15T00:00:00Z",
-  updatedAt: "2025-02-01T00:00:00Z",
-}
-
-
-
-
 ];

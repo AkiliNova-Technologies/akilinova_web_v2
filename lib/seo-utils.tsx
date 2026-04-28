@@ -11,7 +11,7 @@ export const SITE_CONFIG = {
   description:
     "AkiliNova Technologies builds custom software, AI-driven platforms, and intelligent systems that help businesses scale, automate, and innovate across Africa and beyond.",
   url: "https://akilinovatech.com",
-  ogImage: "https://akilinovatech.com/og-image.png",
+  ogImage: "/opengraph-image",
   twitterHandle: "@akilinovatech",
   email: "info@akilinovatechnologies.com",
   phone: "+256-789-874-647",

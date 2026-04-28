@@ -92,14 +92,14 @@ export const metadata: Metadata = {
       "Leading technology partner for African businesses. We deliver custom web applications, mobile apps, AI solutions, and cloud services that drive business growth and digital transformation.",
     images: [
       {
-        url: "https://akilinovatech.com/og-image.png",
+        url: "/opengraph-image",
         width: 1200,
         height: 630,
         alt: "AkiliNova Technologies - Software, AI and Digital Innovation",
         type: "image/png",
       },
       {
-        url: "https://akilinovatech.com/og-image.png",
+        url: "/opengraph-image",
         width: 1200,
         height: 1200,
         alt: "AkiliNova Technologies Logo",
@@ -118,7 +118,7 @@ export const metadata: Metadata = {
       "Leading technology partner for African businesses. Custom web applications, mobile apps, AI solutions, and cloud services.",
     images: [
     {
-      url: "/og-image.png",
+      url: "/opengraph-image",
       width: 1200,
       height: 630,
       alt: "AkiliNova Technologies",
